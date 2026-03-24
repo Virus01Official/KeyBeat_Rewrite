@@ -13,7 +13,7 @@ config_version=5
 config/name="Keybeat Rewrite"
 run/main_scene="uid://mhuj5upq3ldd"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://0lqg0g2di4xv"
 
 [physics]
 
