@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://besf6q0l1futb"]
 
-[ext_resource type="Texture2D" uid="uid://dvnemhv7kcuqd" path="res://assets/note.png" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bck3gg7rh2bxt" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_e2o6t"]
 
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_feb5d")
 
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
 layout_mode = 0
@@ -25,6 +28,17 @@ offset_right = 74.0
 offset_bottom = 41.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_80nbo")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Left" unique_id=590657703]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Up" type="Panel" parent="." unique_id=361959859]
@@ -44,6 +58,17 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
+[node name="Glow" type="TextureRect" parent="Up" unique_id=307908199]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_e2o6t")
+expand_mode = 1
+
 [node name="Down" type="Panel" parent="." unique_id=811228181]
 layout_mode = 0
 offset_left = 407.0
@@ -61,6 +86,17 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
+[node name="Glow" type="TextureRect" parent="Down" unique_id=1526422729]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_e2o6t")
+expand_mode = 1
+
 [node name="Right" type="Panel" parent="." unique_id=362450477]
 layout_mode = 0
 offset_left = 753.0
@@ -76,4 +112,15 @@ offset_right = 74.0
 offset_bottom = 41.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_80nbo")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Right" unique_id=1184215465]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_e2o6t")
 expand_mode = 1
