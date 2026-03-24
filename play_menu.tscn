@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://df012x1ap2b3l"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjevn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfe34"]
+font_size = 45
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
 font_size = 29
 outline_size = 4
@@ -21,8 +28,30 @@ offset_bottom = 646.0
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=444893683]
 layout_mode = 0
 offset_left = 611.0
+offset_top = -1.0
 offset_right = 1151.0
 offset_bottom = 646.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1592034559]
+layout_mode = 2
+theme_override_constants/separation = 291
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=945451333]
+layout_mode = 2
+
+[node name="Category" type="Panel" parent="ScrollContainer/VBoxContainer/Control" unique_id=1065883090]
+layout_mode = 0
+offset_right = 532.0
+offset_bottom = 317.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cjevn")
+
+[node name="CategoryName" type="Label" parent="ScrollContainer/VBoxContainer/Control/Category" unique_id=2125135743]
+layout_mode = 0
+offset_right = 532.0
+offset_bottom = 52.0
+text = "Name"
+label_settings = SubResource("LabelSettings_bfe34")
+horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0
