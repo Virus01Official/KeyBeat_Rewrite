@@ -15,9 +15,9 @@ var song_started: bool = false
 var next_note_index: int = 0
 
 # Hit window in seconds
-const HIT_WINDOW = 0.15
+const HIT_WINDOW = 0.5
 # Y position of the receptor (your arrow buttons)
-const RECEPTOR_Y = 500.0
+const RECEPTOR_Y = -4
 # Notes spawn this many seconds before they need to be hit
 const LEAD_TIME = 2.0
 const NOTE_SPEED = 300.0
