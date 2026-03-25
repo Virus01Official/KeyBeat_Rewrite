@@ -1,28 +1,25 @@
 extends Control
 
-# --- existing vars ---
 var down_pressed = false
 var left_pressed = false
 var up_pressed = false
 var right_pressed = false
 var maps_location = "res://songs/"
 
-# --- new vars ---
 var note_scene = preload("res://Note.tscn")
-var chart: Array = []         # list of {time, direction}
+var chart: Array = []        
 var song_position: float = 0.0
 var song_started: bool = false
 var next_note_index: int = 0
 
-# Hit window in seconds
 const HIT_WINDOW = 0.5
-# Y position of the receptor (your arrow buttons)
+
 const RECEPTOR_Y = -4
-# Notes spawn this many seconds before they need to be hit
+
 const LEAD_TIME = 2.0
 const NOTE_SPEED = 300.0
 
-@onready var note_container = $NoteContainer  # Add a plain Control node as child
+@onready var note_container = $NoteContainer  
 
 func _ready() -> void:
 	_start("Tutorial")
@@ -31,8 +28,8 @@ func _process(delta: float) -> void:
 	if song_started:
 		song_position += delta
 		_spawn_notes()
+		_check_missed_notes() 
 
-	# --- your existing input code ---
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
 		_change_visibility($Down/Glow, true)
@@ -54,7 +51,6 @@ func _process(delta: float) -> void:
 		right_pressed = true
 		_check_hit("right")
 
-	# --- your existing release code (unchanged) ---
 	if Input.is_action_just_released("down"):
 		_change_visibility($Down/TextureRect, true)
 		_change_visibility($Down/Glow, false)
@@ -72,6 +68,12 @@ func _process(delta: float) -> void:
 		_change_visibility($Right/Glow, false)
 		right_pressed = false
 
+func _check_missed_notes() -> void:
+	for note in note_container.get_children():
+		if note.position.y < RECEPTOR_Y - 80.0:
+			_register_miss()
+			note.queue_free()
+			
 func _spawn_notes() -> void:
 	while next_note_index < chart.size():
 		var note_data = chart[next_note_index]
@@ -86,13 +88,12 @@ func _spawn_notes() -> void:
 
 func _get_lane_x(direction: String) -> Vector2:
 	match direction:
-		"left":  return Vector2($Left.position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"down":  return Vector2($Down.position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"up":    return Vector2($Up.position.x,    RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"right": return Vector2($Right.position.x, RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
+		"left":  return Vector2($Left/TextureRect.global_position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
+		"down":  return Vector2($Down/TextureRect.global_position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
+		"up":    return Vector2($Up/TextureRect.global_position.x,    RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
+		"right": return Vector2($Right/TextureRect.global_position.x, RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
 	return Vector2.ZERO
-	
-# At the top, replace the lane mapping helper
+			
 func _lane_to_direction(lane: int) -> String:
 	match lane:
 		1: return "left"
@@ -112,15 +113,17 @@ func _check_hit(direction: String) -> void:
 		if dist < closest_dist:
 			closest_dist = dist
 			closest = note
+	
+	if closest == null:
+		return
 
-	# Convert pixel distance to seconds
-	var time_diff = closest_dist / NOTE_SPEED if closest else INF
+	var time_diff = closest_dist / NOTE_SPEED
 
 	if time_diff <= HIT_WINDOW:
 		closest.queue_free()
 		_register_hit(time_diff)
-	else:
-		_register_miss()
+	#else:
+		#_register_miss()
 
 func _register_hit(time_diff: float) -> void:
 	if time_diff < 0.05:
