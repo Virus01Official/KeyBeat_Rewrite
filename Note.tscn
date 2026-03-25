@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://da0pamysnvkpn"]
+
+[ext_resource type="Texture2D" uid="uid://dvnemhv7kcuqd" path="res://assets/note.png" id="1_m01oh"]
+[ext_resource type="Script" uid="uid://d0x586v3hkgmj" path="res://note.gd" id="1_pmjlu"]
+
+[node name="Control" type="Control" unique_id=394507446]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmjlu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1028300417]
+layout_mode = 0
+offset_left = 1.0000038
+offset_top = -3.9999995
+offset_right = 41.000008
+offset_bottom = 36.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_m01oh")
+expand_mode = 1

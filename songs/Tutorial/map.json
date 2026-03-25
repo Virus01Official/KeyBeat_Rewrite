@@ -10,6 +10,13 @@
   "scroll_speed": 1,
   "map_id": 0,
   "thumbnail": "",
+
+[
+  {"time": 1.0, "direction": "left"},
+  {"time": 1.5, "direction": "down"},
+  {"time": 2.0, "direction": "up"},
+  {"time": 2.5, "direction": "right"}
+]
   "notes": [
 	{"time": 321,  "lane": 3},
 	{"time": 750,  "lane": 2},

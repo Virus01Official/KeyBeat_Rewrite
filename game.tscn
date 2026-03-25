@@ -124,3 +124,8 @@ offset_bottom = 41.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
+
+[node name="NoteContainer" type="Control" parent="." unique_id=450970692]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
