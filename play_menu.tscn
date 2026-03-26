@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://df012x1ap2b3l"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjevn"]
+[ext_resource type="PackedScene" uid="uid://ch8dvexowxodh" path="res://test.tscn" id="1_bfe34"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_bfe34"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfe34"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvr1d"]
 font_size = 45
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
@@ -36,22 +38,38 @@ offset_bottom = 646.0
 layout_mode = 2
 theme_override_constants/separation = 291
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=945451333]
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1847029372]
 layout_mode = 2
 
-[node name="Category" type="Panel" parent="ScrollContainer/VBoxContainer/Control" unique_id=1065883090]
-layout_mode = 0
-offset_right = 532.0
-offset_bottom = 317.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_cjevn")
+[node name="Category" type="Panel" parent="ScrollContainer/VBoxContainer/Control" unique_id=516932690]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99600005
+anchor_bottom = 1.8700001
+offset_right = 0.17596436
+offset_bottom = -0.13006592
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bfe34")
 
-[node name="CategoryName" type="Label" parent="ScrollContainer/VBoxContainer/Control/Category" unique_id=2125135743]
+[node name="CategoryName" type="Label" parent="ScrollContainer/VBoxContainer/Control/Category" unique_id=1254715511]
 layout_mode = 0
 offset_right = 532.0
 offset_bottom = 52.0
 text = "Name"
-label_settings = SubResource("LabelSettings_bfe34")
+label_settings = SubResource("LabelSettings_nvr1d")
 horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Control/Category" unique_id=2089378960]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 542.0
+offset_bottom = 299.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Control/Category/ScrollContainer" unique_id=1029027298]
+layout_mode = 2
+theme_override_constants/separation = 103
+
+[node name="Control" parent="ScrollContainer/VBoxContainer/Control/Category/ScrollContainer/VBoxContainer" unique_id=1333947008 instance=ExtResource("1_bfe34")]
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0

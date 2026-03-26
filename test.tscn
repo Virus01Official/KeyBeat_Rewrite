@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch8dvexowxodh"]
+
+[node name="Control" type="Control" unique_id=1333947008]
+layout_mode = 3
+anchor_right = 0.47400004
+anchor_bottom = 0.15
+offset_right = 9.951965
+offset_bottom = -0.20000458
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=425158074]
+layout_mode = 0
+offset_right = 552.0
+offset_bottom = 93.0
+text = "SongName"
