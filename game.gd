@@ -6,6 +6,8 @@ var up_pressed = false
 var right_pressed = false
 var maps_location = "res://songs/"
 
+var countdown: float = 0.0
+
 var note_scene = preload("res://Note.tscn")
 var chart: Array = []        
 var song_position: float = 0.0
@@ -13,6 +15,8 @@ var song_started: bool = false
 var next_note_index: int = 0
 
 const HIT_WINDOW = 0.5
+
+var offset: float = 0.0
 
 const RECEPTOR_Y = -4
 
@@ -26,9 +30,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if song_started:
-		song_position += delta
 		_spawn_notes()
 		_check_missed_notes() 
+		if not $AudioStreamPlayer.playing:
+			countdown -= delta
+			if countdown <= 0.0:
+				$AudioStreamPlayer.play()
+		else:
+			song_position = $AudioStreamPlayer.get_playback_position()
 		
 	for note in note_container.get_children():
 		if note.hold_active:
@@ -94,9 +103,10 @@ func _check_missed_notes() -> void:
 			note.queue_free()
 			
 func _spawn_notes() -> void:
+	var spawn_ahead = song_position + LEAD_TIME if $AudioStreamPlayer.playing else LEAD_TIME
 	while next_note_index < chart.size():
 		var note_data = chart[next_note_index]
-		if note_data["time"] / 1000.0 <= song_position + LEAD_TIME:
+		if note_data["time"] / 1000.0 <= spawn_ahead:
 			var note = note_scene.instantiate()
 			note.direction = _lane_to_direction(note_data["lane"])
 			note.position = _get_lane_x(note.direction)
@@ -181,7 +191,10 @@ func _start(song: String) -> void:
 		var data = json.get_data()
 		chart = data.get("notes", []) 
 		chart.sort_custom(func(a, b): return a["time"] < b["time"])
+		offset = data.get("offset", 0) / 1000.0
+		countdown = offset
 		song_position = 0.0
+
 		next_note_index = 0
 		
 		var audio_stream: AudioStream = null
@@ -193,6 +206,5 @@ func _start(song: String) -> void:
 
 		if audio_stream:
 			$AudioStreamPlayer.stream = audio_stream
-			$AudioStreamPlayer.play()
 
 		song_started = true

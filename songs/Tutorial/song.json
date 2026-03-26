@@ -18,5 +18,6 @@
 		{"time": 7071, "lane": 2}
 	],
 	"bpm": 120,
-	"title": "Tutorial"
+	"title": "Tutorial",
+	"offset": 500,
 }
