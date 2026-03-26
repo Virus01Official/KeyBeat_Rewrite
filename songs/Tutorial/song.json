@@ -1,4 +1,11 @@
 {
+	"bpm": 120,
+	"title": "Tutorial",
+	"offset": 500,
+	"map_id": 0,
+	"credits": "Moonwave Studios",
+	"mapper": "Moonwave Studios",
+	"difficulty": "Easy",
 	"notes": [
 		{"time": 321,  "lane": 3},
 		{"time": 750,  "lane": 2},
@@ -17,7 +24,4 @@
 		{"time": 6857, "lane": 3},
 		{"time": 7071, "lane": 2}
 	],
-	"bpm": 120,
-	"title": "Tutorial",
-	"offset": 500,
 }

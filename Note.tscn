@@ -22,9 +22,9 @@ script = ExtResource("1_pmjlu")
 visible = false
 layout_mode = 0
 offset_left = 31.0
-offset_top = 35.0
+offset_top = 83.0
 offset_right = 71.0
-offset_bottom = 65.0
+offset_bottom = 108.0
 texture = SubResource("GradientTexture2D_6st8q")
 expand_mode = 1
 
