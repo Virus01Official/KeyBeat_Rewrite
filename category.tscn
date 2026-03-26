@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bikwrjkxa8fiw"]
+
+[ext_resource type="PackedScene" uid="uid://ch8dvexowxodh" path="res://test.tscn" id="1_q4awx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfe34"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvr1d"]
+font_size = 45
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Category" type="Control" unique_id=463654114]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Category" type="Panel" parent="." unique_id=1303902832]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99600005
+anchor_bottom = 1.8700001
+offset_right = 0.17596436
+offset_bottom = -0.13006592
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bfe34")
+
+[node name="CategoryName" type="Label" parent="Category" unique_id=531936941]
+layout_mode = 0
+offset_right = 532.0
+offset_bottom = 52.0
+text = "Name"
+label_settings = SubResource("LabelSettings_nvr1d")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Category" unique_id=249184763]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 542.0
+offset_bottom = 299.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Category/ScrollContainer" unique_id=1223746301]
+layout_mode = 2
+theme_override_constants/separation = 103
+
+[node name="SongDifficulty" parent="Category/ScrollContainer/VBoxContainer" unique_id=1333947008 instance=ExtResource("1_q4awx")]
+layout_mode = 2
