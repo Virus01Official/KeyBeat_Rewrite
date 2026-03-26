@@ -29,6 +29,11 @@ func load_songs() -> void:
 				newCategory.get_node('Category').get_node('CategoryName').text = song_data.get("title", "Unknown")
 				newCategory.get_node('Category').get_node('ScrollContainer').get_node('VBoxContainer').get_node('SongDifficulty').get_node('Button').text = song_data.get("difficulty", "Unknown")
 			
+			var button = newCategory.get_node('Category').get_node('ScrollContainer').get_node('VBoxContainer').get_node('SongDifficulty').get_node('Button')
+			button.pressed.connect(select_song.bind(
+				newCategory.get_node('Category').get_node('CategoryName').text
+			))
+			
 			for ext in ["jpg", "png", "jpeg"]:
 				var image_path = maps_location + folder_name + "/background." + ext
 				var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
@@ -57,6 +62,6 @@ func load_song_json(path: String) -> Dictionary:
 	
 	return json.get_data()
 	
-func select_song(song) -> void:
+func select_song(song):
 	$"..".get_node("game").visible = true
 	$"..".get_node("game")._start(song)

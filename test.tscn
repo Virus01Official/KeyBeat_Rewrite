@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ch8dvexowxodh"]
 
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_37kl0"]
+
 [node name="Control" type="Control" unique_id=1333947008]
 layout_mode = 3
 anchor_right = 0.47400004
@@ -19,6 +21,8 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 552.0
 offset_bottom = 93.0
-theme_override_font_sizes/font_size = 34
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_37kl0")
+theme_override_font_sizes/font_size = 35
 text = "SongName"
 flat = true

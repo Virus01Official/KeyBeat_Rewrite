@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bikwrjkxa8fiw"]
 
 [ext_resource type="PackedScene" uid="uid://ch8dvexowxodh" path="res://test.tscn" id="1_q4awx"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_ywmu8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfe34"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nvr1d"]
+font = ExtResource("1_ywmu8")
 font_size = 45
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
