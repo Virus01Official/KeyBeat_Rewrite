@@ -23,6 +23,11 @@ func load_songs() -> void:
 		if dir.current_is_dir() and not folder_name.begins_with("."):
 			var song_path = maps_location + folder_name + "/song.json"
 			var song_data = load_song_json(song_path)
+			var newCategory = categoryScene.instantiate()
+			category_container.add_child(newCategory)
+			if song_data:
+				newCategory.get_node('Category').get_node('CategoryName').text = song_data.get("title", "Unknown")
+				
 		folder_name = dir.get_next()
 	
 	dir.list_dir_end()
