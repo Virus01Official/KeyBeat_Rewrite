@@ -25,9 +25,6 @@ const NOTE_SPEED = 300.0
 
 @onready var note_container = $NoteContainer  
 
-func _ready() -> void:
-	_start("Tutorial")
-
 func _process(delta: float) -> void:
 	if song_started:
 		_spawn_notes()

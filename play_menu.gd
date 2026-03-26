@@ -35,7 +35,7 @@ func load_songs() -> void:
 				if FileAccess.file_exists(image_path):
 					var tex = load(image_path)
 					texture_rect.texture = tex
-					break  # stop once we find one
+					break  
 			
 		folder_name = dir.get_next()
 	
@@ -56,3 +56,7 @@ func load_song_json(path: String) -> Dictionary:
 		return {}
 	
 	return json.get_data()
+	
+func select_song(song) -> void:
+	$"..".get_node("game").visible = true
+	$"..".get_node("game")._start(song)
