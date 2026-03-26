@@ -9,8 +9,16 @@ offset_bottom = -0.20000458
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1908618346]
+layout_mode = 0
+offset_right = 552.0
+offset_bottom = 93.0
+expand_mode = 1
+
 [node name="Button" type="Button" parent="." unique_id=425158074]
 layout_mode = 0
 offset_right = 552.0
 offset_bottom = 93.0
+theme_override_font_sizes/font_size = 34
 text = "SongName"
+flat = true

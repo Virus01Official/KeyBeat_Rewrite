@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wa7hi7c0ebj8"
-path="res://.godot/imported/itty.jpg-635eb0c8fdaf2470382c4b3f10666e8c.ctex"
+uid="uid://da37337hghbb1"
+path="res://.godot/imported/background.jpg-a0504c82fbc182d60ca1d26538f80a36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://songs/I'm talking to you!/itty.jpg"
-dest_files=["res://.godot/imported/itty.jpg-635eb0c8fdaf2470382c4b3f10666e8c.ctex"]
+source_file="res://songs/I'm talking to you!/background.jpg"
+dest_files=["res://.godot/imported/background.jpg-a0504c82fbc182d60ca1d26538f80a36.ctex"]
 
 [params]
 

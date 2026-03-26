@@ -27,7 +27,16 @@ func load_songs() -> void:
 			category_container.add_child(newCategory)
 			if song_data:
 				newCategory.get_node('Category').get_node('CategoryName').text = song_data.get("title", "Unknown")
-				
+				newCategory.get_node('Category').get_node('ScrollContainer').get_node('VBoxContainer').get_node('SongDifficulty').get_node('Button').text = song_data.get("difficulty", "Unknown")
+			
+			for ext in ["jpg", "png", "jpeg"]:
+				var image_path = maps_location + folder_name + "/background." + ext
+				var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
+				if FileAccess.file_exists(image_path):
+					var tex = load(image_path)
+					texture_rect.texture = tex
+					break  # stop once we find one
+			
 		folder_name = dir.get_next()
 	
 	dir.list_dir_end()
