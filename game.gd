@@ -12,12 +12,6 @@ var song_position: float = 0.0
 var song_started: bool = false
 var next_note_index: int = 0
 
-var duration: float = 0.0      
-var is_hold: bool = false
-var hold_active: bool = false   
-var hold_end_y: float = 0.0    
-var remaining_hold: float = 0.0
-
 const HIT_WINDOW = 0.5
 
 const RECEPTOR_Y = -4
@@ -184,8 +178,21 @@ func _start(song: String) -> void:
 	if file:
 		var json = JSON.new()
 		json.parse(file.get_as_text())
-		chart = json.get_data()  # expects [{time: 1.2, direction: "left"}, ...]
+		var data = json.get_data()
+		chart = data.get("notes", []) 
 		chart.sort_custom(func(a, b): return a["time"] < b["time"])
 		song_position = 0.0
 		next_note_index = 0
+		
+		var audio_stream: AudioStream = null
+		for ext in ["mp3", "ogg"]:
+			var audio_path = maps_location + song + "/audio." + ext
+			if ResourceLoader.exists(audio_path):
+				audio_stream = load(audio_path)
+				break
+
+		if audio_stream:
+			$AudioStreamPlayer.stream = audio_stream
+			$AudioStreamPlayer.play()
+
 		song_started = true
