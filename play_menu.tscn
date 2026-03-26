@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://df012x1ap2b3l"]
 
 [ext_resource type="Script" uid="uid://dsft3eml2htc2" path="res://play_menu.gd" id="1_nvr1d"]
+[ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
+font = ExtResource("2_nvr1d")
 font_size = 29
-outline_size = 4
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [node name="play_menu" type="Control" unique_id=1643322065]
@@ -87,4 +89,6 @@ offset_left = 34.0
 offset_top = 272.0
 offset_right = 169.0
 offset_bottom = 311.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_nvr1d")
 text = "Select"

@@ -13,6 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_feb5d")
 
+[node name="background" type="TextureRect" parent="." unique_id=573643336]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 642.0
+
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
 layout_mode = 0
 offset_left = 234.0
