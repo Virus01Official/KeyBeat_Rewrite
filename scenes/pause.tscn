@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bbktbv233vb6l"]
+
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_f1d2v"]
+[ext_resource type="FontFile" uid="uid://7yplwwo81nr6" path="res://assets/Roboto/static/Roboto_SemiCondensed-Bold.ttf" id="2_r8yp4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r8yp4"]
+font = ExtResource("1_f1d2v")
+font_size = 53
+
+[node name="Pause" type="Control" unique_id=1268292959]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1579577960]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="." unique_id=287738268]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 54.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_r8yp4")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="." unique_id=170898683]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 135.0
+offset_right = 855.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("2_r8yp4")
+theme_override_font_sizes/font_size = 48
+text = "RESUME"
+flat = true
+
+[node name="Quit" type="Button" parent="." unique_id=21198805]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 229.0
+offset_right = 852.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("2_r8yp4")
+theme_override_font_sizes/font_size = 48
+text = "QUIT"
+flat = true

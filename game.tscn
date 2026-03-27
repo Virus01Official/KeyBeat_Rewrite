@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bck3gg7rh2bxt" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bbktbv233vb6l" path="res://scenes/pause.tscn" id="4_fc0e3"]
 
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
@@ -12,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_feb5d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=860310499]
 
 [node name="background" type="TextureRect" parent="." unique_id=573643336]
 layout_mode = 0
@@ -136,4 +139,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=860310499]
+[node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]
+visible = false
+layout_mode = 1
