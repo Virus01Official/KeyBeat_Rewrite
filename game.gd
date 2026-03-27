@@ -8,6 +8,9 @@ var maps_location = "res://songs/"
 
 var countdown: float = 0.0
 
+var health = 100
+var max_health = 100
+
 var note_scene = preload("res://Note.tscn")
 var chart: Array = []        
 var song_position: float = 0.0
@@ -214,6 +217,12 @@ func _start(song: String, json_file: String) -> void:
 			var audio_path = maps_location + song + "/audio." + ext
 			if ResourceLoader.exists(audio_path):
 				audio_stream = load(audio_path)
+				break
+				
+		for exte in ["png", "jpg", "jpeg"]:
+			var image_path = maps_location + song + "/background." + exte
+			if ResourceLoader.exists(image_path):
+				$background.texture = load(image_path)
 				break
 
 		if audio_stream:

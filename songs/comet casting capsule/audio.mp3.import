@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c11ob1skm2ckg"
+path="res://.godot/imported/audio.mp3-b7af70076a9ac651d3d1d4f062a9c094.mp3str"
+
+[deps]
+
+source_file="res://songs/comet casting capsule/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-b7af70076a9ac651d3d1d4f062a9c094.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

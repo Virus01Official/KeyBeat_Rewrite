@@ -17,6 +17,7 @@ script = ExtResource("1_feb5d")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 642.0
+expand_mode = 1
 
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
 layout_mode = 0

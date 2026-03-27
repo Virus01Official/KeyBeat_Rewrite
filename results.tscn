@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b0pvhea2l7bv6"]
 
+[ext_resource type="Texture2D" uid="uid://mddh8817e8ku" path="res://assets/grades/A.png" id="1_amp1b"]
+
 [node name="Results" type="Control" unique_id=471426116]
 layout_mode = 3
 anchors_preset = 15
@@ -10,6 +12,10 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=770228485]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 880.0
+offset_top = 161.0
+offset_right = 920.0
+offset_bottom = 201.0
+scale = Vector2(4.88, 4.88)
+texture = ExtResource("1_amp1b")
 expand_mode = 1
