@@ -8,6 +8,8 @@ var maps_location = "res://songs/"
 
 var countdown: float = 0.0
 
+var paused = false
+
 var health = 100
 var max_health = 100
 
@@ -36,6 +38,9 @@ const NOTE_SPEED = 500.0
 
 @onready var note_container = $NoteContainer  
 
+func _ready() -> void:
+	$Pause.process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _process(delta: float) -> void:
 	if song_started:
 		_spawn_notes()
@@ -56,6 +61,13 @@ func _process(delta: float) -> void:
 			var shrink = delta * NOTE_SPEED
 			note.tail.size.y = max(0.0, note.tail.size.y - shrink)
 			note.tail.position.y = 64  
+			
+	if Input.is_action_just_pressed("ui_cancel"):
+		_toggle_pause()
+		return
+
+	if paused:
+		return
 
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
@@ -127,6 +139,15 @@ func _spawn_notes() -> void:
 			next_note_index += 1
 		else:
 			break
+
+func _toggle_pause() -> void:
+	paused = !paused
+	$Pause.visible = paused
+	if paused:
+		get_tree().paused = true
+		$Pause.process_mode = Node.PROCESS_MODE_ALWAYS  # so Pause UI still works while tree is paused
+	else:
+		get_tree().paused = false
 
 func _get_lane_x(direction: String) -> Vector2:
 	match direction:
@@ -201,6 +222,8 @@ func _change_visibility(obj, boole) -> void:
 	obj.visible = boole
 	
 func _start(song: String, json_file: String) -> void:
+	paused = false
+	$Pause.visible = false
 	var path = maps_location + song + "/" + json_file
 	print(path)
 	var file = FileAccess.open(path, FileAccess.READ)
