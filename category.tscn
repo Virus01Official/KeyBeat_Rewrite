@@ -24,6 +24,11 @@ offset_right = 0.17596436
 offset_bottom = -0.13006592
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bfe34")
 
+[node name="Panel" type="Panel" parent="Category" unique_id=508913639]
+layout_mode = 0
+offset_right = 532.0
+offset_bottom = 52.0
+
 [node name="CategoryName" type="Label" parent="Category" unique_id=531936941]
 layout_mode = 0
 offset_right = 532.0

@@ -25,6 +25,21 @@ layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 646.0
 
+[node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_42f3i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1592034559]
+layout_mode = 0
+offset_left = 611.0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = -1.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 300
+
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0
 offset_top = 610.0
@@ -83,18 +98,3 @@ offset_bottom = 311.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_nvr1d")
 text = "Select"
-
-[node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_42f3i")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1592034559]
-layout_mode = 0
-offset_left = 611.0
-offset_top = -1.0
-offset_right = 1151.0
-offset_bottom = -1.0
-size_flags_horizontal = 3
-theme_override_constants/separation = 291

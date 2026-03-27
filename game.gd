@@ -14,11 +14,16 @@ var song_position: float = 0.0
 var song_started: bool = false
 var next_note_index: int = 0
 
-const HIT_WINDOW = 0.5
+const HIT_WINDOW_PERFECT = 0.016   # ±16ms  — MAX (320)
+const HIT_WINDOW_GREAT   = 0.040   # ±40ms  — 300
+const HIT_WINDOW_GOOD    = 0.073   # ±73ms  — 200
+const HIT_WINDOW_OK      = 0.103   # ±103ms — 100
+const HIT_WINDOW_MEH     = 0.127   # ±127ms — 50
+const HIT_WINDOW_MISS    = 0.188
 
 var offset: float = 0.0
 
-const RECEPTOR_Y = -4
+const RECEPTOR_Y = 3
 
 const LEAD_TIME = 2.0
 const NOTE_SPEED = 500.0
@@ -94,10 +99,11 @@ func _process(delta: float) -> void:
 func _check_missed_notes() -> void:
 	for note in note_container.get_children():
 		if note.is_hold and note.hold_active and note.tail.size.y <= 0.0:
-			_register_hit(0.0)   # or a dedicated "hold complete" rating
+			_register_hit(0.0)
 			note.queue_free()
 			continue
-		if note.position.y < RECEPTOR_Y - 80.0 and not note.hold_active:
+			
+		if note.position.y < RECEPTOR_Y - (HIT_WINDOW_MISS * NOTE_SPEED) and not note.hold_active:
 			_register_miss()
 			note.queue_free()
 			
@@ -149,30 +155,38 @@ func _check_hit(direction: String) -> void:
 
 	var time_diff = closest_dist / NOTE_SPEED
 
-	if time_diff <= HIT_WINDOW:
-		if closest.is_hold:
-			closest.hold_active = true   # don't free yet — wait for release
-			_register_hit(time_diff)
-		else:
-			closest.queue_free()
-			_register_hit(time_diff)
+	if time_diff > HIT_WINDOW_MISS:
+		return
+
+	if closest.is_hold:
+		closest.hold_active = true
+		_register_hit(time_diff)
+	else:
+		closest.queue_free()
+		_register_hit(time_diff)
 			
 func _check_hold_release(direction: String) -> void:
 	for note in note_container.get_children():
 		if note.direction != direction or not note.hold_active:
 			continue
-		# If tail hasn't finished, it's an early release → miss
-		if note.tail.size.y > 10.0:   # small threshold
+			
+		if note.tail.size.y > 10.0:   
 			_register_miss()
 		note.queue_free()
 
 func _register_hit(time_diff: float) -> void:
-	if time_diff < 0.05:
-		print("PERFECT")
-	elif time_diff < 0.10:
-		print("GOOD")
+	if time_diff <= HIT_WINDOW_PERFECT:
+		print("MAX (320)")
+	elif time_diff <= HIT_WINDOW_GREAT:
+		print("GREAT (300)")
+	elif time_diff <= HIT_WINDOW_GOOD:
+		print("GOOD (200)")
+	elif time_diff <= HIT_WINDOW_OK:
+		print("OK (100)")
+	elif time_diff <= HIT_WINDOW_MEH:
+		print("MEH (50)")
 	else:
-		print("BAD")
+		print("MISS")
 
 func _register_miss() -> void:
 	print("MISS")

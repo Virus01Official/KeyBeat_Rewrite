@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4ga338xh5vo7"
+path="res://.godot/imported/audio.ogg-f35e940ff70597db9b47aa7668d57d44.oggvorbisstr"
+
+[deps]
+
+source_file="res://songs/Beyond the Edge (feat. Hanakuma Chifuyu)/audio.ogg"
+dest_files=["res://.godot/imported/audio.ogg-f35e940ff70597db9b47aa7668d57d44.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
