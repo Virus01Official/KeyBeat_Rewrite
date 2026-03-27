@@ -35,6 +35,10 @@ func _process(delta: float) -> void:
 				$AudioStreamPlayer.play()
 		else:
 			song_position = $AudioStreamPlayer.get_playback_position()
+			
+		if next_note_index >= chart.size() and note_container.get_child_count() == 0:
+			_end_song()
+			return
 		
 	for note in note_container.get_children():
 		if note.hold_active:
@@ -205,3 +209,9 @@ func _start(song: String) -> void:
 			$AudioStreamPlayer.stream = audio_stream
 
 		song_started = true
+		
+func _end_song() -> void:
+	song_started = false
+	$AudioStreamPlayer.stop()
+	print("Song complete!")
+	# Add your scene transition or results screen logic here
