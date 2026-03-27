@@ -24,6 +24,7 @@ script = ExtResource("1_nvr1d")
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 646.0
+expand_mode = 1
 
 [node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
 anchors_preset = 0

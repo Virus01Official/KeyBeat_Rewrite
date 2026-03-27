@@ -60,7 +60,8 @@ func load_songs() -> void:
 							difficulty_label,
 							song_data.get("credits", "No one"),
 							song_data.get("mapper", "No one"),
-							json_file  # PASS THE FILENAME
+							song_folder_path,
+							json_file 
 						))
 					else:
 						var original_diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
@@ -76,6 +77,7 @@ func load_songs() -> void:
 							difficulty_label,
 							song_data.get("credits", "No one"),
 							song_data.get("mapper", "No one"),
+							song_folder_path,
 							json_file  # PASS THE FILENAME
 						))
 		
@@ -108,14 +110,21 @@ func load_song_json(path: String) -> Dictionary:
 		return {}
 	return json.get_data()
 
-func choose(song, difficulty, credits, mapper, json_file):  # ADD json_file
+func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 	$Selected.text = song
 	$Difficulty.text = "Difficulty: " + difficulty
 	$Credits.text = "Credits: " + credits
 	$Mapper.text = "Mapped by: " + mapper
-	selected_json = json_file  # STORE IT
+	selected_json = json_file 
+	
+	for ext in ["jpg", "png", "jpeg"]:
+		var image_path = song_folder_path + "background." + ext
+		if FileAccess.file_exists(image_path):
+			$Thumbnail.texture = load(image_path)
+			break
 
 func select_song():
 	var song = $Selected.text
+	$".".visible = false
 	$"..".get_node("game").visible = true
-	$"..".get_node("game")._start(song, selected_json)  # PASS IT
+	$"..".get_node("game")._start(song, selected_json)  
