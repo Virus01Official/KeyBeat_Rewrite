@@ -182,8 +182,8 @@ func _register_miss() -> void:
 func _change_visibility(obj, boole) -> void:
 	obj.visible = boole
 	
-func _start(song: String) -> void:
-	var path = maps_location + song + "/song.json"
+func _start(song: String, json_file: String) -> void:
+	var path = maps_location + song + "/" + json_file
 	print(path)
 	var file = FileAccess.open(path, FileAccess.READ)
 	if file:
@@ -195,7 +195,6 @@ func _start(song: String) -> void:
 		offset = data.get("offset", 0) / 1000.0
 		countdown = offset
 		song_position = 0.0
-
 		next_note_index = 0
 		
 		var audio_stream: AudioStream = null

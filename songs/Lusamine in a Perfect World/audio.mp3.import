@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyqexfbyoemj3"
+path="res://.godot/imported/audio.mp3-78a84c5581df20c595e15cbc5a3bd5de.mp3str"
+
+[deps]
+
+source_file="res://songs/Lusamine in a Perfect World/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-78a84c5581df20c595e15cbc5a3bd5de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

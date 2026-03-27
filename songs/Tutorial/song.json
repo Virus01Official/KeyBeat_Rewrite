@@ -13,7 +13,7 @@
 		{"time": 1714, "lane": 2},
 		{"time": 2250, "lane": 4},
 		{"time": 2571, "lane": 1},
-		{"time": 3214, "lane": 4, "duration": 100},
+		{"time": 3214, "lane": 4},
 		{"time": 3535, "lane": 1},
 		{"time": 4071, "lane": 3},
 		{"time": 4392, "lane": 2},
