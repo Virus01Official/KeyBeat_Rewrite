@@ -11,6 +11,9 @@ var countdown: float = 0.0
 var health = 100
 var max_health = 100
 
+var miss = 0
+var combo = 0
+
 var note_scene = preload("res://Note.tscn")
 var chart: Array = []        
 var song_position: float = 0.0

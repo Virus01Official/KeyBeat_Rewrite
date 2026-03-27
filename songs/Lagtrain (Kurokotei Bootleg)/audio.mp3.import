@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh1e0vbxakj8x"
+path="res://.godot/imported/audio.mp3-b2ea99cf606d1e930c537a49f2df9573.mp3str"
+
+[deps]
+
+source_file="res://songs/Lagtrain (Kurokotei Bootleg)/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-b2ea99cf606d1e930c537a49f2df9573.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
