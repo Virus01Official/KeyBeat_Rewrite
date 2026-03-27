@@ -1,0 +1,370 @@
+{
+	"title": "wtf",
+	"difficulty": "easy",
+	"offset": 50,
+	"map_id": 1947600,
+	"credits": "Kurokotei",
+	"mapper": "FAMoss",
+	"key_count": 4,
+	"bpm": 200.0,
+	"notes": [
+		{
+			"time": 313,
+			"lane": 4,
+			"duration": 2100
+		},
+		{
+			"time": 2413,
+			"lane": 2,
+			"duration": 1200
+		},
+		{
+			"time": 3613,
+			"lane": 3
+		},
+		{
+			"time": 3613,
+			"lane": 4
+		},
+		{
+			"time": 4063,
+			"lane": 3
+		},
+		{
+			"time": 4513,
+			"lane": 1
+		},
+		{
+			"time": 4513,
+			"lane": 2
+		},
+		{
+			"time": 4963,
+			"lane": 1
+		},
+		{
+			"time": 5413,
+			"lane": 3
+		},
+		{
+			"time": 5413,
+			"lane": 4
+		},
+		{
+			"time": 5713,
+			"lane": 2
+		},
+		{
+			"time": 6013,
+			"lane": 3
+		},
+		{
+			"time": 6013,
+			"lane": 4
+		},
+		{
+			"time": 6463,
+			"lane": 3
+		},
+		{
+			"time": 6913,
+			"lane": 1
+		},
+		{
+			"time": 6913,
+			"lane": 2
+		},
+		{
+			"time": 7363,
+			"lane": 1
+		},
+		{
+			"time": 7813,
+			"lane": 3
+		},
+		{
+			"time": 7813,
+			"lane": 4
+		},
+		{
+			"time": 8113,
+			"lane": 2
+		},
+		{
+			"time": 8413,
+			"lane": 3
+		},
+		{
+			"time": 8413,
+			"lane": 4
+		},
+		{
+			"time": 8863,
+			"lane": 4
+		},
+		{
+			"time": 9313,
+			"lane": 1
+		},
+		{
+			"time": 9313,
+			"lane": 2
+		},
+		{
+			"time": 9763,
+			"lane": 2
+		},
+		{
+			"time": 10213,
+			"lane": 3
+		},
+		{
+			"time": 10213,
+			"lane": 4
+		},
+		{
+			"time": 10513,
+			"lane": 1
+		},
+		{
+			"time": 10813,
+			"lane": 3
+		},
+		{
+			"time": 10813,
+			"lane": 4
+		},
+		{
+			"time": 11263,
+			"lane": 4
+		},
+		{
+			"time": 11713,
+			"lane": 1
+		},
+		{
+			"time": 11713,
+			"lane": 2
+		},
+		{
+			"time": 12163,
+			"lane": 2
+		},
+		{
+			"time": 12613,
+			"lane": 3
+		},
+		{
+			"time": 12613,
+			"lane": 4
+		},
+		{
+			"time": 12913,
+			"lane": 1
+		},
+		{
+			"time": 13213,
+			"lane": 3
+		},
+		{
+			"time": 13513,
+			"lane": 1
+		},
+		{
+			"time": 13513,
+			"lane": 4
+		},
+		{
+			"time": 13813,
+			"lane": 2
+		},
+		{
+			"time": 14113,
+			"lane": 4
+		},
+		{
+			"time": 14413,
+			"lane": 3
+		},
+		{
+			"time": 14713,
+			"lane": 1
+		},
+		{
+			"time": 15013,
+			"lane": 4,
+			"duration": 600
+		},
+		{
+			"time": 15313,
+			"lane": 2
+		},
+		{
+			"time": 15613,
+			"lane": 2
+		},
+		{
+			"time": 15913,
+			"lane": 4
+		},
+		{
+			"time": 16213,
+			"lane": 3
+		},
+		{
+			"time": 16513,
+			"lane": 1
+		},
+		{
+			"time": 16813,
+			"lane": 2
+		},
+		{
+			"time": 17113,
+			"lane": 4
+		},
+		{
+			"time": 17413,
+			"lane": 1,
+			"duration": 600
+		},
+		{
+			"time": 17713,
+			"lane": 3
+		},
+		{
+			"time": 18013,
+			"lane": 3
+		},
+		{
+			"time": 18313,
+			"lane": 1
+		},
+		{
+			"time": 18613,
+			"lane": 2
+		},
+		{
+			"time": 18913,
+			"lane": 4
+		},
+		{
+			"time": 19213,
+			"lane": 3
+		},
+		{
+			"time": 19513,
+			"lane": 1
+		},
+		{
+			"time": 19813,
+			"lane": 4,
+			"duration": 600
+		},
+		{
+			"time": 20113,
+			"lane": 2
+		},
+		{
+			"time": 20413,
+			"lane": 2
+		},
+		{
+			"time": 20713,
+			"lane": 4
+		},
+		{
+			"time": 21013,
+			"lane": 3
+		},
+		{
+			"time": 21313,
+			"lane": 1
+		},
+		{
+			"time": 21613,
+			"lane": 2
+		},
+		{
+			"time": 21913,
+			"lane": 3
+		},
+		{
+			"time": 22213,
+			"lane": 1,
+			"duration": 600
+		},
+		{
+			"time": 22513,
+			"lane": 4
+		},
+		{
+			"time": 22813,
+			"lane": 3
+		},
+		{
+			"time": 23413,
+			"lane": 3
+		},
+		{
+			"time": 24013,
+			"lane": 1
+		},
+		{
+			"time": 24613,
+			"lane": 1
+		},
+		{
+			"time": 25213,
+			"lane": 4
+		},
+		{
+			"time": 25813,
+			"lane": 4
+		},
+		{
+			"time": 26413,
+			"lane": 2
+		},
+		{
+			"time": 27013,
+			"lane": 2
+		},
+		{
+			"time": 27613,
+			"lane": 3
+		},
+		{
+			"time": 28213,
+			"lane": 3
+		},
+		{
+			"time": 28813,
+			"lane": 1
+		},
+		{
+			"time": 29413,
+			"lane": 1
+		},
+		{
+			"time": 30013,
+			"lane": 4
+		},
+		{
+			"time": 30613,
+			"lane": 4
+		},
+		{
+			"time": 31213,
+			"lane": 2
+		},
+		{
+			"time": 31813,
+			"lane": 2
+		},
+		{
+			"time": 32263,
+			"lane": 3
+		}
+	]
+}

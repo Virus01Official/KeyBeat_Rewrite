@@ -4,11 +4,20 @@
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
+bg_color = Color(0.54509807, 0, 0.69411767, 0.5058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42f3i"]
+bg_color = Color(0.54509807, 0, 0.69411767, 0.5058824)
+
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
 font = ExtResource("2_nvr1d")
 font_size = 29
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br1it"]
+bg_color = Color(0.4745098, 0.40392157, 0.7764706, 1)
 
 [node name="play_menu" type="Control" unique_id=1643322065]
 clip_contents = true
@@ -46,6 +55,7 @@ layout_mode = 0
 offset_top = 610.0
 offset_right = 1155.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5tkha")
 
 [node name="Panel2" type="Panel" parent="." unique_id=1468657143]
 layout_mode = 0
@@ -53,6 +63,7 @@ offset_left = -2.0
 offset_top = -3.0
 offset_right = 1153.0
 offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_42f3i")
 
 [node name="Selected" type="Label" parent="." unique_id=1527670130]
 layout_mode = 0
@@ -98,4 +109,5 @@ offset_right = 169.0
 offset_bottom = 311.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_nvr1d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_br1it")
 text = "Select"
