@@ -21,7 +21,7 @@ var offset: float = 0.0
 const RECEPTOR_Y = -4
 
 const LEAD_TIME = 2.0
-const NOTE_SPEED = 300.0
+const NOTE_SPEED = 500.0
 
 @onready var note_container = $NoteContainer  
 
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		if note.hold_active:
 			var shrink = delta * NOTE_SPEED
 			note.tail.size.y = max(0.0, note.tail.size.y - shrink)
-			note.tail.position.y = -note.tail.size.y
+			note.tail.position.y = 64  
 
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
@@ -93,12 +93,10 @@ func _process(delta: float) -> void:
 
 func _check_missed_notes() -> void:
 	for note in note_container.get_children():
-		# A hold note that's active and fully scrolled past = success
 		if note.is_hold and note.hold_active and note.tail.size.y <= 0.0:
 			_register_hit(0.0)   # or a dedicated "hold complete" rating
 			note.queue_free()
 			continue
-		# Normal miss: note scrolled past without being hit
 		if note.position.y < RECEPTOR_Y - 80.0 and not note.hold_active:
 			_register_miss()
 			note.queue_free()

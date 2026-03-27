@@ -1,15 +1,11 @@
-# CustomScroll.gd
-# Attach to a Control node with clip_contents = true
-# Child must be a VBoxContainer (or any container)
-
 extends Control
 
-@export var scroll_speed: float = 40.0       # pixels per scroll tick
+@export var scroll_speed: float = 40.0     
 @export var smooth_scroll: bool = true
-@export var smooth_speed: float = 10.0       # lerp speed for smoothing
+@export var smooth_speed: float = 10.0     
 @export var drag_enabled: bool = true
 
-var _content: Control          # the VBoxContainer child
+var _content: Control         
 var _target_offset: float = 0.0
 var _current_offset: float = 0.0
 var _drag_start_y: float = 0.0
@@ -18,7 +14,6 @@ var _is_dragging: bool = false
 
 
 func _ready() -> void:
-	# Grab the first child as the scrollable content
 	if get_child_count() > 0:
 		_content = get_child(0)
 	else:
@@ -44,7 +39,6 @@ func _gui_input(event: InputEvent) -> void:
 	if _content == null:
 		return
 	
-	# ── Mouse wheel ──────────────────────────────────────────────
 	if event is InputEventMouseButton:
 		if event.pressed:
 			match event.button_index:
@@ -63,7 +57,6 @@ func _gui_input(event: InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				_is_dragging = false
 	
-	# ── Touch / drag ─────────────────────────────────────────────
 	if event is InputEventMouseMotion and _is_dragging:
 		var motion := event as InputEventMouseMotion
 		var delta_y: float = _drag_start_y - motion.position.y
@@ -73,9 +66,6 @@ func _gui_input(event: InputEvent) -> void:
 			_max_scroll()
 		)
 		accept_event()
-
-
-# ── Public API ───────────────────────────────────────────────────
 
 func scroll_to(offset: float) -> void:
 	_target_offset = clampf(offset, 0.0, _max_scroll())
@@ -96,9 +86,6 @@ func get_scroll_offset() -> float:
 
 func get_max_scroll() -> float:
 	return _max_scroll()
-
-
-# ── Helpers ──────────────────────────────────────────────────────
 
 func _scroll_by(amount: float) -> void:
 	_target_offset = clampf(_target_offset + amount, 0.0, _max_scroll())
