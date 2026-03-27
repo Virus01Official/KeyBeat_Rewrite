@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsft3eml2htc2" path="res://play_menu.gd" id="1_nvr1d"]
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
+[ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
 font = ExtResource("2_nvr1d")
@@ -10,6 +11,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [node name="play_menu" type="Control" unique_id=1643322065]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,21 +25,7 @@ layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 646.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=444893683]
-layout_mode = 0
-offset_left = 611.0
-offset_top = -1.0
-offset_right = 1151.0
-offset_bottom = 646.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1592034559]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 291
-
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
-visible = false
 layout_mode = 0
 offset_top = 610.0
 offset_right = 1155.0
@@ -95,3 +83,18 @@ offset_bottom = 311.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_nvr1d")
 text = "Select"
+
+[node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_42f3i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1592034559]
+layout_mode = 0
+offset_left = 611.0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = -1.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 291
