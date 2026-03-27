@@ -69,9 +69,9 @@ func load_song_json(path: String) -> Dictionary:
 	
 func choose(song, Difficulty, credits, mapper):
 	$Selected.text = song
-	$Difficulty.text = Difficulty
-	$Credits.text = credits
-	$Mapper.text = mapper
+	$Difficulty.text = "Difficulty: " + Difficulty
+	$Credits.text = "Credits: " + credits
+	$Mapper.text = "Mapped by: " + mapper
 	
 func select_song():
 	var song = $Selected.text
