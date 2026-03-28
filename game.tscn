@@ -12,6 +12,20 @@ font_size = 29
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
+bg_color = Color(0.23921569, 0, 0.19215687, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
+bg_color = Color(0.6392157, 0, 0.42745098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
 anchors_preset = 15
@@ -243,6 +257,18 @@ offset_bottom = 385.0
 text = "Bad: 0"
 label_settings = SubResource("LabelSettings_ryrav")
 horizontal_alignment = 1
+
+[node name="Health" type="ProgressBar" parent="." unique_id=1169466772]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 125.0
+offset_right = 227.0
+offset_bottom = 493.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7jktm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ryrav")
+value = 100.0
+fill_mode = 3
+show_percentage = false
 
 [node name="NoteContainer" type="Control" parent="." unique_id=450970692]
 anchors_preset = 0

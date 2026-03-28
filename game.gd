@@ -72,6 +72,8 @@ func _process(delta: float) -> void:
 	$Stuff/Score.text = str(score)
 	$Stuff/Combo.text = str(combo)
 	
+	$Health.value = lerp($Health.value, float(health), delta * 10.0)
+	
 	for note in note_container.get_children():
 		if note.hold_active:
 			var shrink = delta * NOTE_SPEED
@@ -223,32 +225,38 @@ func _register_hit(time_diff: float) -> void:
 		perfect += 1
 		combo += 1
 		score += 320
+		health = min(health + 20, max_health)
 	elif time_diff <= HIT_WINDOW_GREAT:
 		print("GREAT (300)")
 		great += 1
 		combo += 1
 		score += 300
+		health = min(health + 16, max_health)
 	elif time_diff <= HIT_WINDOW_GOOD:
 		print("GOOD (200)")
 		good += 1
 		score += 200
 		combo += 1
+		health = min(health + 12, max_health)
 	elif time_diff <= HIT_WINDOW_OK:
 		print("OK (100)")
 		ok += 1
 		combo += 1
 		score += 100
+		health = min(health + 8, max_health)
 	else:
 		print("MEH (50)")
 		meh += 1
 		combo += 1
 		score += 50
+		health = min(health + 4, max_health)
 
 func _register_miss() -> void:
 	print("MISS")
 	misses += 1
 	combo = 0
-	score -= 25
+	score -= 10
+	health -= 10
 
 func _change_visibility(obj, boole) -> void:
 	obj.visible = boole
@@ -294,4 +302,13 @@ func _end_song() -> void:
 	print("Song complete!")
 	$".".visible = false
 	$"../play_menu".visible = true
+	perfect = 0
+	great = 0
+	misses = 0
+	combo = 0
+	score = 0
+	good = 0
+	ok = 0
+	meh = 0
+	health = max_health
 	# Add your scene transition or results screen logic here
