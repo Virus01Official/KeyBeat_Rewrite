@@ -13,8 +13,8 @@ var paused = false
 var health = 100
 var max_health = 100
 
-var miss = 0
 var combo = 0
+var score = 0
 
 var note_scene = preload("res://Note.tscn")
 var chart: Array = []        
@@ -28,6 +28,13 @@ const HIT_WINDOW_GOOD    = 0.073   # ±73ms  — 200
 const HIT_WINDOW_OK      = 0.103   # ±103ms — 100
 const HIT_WINDOW_MEH     = 0.127   # ±127ms — 50
 const HIT_WINDOW_MISS    = 0.188
+
+var perfect = 0
+var great = 0
+var good = 0
+var ok = 0
+var meh = 0
+var misses = 0
 
 var offset: float = 0.0
 
@@ -56,6 +63,15 @@ func _process(delta: float) -> void:
 			_end_song()
 			return
 		
+	$Stuff/Perfect.text = "Perfect: " + str(perfect)
+	$Stuff/Great.text = "Great: " + str(great)
+	$Stuff/Good.text = "Good: " + str(good)
+	$Stuff/Okay.text = "Okay: " + str(ok)
+	$Stuff/Bad.text = "Bad: " + str(meh)
+	$Stuff/Misses.text = "Misses: " + str(misses)
+	$Stuff/Score.text = str(score)
+	$Stuff/Combo.text = str(combo)
+	
 	for note in note_container.get_children():
 		if note.hold_active:
 			var shrink = delta * NOTE_SPEED
@@ -204,19 +220,35 @@ func _check_hold_release(direction: String) -> void:
 func _register_hit(time_diff: float) -> void:
 	if time_diff <= HIT_WINDOW_PERFECT:
 		print("MAX (320)")
+		perfect += 1
+		combo += 1
+		score += 320
 	elif time_diff <= HIT_WINDOW_GREAT:
 		print("GREAT (300)")
+		great += 1
+		combo += 1
+		score += 300
 	elif time_diff <= HIT_WINDOW_GOOD:
 		print("GOOD (200)")
+		good += 1
+		score += 200
+		combo += 1
 	elif time_diff <= HIT_WINDOW_OK:
 		print("OK (100)")
-	elif time_diff <= HIT_WINDOW_MEH:
-		print("MEH (50)")
+		ok += 1
+		combo += 1
+		score += 100
 	else:
-		print("MISS")
+		print("MEH (50)")
+		meh += 1
+		combo += 1
+		score += 50
 
 func _register_miss() -> void:
 	print("MISS")
+	misses += 1
+	combo = 0
+	score -= 25
 
 func _change_visibility(obj, boole) -> void:
 	obj.visible = boole

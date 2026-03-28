@@ -3,7 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bck3gg7rh2bxt" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_e2o6t"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bbktbv233vb6l" path="res://scenes/pause.tscn" id="4_fc0e3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font = ExtResource("4_7jktm")
+font_size = 29
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
@@ -133,6 +140,109 @@ offset_bottom = 41.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
+
+[node name="Stuff" type="Panel" parent="." unique_id=89570860]
+layout_mode = 0
+offset_left = 932.0
+offset_right = 1153.0
+offset_bottom = 485.0
+
+[node name="Label" type="Label" parent="Stuff" unique_id=1041171725]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 35.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Stuff" unique_id=772104623]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 220.0
+offset_bottom = 74.0
+text = "0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Stuff" unique_id=99263292]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 221.0
+offset_bottom = 147.0
+text = "Combo: "
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Combo" type="Label" parent="Stuff" unique_id=936906145]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 112.0
+offset_right = 221.0
+offset_bottom = 147.0
+text = "0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Misses" type="Label" parent="Stuff" unique_id=460906662]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 388.0
+offset_right = 221.0
+offset_bottom = 423.0
+text = "Misses: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Perfect" type="Label" parent="Stuff" unique_id=1819001499]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 194.0
+offset_right = 219.0
+offset_bottom = 229.0
+text = "Perfect: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Great" type="Label" parent="Stuff" unique_id=1226750515]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 233.0
+offset_right = 219.0
+offset_bottom = 268.0
+text = "Great: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Good" type="Label" parent="Stuff" unique_id=320507950]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 272.0
+offset_right = 219.0
+offset_bottom = 307.0
+text = "Good: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Okay" type="Label" parent="Stuff" unique_id=587229162]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 311.0
+offset_right = 219.0
+offset_bottom = 346.0
+text = "Okay: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
+
+[node name="Bad" type="Label" parent="Stuff" unique_id=1847830]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 350.0
+offset_right = 219.0
+offset_bottom = 385.0
+text = "Bad: 0"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
 
 [node name="NoteContainer" type="Control" parent="." unique_id=450970692]
 anchors_preset = 0
