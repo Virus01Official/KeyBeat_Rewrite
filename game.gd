@@ -140,6 +140,49 @@ func _process(delta: float) -> void:
 		right_pressed = false
 		_check_hold_release("right")
 
+static func calculate_difficulty(chart: Dictionary) -> float:
+	var notes: Array = chart.get("notes", [])
+	if notes.is_empty():
+		return 0.0
+
+	notes.sort_custom(func(a, b): return a["time"] < b["time"])
+
+	var bpm: float = float(chart.get("bpm", 120))
+	var beat_ms: float = 60000.0 / bpm
+
+	var duration: float = (notes[-1]["time"] - notes[0]["time"]) / 1000.0
+	if duration <= 0.0:
+		duration = 1.0
+	var nps: float = notes.size() / duration
+	var density_score: float = minf(nps / 8.0, 1.0)
+
+	var max_run := 0
+	var run := 0
+	for i in range(1, notes.size()):
+		var gap: float = float(notes[i]["time"] - notes[i - 1]["time"])
+		if gap < beat_ms * 0.28:
+			run += 1
+			max_run = max(max_run, run)
+		else:
+			run = 0
+	var stream_score: float = minf(float(max_run) / 16.0, 1.0)
+
+	var total_lane_dist := 0.0
+	var holds := 0
+	for i in range(1, notes.size()):
+		total_lane_dist += abs(int(notes[i]["lane"]) - int(notes[i - 1]["lane"]))
+		if notes[i].has("duration"):
+			holds += 1
+	var avg_lane_dist: float = total_lane_dist / (notes.size() - 1)
+	var hold_ratio: float = float(holds) / notes.size()
+	var pattern_score: float = minf(avg_lane_dist / 2.0 * 0.6 + hold_ratio * 0.4, 1.0)
+
+	var bpm_factor: float = minf(bpm / 200.0, 1.0)
+
+	var raw: float = density_score * 3.5 + stream_score * 3.0 \
+				   + pattern_score * 2.0 + bpm_factor * 1.5
+	return clampf(raw, 0.1, 10.0)
+
 func _total_notes() -> int:
 	return perfect + great + good + ok + meh + misses
 
@@ -335,6 +378,7 @@ func _start(song: String, json_file: String) -> void:
 
 		song_started = true
 		
+
 func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()

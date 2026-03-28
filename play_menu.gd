@@ -47,10 +47,12 @@ func load_songs() -> void:
 				for i in range(json_files.size()):
 					var json_file = json_files[i]
 					var song_data = load_song_json(song_folder_path + json_file)
+					
 					if not song_data:
 						continue
 					
-					var difficulty_label = song_data.get("difficulty", json_file.get_basename())
+					var star_rating = $"../game".calculate_difficulty(song_data)
+					var difficulty_label := "★ %.1f  %s" % [star_rating, song_data.get("difficulty", json_file.get_basename())]
 					
 					if i == 0:
 						var button = newCategory.get_node('Category/ScrollContainer/VBoxContainer/SongDifficulty/Button')
