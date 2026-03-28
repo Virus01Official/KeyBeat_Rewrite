@@ -292,4 +292,6 @@ func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()
 	print("Song complete!")
+	$".".visible = false
+	$"../play_menu".visible = true
 	# Add your scene transition or results screen logic here
