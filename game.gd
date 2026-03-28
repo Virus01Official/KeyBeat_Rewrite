@@ -140,14 +140,14 @@ func _process(delta: float) -> void:
 		right_pressed = false
 		_check_hold_release("right")
 
-static func calculate_difficulty(chart: Dictionary) -> float:
-	var notes: Array = chart.get("notes", [])
+static func calculate_difficulty(charts: Dictionary) -> float:
+	var notes: Array = charts.get("notes", [])
 	if notes.is_empty():
 		return 0.0
 
 	notes.sort_custom(func(a, b): return a["time"] < b["time"])
 
-	var bpm: float = float(chart.get("bpm", 120))
+	var bpm: float = float(charts.get("bpm", 120))
 	var beat_ms: float = 60000.0 / bpm
 
 	var duration: float = (notes[-1]["time"] - notes[0]["time"]) / 1000.0
@@ -382,6 +382,7 @@ func _start(song: String, json_file: String) -> void:
 func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()
+	chart = []
 	
 	final_accuracy = _accuracy()
 	final_grade = _grade(final_accuracy)
@@ -392,13 +393,5 @@ func _end_song() -> void:
 	$"../Results".visible = true
 	
 	# RESET AFTER saving results
-	perfect = 0
-	great = 0
-	misses = 0
 	combo = 0
-	highest_combo = 0
-	score = 0
-	good = 0
-	ok = 0
-	meh = 0
 	health = max_health

@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_f1d2v"]
 [ext_resource type="FontFile" uid="uid://7yplwwo81nr6" path="res://assets/Roboto/static/Roboto_SemiCondensed-Bold.ttf" id="2_r8yp4"]
 [ext_resource type="Script" uid="uid://de28n57k2dwo3" path="res://scenes/resume.gd" id="3_m0klm"]
+[ext_resource type="Script" uid="uid://cecp3lxoosam2" path="res://scenes/quit.gd" id="4_aicil"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8yp4"]
 font = ExtResource("1_f1d2v")
@@ -51,5 +52,7 @@ theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
 text = "QUIT"
 flat = true
+script = ExtResource("4_aicil")
 
 [connection signal="pressed" from="Resume" to="Resume" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
