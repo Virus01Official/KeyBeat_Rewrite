@@ -31,7 +31,7 @@ script = ExtResource("1_e1an3")
 layout_mode = 0
 offset_top = -3.0
 offset_right = 236.06557
-offset_bottom = 129.17213
+offset_bottom = 131.0164
 scale = Vector2(4.88, 4.88)
 expand_mode = 1
 

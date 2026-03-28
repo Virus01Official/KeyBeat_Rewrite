@@ -24,6 +24,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3k0c"]
+bg_color = Color(0.20951146, 0.00022592575, 0.6146965, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p45p"]
+bg_color = Color(0.5797514, 0.0039867666, 0.9629398, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="play_menu" type="Control" unique_id=1643322065]
 clip_contents = true
 layout_mode = 3
@@ -113,4 +127,6 @@ offset_bottom = 311.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_nvr1d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_br1it")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u3k0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p45p")
 text = "Select"

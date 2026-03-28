@@ -16,6 +16,8 @@ func _process(_delta):
 	$VBoxContainer/Combo.text = "Highest combo: " + str(combo)
 	$VBoxContainer/Score.text = "Score: " + str(game.score)
 	
+	$backgorund.texture = game.get_node("background").texture
+	
 	$VBoxContainer/Perfect.text = "Perfect: " + str(game.perfect)
 	$VBoxContainer/Great.text = "Great: " + str(game.great)
 	$VBoxContainer/Good.text = "Good: " + str(game.good)
