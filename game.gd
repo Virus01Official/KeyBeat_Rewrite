@@ -14,6 +14,7 @@ var health = 100
 var max_health = 100
 
 var combo = 0
+var highest_combo = 0
 var score = 0
 
 var note_scene = preload("res://Note.tscn")
@@ -71,6 +72,10 @@ func _process(delta: float) -> void:
 	$Stuff/Misses.text = "Misses: " + str(misses)
 	$Stuff/Score.text = str(score)
 	$Stuff/Combo.text = str(combo)
+	
+	var acc := _accuracy()
+	$Stuff/Accurancy.text = "%.2f%%" % acc          # e.g. "97.43%"
+	#$Stuff/Grade.text    = _grade(acc)
 	
 	$Health.value = lerp($Health.value, float(health), delta * 10.0)
 	
@@ -131,6 +136,27 @@ func _process(delta: float) -> void:
 		_change_visibility($Right/Glow, false)
 		right_pressed = false
 		_check_hold_release("right")
+
+func _total_notes() -> int:
+	return perfect + great + good + ok + meh + misses
+
+func _weighted_score() -> float:
+	return (320.0 * perfect + 300.0 * great + 200.0 * good
+		  + 100.0 * ok      +  50.0 * meh)
+
+func _accuracy() -> float:
+	var total := _total_notes()
+	if total == 0:
+		return 100.0
+	return (_weighted_score() / (320.0 * total)) * 100.0
+
+func _grade(acc: float) -> String:
+	if acc >= 100.0: return "SS"
+	elif acc >= 95.0: return "S"
+	elif acc >= 90.0: return "A"
+	elif acc >= 80.0: return "B"
+	elif acc >= 70.0: return "C"
+	else: return "D"
 
 func _check_missed_notes() -> void:
 	for note in note_container.get_children():
@@ -224,12 +250,16 @@ func _register_hit(time_diff: float) -> void:
 		print("MAX (320)")
 		perfect += 1
 		combo += 1
+		if combo > highest_combo:
+			highest_combo = combo
 		score += 320
 		health = min(health + 20, max_health)
 	elif time_diff <= HIT_WINDOW_GREAT:
 		print("GREAT (300)")
 		great += 1
 		combo += 1
+		if combo > highest_combo:
+			highest_combo = combo
 		score += 300
 		health = min(health + 16, max_health)
 	elif time_diff <= HIT_WINDOW_GOOD:
@@ -237,17 +267,23 @@ func _register_hit(time_diff: float) -> void:
 		good += 1
 		score += 200
 		combo += 1
+		if combo > highest_combo:
+			highest_combo = combo
 		health = min(health + 12, max_health)
 	elif time_diff <= HIT_WINDOW_OK:
 		print("OK (100)")
 		ok += 1
 		combo += 1
+		if combo > highest_combo:
+			highest_combo = combo
 		score += 100
 		health = min(health + 8, max_health)
 	else:
 		print("MEH (50)")
 		meh += 1
 		combo += 1
+		if combo > highest_combo:
+			highest_combo = combo
 		score += 50
 		health = min(health + 4, max_health)
 
@@ -299,13 +335,17 @@ func _start(song: String, json_file: String) -> void:
 func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()
-	print("Song complete!")
+	
+	var final_acc := _accuracy()
+	print("Song complete! Accuracy: %.2f%% | Grade: %s" % [final_acc, _grade(final_acc)])
+	
 	$".".visible = false
 	$"../play_menu".visible = true
 	perfect = 0
 	great = 0
 	misses = 0
 	combo = 0
+	highest_combo = 0
 	score = 0
 	good = 0
 	ok = 0

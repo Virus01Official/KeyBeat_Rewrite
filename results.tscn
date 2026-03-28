@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://b0pvhea2l7bv6"]
 
 [ext_resource type="Texture2D" uid="uid://mddh8817e8ku" path="res://assets/grades/A.png" id="1_amp1b"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="2_mabgl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mabgl"]
+font = ExtResource("2_mabgl")
+font_size = 43
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Results" type="Control" unique_id=471426116]
 layout_mode = 3
@@ -10,7 +17,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=770228485]
+[node name="backgorund" type="TextureRect" parent="." unique_id=1868134520]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 236.06557
+offset_bottom = 129.17213
+scale = Vector2(4.88, 4.88)
+expand_mode = 1
+
+[node name="grade" type="TextureRect" parent="." unique_id=770228485]
 layout_mode = 0
 offset_left = 880.0
 offset_top = 161.0
@@ -19,3 +34,63 @@ offset_bottom = 201.0
 scale = Vector2(4.88, 4.88)
 texture = ExtResource("1_amp1b")
 expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1717924380]
+layout_mode = 0
+offset_right = 394.0
+offset_bottom = 649.0
+theme_override_constants/separation = 20
+
+[node name="Score" type="Label" parent="VBoxContainer" unique_id=31711798]
+layout_mode = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Combo" type="Label" parent="VBoxContainer" unique_id=1796122676]
+layout_mode = 2
+text = "Highest Combo: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Accurancy" type="Label" parent="VBoxContainer" unique_id=1884201034]
+layout_mode = 2
+text = "Accurancy: 0%"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Misses" type="Label" parent="VBoxContainer" unique_id=649847146]
+layout_mode = 2
+text = "Misses: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Perfect" type="Label" parent="VBoxContainer" unique_id=544370814]
+layout_mode = 2
+text = "Perfect: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Great" type="Label" parent="VBoxContainer" unique_id=535268884]
+layout_mode = 2
+text = "Great: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Good" type="Label" parent="VBoxContainer" unique_id=204531814]
+layout_mode = 2
+text = "Good: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Okay" type="Label" parent="VBoxContainer" unique_id=1754479696]
+layout_mode = 2
+text = "Okay: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
+
+[node name="Bad" type="Label" parent="VBoxContainer" unique_id=1179347738]
+layout_mode = 2
+text = "Bad: 0"
+label_settings = SubResource("LabelSettings_mabgl")
+horizontal_alignment = 1
