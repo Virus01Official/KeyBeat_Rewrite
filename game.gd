@@ -6,6 +6,9 @@ var up_pressed = false
 var right_pressed = false
 var maps_location = "res://songs/"
 
+var final_accuracy: float = 0.0
+var final_grade: String = ""
+
 var countdown: float = 0.0
 
 var paused = false
@@ -336,11 +339,15 @@ func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()
 	
-	var final_acc := _accuracy()
-	print("Song complete! Accuracy: %.2f%% | Grade: %s" % [final_acc, _grade(final_acc)])
+	final_accuracy = _accuracy()
+	final_grade = _grade(final_accuracy)
+	
+	print("Song complete! Accuracy: %.2f%% | Grade: %s" % [final_accuracy, final_grade])
 	
 	$".".visible = false
-	$"../play_menu".visible = true
+	$"../Results".visible = true
+	
+	# RESET AFTER saving results
 	perfect = 0
 	great = 0
 	misses = 0
@@ -351,4 +358,3 @@ func _end_song() -> void:
 	ok = 0
 	meh = 0
 	health = max_health
-	# Add your scene transition or results screen logic here

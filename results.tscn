@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://b0pvhea2l7bv6"]
 
 [ext_resource type="Texture2D" uid="uid://mddh8817e8ku" path="res://assets/grades/A.png" id="1_amp1b"]
+[ext_resource type="Script" uid="uid://bc30fqjivese7" path="res://results.gd" id="1_e1an3"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="2_mabgl"]
+[ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="3_5erdf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mabgl"]
 font = ExtResource("2_mabgl")
 font_size = 43
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1an3"]
+bg_color = Color(0.4745098, 0.40392157, 0.7764706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Results" type="Control" unique_id=471426116]
 layout_mode = 3
@@ -16,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_e1an3")
 
 [node name="backgorund" type="TextureRect" parent="." unique_id=1868134520]
 layout_mode = 0
@@ -94,3 +104,15 @@ layout_mode = 2
 text = "Bad: 0"
 label_settings = SubResource("LabelSettings_mabgl")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=981567666]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 584.0
+offset_right = 1153.0
+offset_bottom = 646.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_5erdf")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_e1an3")
+text = "Next"
