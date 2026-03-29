@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://df012x1ap2b3l" path="res://play_menu.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://besf6q0l1futb" path="res://game.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b0pvhea2l7bv6" path="res://results.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://4lhcv0oewlqo" path="res://main_menu.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node" unique_id=984286019]
 
@@ -12,4 +13,7 @@
 visible = false
 
 [node name="Results" parent="." unique_id=471426116 instance=ExtResource("3_h2yge")]
+visible = false
+
+[node name="main_menu" parent="." unique_id=668355876 instance=ExtResource("4_1bvp3")]
 visible = false
