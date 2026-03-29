@@ -2,6 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dilf5yjbeutrl" path="res://assets/GameLogo.png" id="1_06t4h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.7137255, 0, 0.49411765, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="main_menu" type="Control" unique_id=668355876]
 layout_mode = 3
 anchors_preset = 15
@@ -18,3 +25,40 @@ offset_right = 777.0
 offset_bottom = 520.0
 texture = ExtResource("1_06t4h")
 expand_mode = 1
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=2125826444]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 450.0
+flat = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1327650450]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 172.0
+offset_right = 1158.0
+offset_bottom = 411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
+
+[node name="Button" type="Button" parent="Panel" unique_id=1851462607]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 1.0
+offset_right = 253.0
+offset_bottom = 240.0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2127773725]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 70.0
+offset_right = 550.0
+offset_bottom = 520.0
+texture = ExtResource("1_06t4h")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="TextureRect2" unique_id=1486497966]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 450.0
+flat = true
