@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
-bg_color = Color(0.54509807, 0, 0.69411767, 0.5058824)
+bg_color = Color(0, 0, 0, 0.5058824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42f3i"]
-bg_color = Color(0.54509807, 0, 0.69411767, 0.5058824)
+bg_color = Color(0, 0, 0, 0.5058824)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
 font = ExtResource("2_nvr1d")

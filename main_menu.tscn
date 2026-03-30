@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://4lhcv0oewlqo"]
 
-[ext_resource type="Texture2D" uid="uid://dilf5yjbeutrl" path="res://assets/GameLogo.png" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0, 0, 0, 0.5058824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-bg_color = Color(0.7137255, 0, 0.49411765, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+bg_color = Color(0, 0, 0, 0.5058824)
 
 [node name="main_menu" type="Control" unique_id=668355876]
 layout_mode = 3
@@ -17,48 +16,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1397660115]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2049403020]
 layout_mode = 0
-offset_left = 327.0
-offset_top = 70.0
-offset_right = 777.0
-offset_bottom = 520.0
-texture = ExtResource("1_06t4h")
-expand_mode = 1
+offset_right = 1152.0
+offset_bottom = 647.0
 
-[node name="Button" type="Button" parent="TextureRect" unique_id=2125826444]
+[node name="Panel" type="Panel" parent="." unique_id=223871810]
 layout_mode = 0
-offset_right = 450.0
-offset_bottom = 450.0
-flat = true
+offset_top = 610.0
+offset_right = 1155.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
 
-[node name="Panel" type="Panel" parent="." unique_id=1327650450]
+[node name="Panel2" type="Panel" parent="." unique_id=214555958]
 layout_mode = 0
-offset_left = 450.0
-offset_top = 172.0
-offset_right = 1158.0
-offset_bottom = 411.0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1153.0
+offset_bottom = 35.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
 
-[node name="Button" type="Button" parent="Panel" unique_id=1851462607]
+[node name="Button" type="Button" parent="." unique_id=1310468872]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 1.0
-offset_right = 253.0
-offset_bottom = 240.0
-flat = true
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=2127773725]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 70.0
-offset_right = 550.0
-offset_bottom = 520.0
-texture = ExtResource("1_06t4h")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="TextureRect2" unique_id=1486497966]
-layout_mode = 0
-offset_right = 450.0
-offset_bottom = 450.0
-flat = true
+offset_left = 440.0
+offset_top = 176.0
+offset_right = 649.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 24
+text = "PLAY"
