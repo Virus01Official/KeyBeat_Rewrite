@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
 [ext_resource type="Script" uid="uid://cruplfbg32u8b" path="res://v_box_container.gd" id="3_5tkha"]
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
+[ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="4_br1it"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -81,6 +82,21 @@ offset_top = -3.0
 offset_right = 1153.0
 offset_bottom = 35.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_42f3i")
+
+[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=240173864]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 39.0
+texture = ExtResource("4_br1it")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Panel2/TextureRect" unique_id=1548392167]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
 
 [node name="Selected" type="Label" parent="." unique_id=1527670130]
 layout_mode = 0

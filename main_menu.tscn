@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://4lhcv0oewlqo"]
 
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="1_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="2_7vrkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -36,7 +38,22 @@ offset_right = 1153.0
 offset_bottom = 35.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
 
-[node name="Button" type="Button" parent="." unique_id=1310468872]
+[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=311432646]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 39.0
+texture = ExtResource("1_fu7sn")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Panel2/TextureRect" unique_id=1750525794]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="Play" type="Button" parent="." unique_id=1310468872]
 layout_mode = 0
 offset_left = 440.0
 offset_top = 176.0
@@ -45,3 +62,27 @@ offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "PLAY"
+
+[node name="Credits" type="Button" parent="." unique_id=881385018]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 240.0
+offset_right = 649.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 24
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="." unique_id=1075235682]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 304.0
+offset_right = 649.0
+offset_bottom = 341.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
+[node name="SettingsUI" parent="." unique_id=1232555519 instance=ExtResource("2_7vrkn")]
+visible = false
+layout_mode = 1
