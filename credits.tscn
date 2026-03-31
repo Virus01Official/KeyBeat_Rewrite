@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bv06omngumlts"]
 
+[ext_resource type="Script" uid="uid://yxdkgw4k1mac" path="res://credits.gd" id="1_c1t8d"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_nm7lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm7lk"]
@@ -25,6 +26,13 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjc1l"]
+bg_color = Color(0.16862746, 0, 0.3372549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="credits" type="Control" unique_id=840782482]
 layout_mode = 3
 anchors_preset = 15
@@ -32,6 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c1t8d")
 
 [node name="Panel" type="Panel" parent="." unique_id=1421710415]
 layout_mode = 0
@@ -78,4 +87,7 @@ theme_override_fonts/font = ExtResource("1_nm7lk")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_c1t8d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g4wvt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pjc1l")
 text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
