@@ -1,5 +1,16 @@
 [gd_scene format=3 uid="uid://bv06omngumlts"]
 
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_nm7lk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm7lk"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1t8d"]
+font = ExtResource("1_nm7lk")
+font_size = 34
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="credits" type="Control" unique_id=840782482]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +18,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1421710415]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm7lk")
+
+[node name="Label" type="Label" parent="." unique_id=1222213259]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 64.0
+text = "Game by Moonwave Studios"
+label_settings = SubResource("LabelSettings_c1t8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=367571096]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 1152.0
+offset_bottom = 168.0
+text = "Game made using Godot Engine"
+label_settings = SubResource("LabelSettings_c1t8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1617720384]
+layout_mode = 0
+offset_top = 208.0
+offset_right = 1152.0
+offset_bottom = 272.0
+text = "Massive thanks to YOU for playing the game"
+label_settings = SubResource("LabelSettings_c1t8d")
+horizontal_alignment = 1
+vertical_alignment = 1

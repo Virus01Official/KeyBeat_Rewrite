@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cruplfbg32u8b" path="res://v_box_container.gd" id="3_5tkha"]
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 [ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="4_br1it"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_u3k0c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -74,6 +75,15 @@ offset_top = 610.0
 offset_right = 1155.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5tkha")
+
+[node name="Button" type="Button" parent="Panel" unique_id=1040652870]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("4_u3k0c")
+theme_override_font_sizes/font_size = 23
+text = "BACK"
+flat = true
 
 [node name="Panel2" type="Panel" parent="." unique_id=1468657143]
 layout_mode = 0

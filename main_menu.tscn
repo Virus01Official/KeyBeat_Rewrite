@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://4lhcv0oewlqo"]
 
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://duwqq0mvhs8bw" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="2_7vrkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0, 0, 0, 0.5058824)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
+font = ExtResource("1_06t4h")
+font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -20,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jix8l")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2049403020]
+[node name="background" type="TextureRect" parent="." unique_id=2049403020]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 647.0
@@ -32,6 +35,24 @@ offset_right = 1155.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
 
+[node name="Label" type="Label" parent="Panel" unique_id=1580001260]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 39.0
+text = "TIP: BOOBS"
+label_settings = SubResource("LabelSettings_jix8l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel" unique_id=522247526]
+layout_mode = 0
+offset_right = 145.0
+offset_bottom = 39.0
+text = "Version: 1.0"
+label_settings = SubResource("LabelSettings_jix8l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel2" type="Panel" parent="." unique_id=214555958]
 layout_mode = 0
 offset_left = -2.0
@@ -39,21 +60,6 @@ offset_top = -3.0
 offset_right = 1153.0
 offset_bottom = 35.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
-
-[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=311432646]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -1.0
-offset_right = 44.0
-offset_bottom = 39.0
-texture = ExtResource("1_fu7sn")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="Panel2/TextureRect" unique_id=1750525794]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-flat = true
 
 [node name="Play" type="Button" parent="." unique_id=1310468872]
 layout_mode = 0
@@ -65,12 +71,22 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "PLAY"
 
+[node name="Settings" type="Button" parent="." unique_id=219174674]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 248.0
+offset_right = 649.0
+offset_bottom = 285.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
 [node name="Credits" type="Button" parent="." unique_id=881385018]
 layout_mode = 0
 offset_left = 440.0
-offset_top = 240.0
+offset_top = 320.0
 offset_right = 649.0
-offset_bottom = 277.0
+offset_bottom = 357.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "CREDITS"
@@ -78,9 +94,9 @@ text = "CREDITS"
 [node name="Quit" type="Button" parent="." unique_id=1075235682]
 layout_mode = 0
 offset_left = 440.0
-offset_top = 304.0
+offset_top = 384.0
 offset_right = 649.0
-offset_bottom = 341.0
+offset_bottom = 421.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
@@ -88,6 +104,11 @@ text = "QUIT"
 [node name="SettingsUI" parent="." unique_id=1232555519 instance=ExtResource("2_7vrkn")]
 visible = false
 layout_mode = 1
+offset_left = -329.0
+offset_top = -2.0
+offset_right = -1147.0
+offset_bottom = -2.0
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
