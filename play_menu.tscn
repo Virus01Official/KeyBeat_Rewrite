@@ -156,3 +156,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_br1it")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u3k0c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1p45p")
 text = "Select"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=195549456]

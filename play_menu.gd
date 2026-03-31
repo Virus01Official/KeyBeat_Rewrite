@@ -131,8 +131,21 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 		if FileAccess.file_exists(image_path):
 			$Thumbnail.texture = load(image_path)
 			break
+			
+	var audio_stream: AudioStream = null
+	for ext in ["mp3", "ogg"]:
+		var audio_path = song_folder_path + "audio." + ext
+		if ResourceLoader.exists(audio_path):
+			audio_stream = load(audio_path)
+			break
+			
+	if audio_stream:
+		$AudioStreamPlayer.stream = audio_stream
+		$AudioStreamPlayer.stop()   
+		$AudioStreamPlayer.play()  
 
 func select_song():
+	$AudioStreamPlayer.stop()
 	var song = $Selected.text
 	$".".visible = false
 	$"..".get_node("game").visible = true
