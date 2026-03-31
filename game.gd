@@ -9,6 +9,8 @@ var maps_location = "res://songs/"
 var final_accuracy: float = 0.0
 var final_grade: String = ""
 
+var sv_points: Array = []
+
 var countdown: float = 0.0
 
 var paused = false
@@ -56,6 +58,7 @@ func _process(delta: float) -> void:
 	if song_started:
 		_spawn_notes()
 		_check_missed_notes() 
+		
 		if not $AudioStreamPlayer.playing:
 			countdown -= delta
 			if countdown <= 0.0:
@@ -222,13 +225,34 @@ func _spawn_notes() -> void:
 		if note_data["time"] / 1000.0 <= spawn_ahead:
 			var note = note_scene.instantiate()
 			note.direction = _lane_to_direction(note_data["lane"])
+
+			# SV-aware spawn Y
+			var note_time = note_data["time"] / 1000.0
+			var current_scroll = _get_scroll_position(song_position)
+			var note_scroll   = _get_scroll_position(note_time)
+			var visual_offset = (note_scroll - current_scroll) * NOTE_SPEED
+
 			note.position = _get_lane_x(note.direction)
+			note.position.y = RECEPTOR_Y + visual_offset
+
 			note.duration = note_data.get("duration", 0) / 1000.0
 			note_container.add_child(note)
 			note.init_tail()
 			next_note_index += 1
 		else:
 			break
+
+func _get_scroll_position(time_sec: float) -> float:
+	var pos: float = 0.0
+	for i in range(sv_points.size()):
+		var sv = sv_points[i]
+		var sv_time = sv["time"] / 1000.0
+		var next_time = sv_points[i + 1]["time"] / 1000.0 if i + 1 < sv_points.size() else time_sec
+		if time_sec <= sv_time:
+			break
+		var segment_end = min(time_sec, next_time)
+		pos += (segment_end - sv_time) * sv["multiplier"]
+	return pos
 
 func _toggle_pause() -> void:
 	paused = !paused
@@ -359,6 +383,9 @@ func _start(song: String, json_file: String) -> void:
 		countdown = offset
 		song_position = 0.0
 		next_note_index = 0
+		
+		sv_points = data.get("sv", [{"time": 0, "multiplier": 1.0}])
+		sv_points.sort_custom(func(a, b): return a["time"] < b["time"])
 		
 		var audio_stream: AudioStream = null
 		for ext in ["mp3", "ogg"]:

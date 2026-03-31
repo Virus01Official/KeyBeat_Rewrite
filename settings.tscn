@@ -1,5 +1,20 @@
 [gd_scene format=3 uid="uid://dxsvcglrxplx5"]
 
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_x2hje"]
+[ext_resource type="Script" uid="uid://c2igc2vh8ywv0" path="res://check_box.gd" id="2_nkug2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
+font = ExtResource("1_x2hje")
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2hje"]
+font = ExtResource("1_x2hje")
+font_size = 20
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Settings" type="Control" unique_id=1232555519]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +22,116 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=761706034]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 649.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=894660134]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 647.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1241448782]
+layout_mode = 2
+theme_override_constants/separation = 136
+
+[node name="Control" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1744974980]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control" unique_id=1187688116]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 43.0
+text = "Graphics"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control" unique_id=646699363]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 329.0
+offset_bottom = 175.0
+theme_override_constants/separation = 70
+
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer" unique_id=1109744661]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2" unique_id=1022074538]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 43.0
+text = "V-Sync:"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2/Label" unique_id=1159932381]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 12.0
+offset_right = 141.0
+offset_bottom = 36.0
+button_pressed = true
+script = ExtResource("2_nkug2")
+
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=998488541]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2" unique_id=1599830165]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 43.0
+text = "Audio"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control2" unique_id=1731652476]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 329.0
+offset_bottom = 175.0
+theme_override_constants/separation = 70
+
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer" unique_id=1722838598]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control2" unique_id=1556315987]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 43.0
+text = "Music:"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control2/Label" unique_id=160119709]
+layout_mode = 0
+offset_left = 134.0
+offset_right = 314.0
+offset_bottom = 49.0
+
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer" unique_id=202335441]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3" unique_id=654607590]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 43.0
+text = "Sound Effects:"
+label_settings = SubResource("LabelSettings_x2hje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3/Label" unique_id=467792066]
+layout_mode = 0
+offset_left = 137.0
+offset_right = 314.0
+offset_bottom = 49.0
+
+[connection signal="toggled" from="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
