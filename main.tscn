@@ -8,6 +8,7 @@
 [node name="Main" type="Node" unique_id=984286019]
 
 [node name="play_menu" parent="." unique_id=1643322065 instance=ExtResource("1_ig7tw")]
+visible = false
 
 [node name="game" parent="." unique_id=246239586 instance=ExtResource("2_0xm2m")]
 visible = false
@@ -16,4 +17,3 @@ visible = false
 visible = false
 
 [node name="main_menu" parent="." unique_id=668355876 instance=ExtResource("4_1bvp3")]
-visible = false

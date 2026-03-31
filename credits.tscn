@@ -11,6 +11,20 @@ font_size = 34
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1t8d"]
+bg_color = Color(0.6862745, 0, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4wvt"]
+bg_color = Color(0.34509805, 0, 0.76862746, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="credits" type="Control" unique_id=840782482]
 layout_mode = 3
 anchors_preset = 15
@@ -53,3 +67,15 @@ text = "Massive thanks to YOU for playing the game"
 label_settings = SubResource("LabelSettings_c1t8d")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=270863868]
+layout_mode = 0
+offset_top = 600.0
+offset_right = 186.0
+offset_bottom = 646.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_nm7lk")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1t8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g4wvt")
+text = "Back"

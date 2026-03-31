@@ -10,3 +10,6 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	$SettingsUI.visible = true
+
+func _on_credits_pressed() -> void:
+	$credits.visible = true

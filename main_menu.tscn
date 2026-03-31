@@ -3,6 +3,8 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://duwqq0mvhs8bw" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://xg0juqrcq66e" path="res://tips.gd" id="3_jix8l"]
+[ext_resource type="PackedScene" uid="uid://bv06omngumlts" path="res://credits.tscn" id="5_glbon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -43,6 +45,7 @@ text = "TIP: BOOBS"
 label_settings = SubResource("LabelSettings_jix8l")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_jix8l")
 
 [node name="Label2" type="Label" parent="Panel" unique_id=522247526]
 layout_mode = 0
@@ -109,6 +112,11 @@ offset_top = -2.0
 offset_right = -1147.0
 offset_bottom = -2.0
 
+[node name="credits" parent="." unique_id=840782482 instance=ExtResource("5_glbon")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
