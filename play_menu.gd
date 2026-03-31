@@ -89,7 +89,7 @@ func load_songs() -> void:
 	for category in category_container.get_children():
 		var inner_vbox = category.get_node("Category/ScrollContainer/VBoxContainer")
 		var item_count = inner_vbox.get_child_count()
-		# Each difficulty node is roughly 100px tall, adjust this to match yours
+		
 		var needed_height = item_count * 100
 		category.custom_minimum_size.y = needed_height
 

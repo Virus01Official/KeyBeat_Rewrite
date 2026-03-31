@@ -47,7 +47,7 @@ var offset: float = 0.0
 const RECEPTOR_Y = 3
 
 const LEAD_TIME = 2.0
-const NOTE_SPEED = 500.0
+var NOTE_SPEED = GameData.Scroll_Speed
 
 @onready var note_container = $NoteContainer  
 

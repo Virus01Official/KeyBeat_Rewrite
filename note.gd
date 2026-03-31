@@ -2,7 +2,7 @@ extends Control
 @onready var tail = $Tail
 
 var direction: String = ""
-var speed: float = 500.0
+var speed: float = GameData.Scroll_Speed
 var duration: float = 0.0
 var is_hold: bool = false
 var hold_active: bool = false
