@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df012x1ap2b3l"]
 
 [ext_resource type="Script" uid="uid://dsft3eml2htc2" path="res://play_menu.gd" id="1_nvr1d"]
+[ext_resource type="Texture2D" uid="uid://dfry2du8x626p" path="res://songs/Tutorial/background.jpg" id="2_1p45p"]
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
 [ext_resource type="Script" uid="uid://cruplfbg32u8b" path="res://v_box_container.gd" id="3_5tkha"]
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
@@ -54,6 +55,7 @@ script = ExtResource("1_nvr1d")
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 646.0
+texture = ExtResource("2_1p45p")
 expand_mode = 1
 
 [node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
@@ -84,6 +86,16 @@ theme_override_fonts/font = ExtResource("4_u3k0c")
 theme_override_font_sizes/font_size = 23
 text = "BACK"
 flat = true
+
+[node name="SearchBar" type="TextEdit" parent="Panel" unique_id=368138258]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 1.0
+offset_right = 1147.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("4_u3k0c")
+theme_override_font_sizes/font_size = 23
+placeholder_text = "SEARCH"
 
 [node name="Panel2" type="Panel" parent="." unique_id=1468657143]
 layout_mode = 0
@@ -158,3 +170,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1p45p")
 text = "Select"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=195549456]
+
+[connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]

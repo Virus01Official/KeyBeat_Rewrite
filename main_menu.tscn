@@ -3,19 +3,20 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://duwqq0mvhs8bw" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dfry2du8x626p" path="res://songs/Tutorial/background.jpg" id="2_qe12f"]
 [ext_resource type="Script" uid="uid://xg0juqrcq66e" path="res://tips.gd" id="3_jix8l"]
 [ext_resource type="Script" uid="uid://c6mg6l0urjpn3" path="res://time.gd" id="4_nlkkf"]
 [ext_resource type="PackedScene" uid="uid://bv06omngumlts" path="res://credits.tscn" id="5_glbon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
-bg_color = Color(0, 0, 0, 0.5058824)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font = ExtResource("1_06t4h")
 font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-bg_color = Color(0, 0, 0, 0.5058824)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="main_menu" type="Control" unique_id=668355876]
 layout_mode = 3
@@ -30,6 +31,8 @@ script = ExtResource("1_jix8l")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 647.0
+texture = ExtResource("2_qe12f")
+expand_mode = 1
 
 [node name="Panel" type="Panel" parent="." unique_id=223871810]
 layout_mode = 0

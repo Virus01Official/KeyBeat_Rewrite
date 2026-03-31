@@ -4,6 +4,8 @@ var categoryScene = preload("res://category.tscn")
 
 var selected_json: String = ""  # ADD THIS
 
+@onready var search_bar = $Panel/SearchBar
+
 func _ready() -> void:
 	load_songs()
 	await get_tree().process_frame
@@ -150,3 +152,19 @@ func select_song():
 	$".".visible = false
 	$"..".get_node("game").visible = true
 	$"..".get_node("game")._start(song, selected_json)  
+
+
+func _on_search_bar_text_changed() -> void:
+	var query = search_bar.text.strip_edges().to_lower()
+	var category_container = $ScrollContainer/VBoxContainer
+	
+	for category in category_container.get_children():
+		var title_node = category.get_node("Category/CategoryName")
+		var title = title_node.text.to_lower()
+		
+		if query == "" or title.contains(query):
+			category.visible = true
+		else:
+			category.visible = false
+			
+	category_container.recalculate() 
