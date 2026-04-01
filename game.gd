@@ -219,13 +219,17 @@ func _check_missed_notes() -> void:
 			
 func _spawn_notes() -> void:
 	var spawn_ahead = song_position + LEAD_TIME if $AudioStreamPlayer.playing else LEAD_TIME
+	
 	while next_note_index < chart.size():
 		var note_data = chart[next_note_index]
 		if note_data["time"] / 1000.0 <= spawn_ahead:
 			var note = note_scene.instantiate()
 			note.direction = _lane_to_direction(note_data["lane"])
+			
+			var note_tex = ModLoader.get_note_texture(note.direction)
+			if note_tex:
+				note.get_node("Note").texture = note_tex
 
-			# SV-aware spawn Y
 			var note_time = note_data["time"] / 1000.0
 			var current_scroll = _get_scroll_position(song_position)
 			var note_scroll   = _get_scroll_position(note_time)
@@ -404,6 +408,50 @@ func _start(song: String, json_file: String) -> void:
 
 		song_started = true
 		
+func _start_from_path(song_folder_path: String, json_file: String) -> void:
+	paused = false
+	$Pause.visible = false
+
+	var path = song_folder_path + json_file
+	print("Loading chart: ", path)
+
+	var file = FileAccess.open(path, FileAccess.READ)
+	if not file:
+		print("Could not open chart: ", path)
+		return
+
+	var json = JSON.new()
+	json.parse(file.get_as_text())
+	file.close()
+	var data = json.get_data()
+
+	chart = data.get("notes", [])
+	chart.sort_custom(func(a, b): return a["time"] < b["time"])
+	offset = data.get("offset", 0) / 1000.0
+	countdown = offset
+	song_position = 0.0
+	next_note_index = 0
+
+	sv_points = data.get("sv", [{"time": 0, "multiplier": 1.0}])
+	sv_points.sort_custom(func(a, b): return a["time"] < b["time"])
+
+	var audio_stream: AudioStream = null
+	for ext in ["mp3", "ogg"]:
+		var audio_path = song_folder_path + "audio." + ext
+		if ResourceLoader.exists(audio_path):
+			audio_stream = load(audio_path)
+			break
+
+	for exte in ["png", "jpg", "jpeg"]:
+		var image_path = song_folder_path + "background." + exte
+		if ResourceLoader.exists(image_path):
+			$background.texture = load(image_path)
+			break
+
+	if audio_stream:
+		$AudioStreamPlayer.stream = audio_stream
+
+	song_started = true
 
 func _end_song() -> void:
 	song_started = false

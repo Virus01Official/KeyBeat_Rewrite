@@ -18,6 +18,7 @@ config/icon="uid://0lqg0g2di4xv"
 [autoload]
 
 GameData="*uid://wypyk6eul301"
+ModLoader="*uid://bbbkwbbfyvaay"
 
 [display]
 
