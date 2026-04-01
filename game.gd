@@ -455,15 +455,42 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 	var audio_stream: AudioStream = null
 	for ext in ["mp3", "ogg"]:
 		var audio_path = song_folder_path + "audio." + ext
-		if ResourceLoader.exists(audio_path):
-			audio_stream = load(audio_path)
-			break
+		
+		if audio_path.begins_with("res://"):
+			if ResourceLoader.exists(audio_path):
+				audio_stream = load(audio_path)
+				break
+		else:
+			if FileAccess.file_exists(audio_path):
+				var files = FileAccess.open(audio_path, FileAccess.READ)
+				var buffer = files.get_buffer(files.get_length())
+				
+				if ext == "ogg":
+					var stream = AudioStreamOggVorbis.new()
+					stream.data = buffer
+					audio_stream = stream
+					break
+				elif ext == "mp3":
+					var stream = AudioStreamMP3.new()
+					stream.data = buffer
+					audio_stream = stream
+					break
 
 	for exte in ["png", "jpg", "jpeg"]:
 		var image_path = song_folder_path + "background." + exte
-		if ResourceLoader.exists(image_path):
-			$background.texture = load(image_path)
-			break
+		var texture: Texture2D = null
+
+		if image_path.begins_with("res://"):
+			if ResourceLoader.exists(image_path):
+				texture = load(image_path)
+		else:
+			if FileAccess.file_exists(image_path):
+				var img = Image.load_from_file(image_path)
+				if img != null and not img.is_empty():
+					texture = ImageTexture.create_from_image(img)
+
+		if texture:
+			$background.texture = texture
 
 	if audio_stream:
 		$AudioStreamPlayer.stream = audio_stream

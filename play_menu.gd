@@ -48,7 +48,7 @@ func load_songs() -> void:
 			var image_path = song_folder_path + "background." + ext
 			var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
 			if FileAccess.file_exists(image_path):
-				texture_rect.texture = load(image_path)
+				texture_rect.texture = load_texture(image_path)
 				break
 
 		var difficulty_container = newCategory.get_node("Category/ScrollContainer/VBoxContainer")
@@ -122,6 +122,16 @@ func load_song_json(path: String) -> Dictionary:
 	if err != OK:
 		return {}
 	return json.get_data()
+	
+func load_texture(path: String) -> Texture2D:
+	if path.begins_with("res://"):
+		return load(path) if ResourceLoader.exists(path) else null
+	else:
+		if FileAccess.file_exists(path):
+			var img = Image.load_from_file(path)
+			if img and not img.is_empty():
+				return ImageTexture.create_from_image(img)
+	return null
 
 func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 	$Selected.text = song
@@ -134,17 +144,29 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 	for ext in ["jpg", "png", "jpeg"]:
 		var image_path = song_folder_path + "background." + ext
 		if FileAccess.file_exists(image_path):
-			$Thumbnail.texture = load(image_path)
+			$Thumbnail.texture = load_texture(image_path)
 			break
 
 	var audio_stream: AudioStream = null
 	for ext in ["mp3", "ogg"]:
 		var audio_path = song_folder_path + "audio." + ext
-		if ResourceLoader.exists(audio_path):
+		if audio_path.begins_with("res://"):
 			audio_stream = load(audio_path)
-			break
+		else:
+			if FileAccess.file_exists(audio_path):
+				var file = FileAccess.open(audio_path, FileAccess.READ)
+				var buffer = file.get_buffer(file.get_length())
+
+				if ext == "ogg":
+					var stream = AudioStreamOggVorbis.new()
+					stream.data = buffer
+					audio_stream = stream
+				elif ext == "mp3":
+					var stream = AudioStreamMP3.new()
+					stream.data = buffer
+					audio_stream = stream
 	if audio_stream:
-		$AudioStreamPlayer.stream = audio_stream
+		#$AudioStreamPlayer.stream = audio_stream
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.play()
 
