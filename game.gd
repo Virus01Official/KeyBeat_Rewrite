@@ -51,7 +51,8 @@ var offset: float = 0.0
 const RECEPTOR_Y = 3
 
 const LEAD_TIME = 2.0
-var NOTE_SPEED = GameData.Scroll_Speed
+var NOTE_SPEED: float:
+	get: return GameData.Scroll_Speed
 
 @onready var note_container = $NoteContainer  
 
@@ -259,7 +260,7 @@ func _spawn_notes() -> void:
 
 			note.duration = note_data.get("duration", 0) / 1000.0
 			note_container.add_child(note)
-			note.init_tail()
+			note.init_tail(NOTE_SPEED)
 			next_note_index += 1
 		else:
 			break
