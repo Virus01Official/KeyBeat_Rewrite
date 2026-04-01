@@ -549,10 +549,59 @@ func _end_song() -> void:
 	final_accuracy = _accuracy()
 	final_grade = _grade(final_accuracy)
 	
-	print("Song complete! Accuracy: %.2f%% | Grade: %s" % [final_accuracy, final_grade])
+	_save_score()
 	
 	$".".visible = false
 	$"../Results".visible = true
 	
 	combo = 0
 	health = max_health
+	
+func _save_score() -> void:
+	var save_path := "user://scores.json"
+	
+	var map_key: String = current_song_path if current_song_path != "" else current_song
+	if map_key == "":
+		map_key = "unknown"
+	
+	var existing: Dictionary = {}
+	if FileAccess.file_exists(save_path):
+		var f := FileAccess.open(save_path, FileAccess.READ)
+		if f:
+			var json := JSON.new()
+			json.parse(f.get_as_text())
+			f.close()
+			var parsed = json.get_data()
+			if parsed is Dictionary:
+				existing = parsed
+	
+	var new_entry := {
+		"score":         score,
+		"accuracy":      snappedf(final_accuracy, 0.01),
+		"grade":         final_grade,
+		"perfect":       perfect,
+		"great":         great,
+		"good":          good,
+		"ok":            ok,
+		"meh":           meh,
+		"misses":        misses,
+		"highest_combo": highest_combo,
+		"timestamp":     Time.get_datetime_string_from_system()
+	}
+	
+	var prev = existing.get(map_key, null)
+	if prev == null \
+	or new_entry["score"] > int(prev.get("score", 0)) \
+	or (new_entry["score"] == int(prev.get("score", 0)) and new_entry["accuracy"] > float(prev.get("accuracy", 0.0))):
+		existing[map_key] = new_entry
+		print("New best score saved for: ", map_key)
+	else:
+		print("Score not a new best — not saved.")
+	
+	var out := FileAccess.open(save_path, FileAccess.WRITE)
+	if out:
+		out.store_string(JSON.stringify(existing, "\t"))
+		out.close()
+		print("Scores saved to: ", save_path)
+	else:
+		print("Failed to write scores file!")
