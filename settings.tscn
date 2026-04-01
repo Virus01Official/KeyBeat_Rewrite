@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_x2hje"]
 [ext_resource type="Script" uid="uid://c2igc2vh8ywv0" path="res://check_box.gd" id="2_nkug2"]
 [ext_resource type="Script" uid="uid://0g7prdmqpsb1" path="res://scripts/scroll_speed_slider.gd" id="3_3ykye"]
+[ext_resource type="Script" uid="uid://cm0me27sxnvtg" path="res://scripts/music_slider.gd" id="4_71mqq"]
 [ext_resource type="Texture2D" uid="uid://bmakgxrw2sctc" path="res://assets/icon_cross.png" id="4_gc0em"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
@@ -119,6 +120,8 @@ layout_mode = 0
 offset_left = 134.0
 offset_right = 314.0
 offset_bottom = 49.0
+value = 100.0
+script = ExtResource("4_71mqq")
 
 [node name="Control3" type="Control" parent="Panel/Control2/VBoxContainer" unique_id=202335441]
 layout_mode = 2
@@ -194,6 +197,7 @@ text = "500"
 alignment = 1
 
 [node name="Control4" type="Control" parent="Panel/Control3/VBoxContainer" unique_id=1214445330]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/Control3/VBoxContainer/Control4" unique_id=380883261]
@@ -230,6 +234,7 @@ icon = ExtResource("4_gc0em")
 flat = true
 
 [connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
+[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control2/Label/HSlider" to="Panel/Control2/VBoxContainer/Control2/Label/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/HSlider" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_value_changed"]
 [connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
