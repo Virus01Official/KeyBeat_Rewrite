@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dxsvcglrxplx5"]
 
+[ext_resource type="Script" uid="uid://cj7a3tye8kqnd" path="res://settings.gd" id="1_cj1lu"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_x2hje"]
 [ext_resource type="Script" uid="uid://c2igc2vh8ywv0" path="res://check_box.gd" id="2_nkug2"]
 [ext_resource type="Script" uid="uid://0g7prdmqpsb1" path="res://scripts/scroll_speed_slider.gd" id="3_3ykye"]
+[ext_resource type="Texture2D" uid="uid://bmakgxrw2sctc" path="res://assets/icon_cross.png" id="4_gc0em"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
 font = ExtResource("1_x2hje")
@@ -27,8 +29,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -825.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cj1lu")
 
 [node name="Panel" type="Panel" parent="." unique_id=761706034]
 layout_mode = 0
@@ -206,5 +210,15 @@ popup/item_0/id = 0
 popup/item_1/text = "Down"
 popup/item_1/id = 1
 
+[node name="Button" type="Button" parent="." unique_id=1127913525]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 1.0
+offset_right = 327.0
+offset_bottom = 45.0
+icon = ExtResource("4_gc0em")
+flat = true
+
 [connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
 [connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/HSlider" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
