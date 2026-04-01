@@ -517,6 +517,18 @@ func _restart() -> void:
 		note.queue_free()
 
 	# Reset all stats
+	_reset_all_stats()
+	song_started = false
+
+	# Stop audio so _start() sets it fresh
+	$AudioStreamPlayer.stop()
+
+	if current_song_path != "":
+		_start_from_path(current_song_path, current_json)
+	else:
+		_start(current_song, current_json)
+
+func _reset_all_stats() -> void:
 	perfect = 0
 	great   = 0
 	good    = 0
@@ -527,15 +539,6 @@ func _restart() -> void:
 	combo   = 0
 	highest_combo = 0
 	health  = max_health
-	song_started = false
-
-	# Stop audio so _start() sets it fresh
-	$AudioStreamPlayer.stop()
-
-	if current_song_path != "":
-		_start_from_path(current_song_path, current_json)
-	else:
-		_start(current_song, current_json)
 
 func _end_song() -> void:
 	song_started = false

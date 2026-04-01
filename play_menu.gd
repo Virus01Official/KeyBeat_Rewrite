@@ -139,7 +139,7 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 	$Credits.text = "Credits: " + credits
 	$Mapper.text = "Mapped by: " + mapper
 	selected_json = json_file
-	selected_folder = song_folder_path   # ← store the full path
+	selected_folder = song_folder_path
 
 	for ext in ["jpg", "png", "jpeg"]:
 		var image_path = song_folder_path + "background." + ext
@@ -148,25 +148,29 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 			break
 
 	var audio_stream: AudioStream = null
-	for ext in ["mp3", "ogg"]:
+	for ext in ["ogg", "mp3"]:
 		var audio_path = song_folder_path + "audio." + ext
-		if audio_path.begins_with("res://"):
-			audio_stream = load(audio_path)
-		else:
-			if FileAccess.file_exists(audio_path):
-				var file = FileAccess.open(audio_path, FileAccess.READ)
-				var buffer = file.get_buffer(file.get_length())
+		if not FileAccess.file_exists(audio_path):
+			continue
 
-				if ext == "ogg":
-					var stream = AudioStreamOggVorbis.new()
-					stream.data = buffer
-					audio_stream = stream
-				elif ext == "mp3":
-					var stream = AudioStreamMP3.new()
-					stream.data = buffer
-					audio_stream = stream
+		var file = FileAccess.open(audio_path, FileAccess.READ)
+		if not file:
+			continue
+		var buffer = file.get_buffer(file.get_length())
+		file.close()
+
+		if ext == "ogg":
+			audio_stream = AudioStreamOggVorbis.load_from_buffer(buffer)
+		elif ext == "mp3":
+			var stream = AudioStreamMP3.new()
+			stream.data = buffer
+			audio_stream = stream
+
+		if audio_stream:
+			break
+
 	if audio_stream:
-		#$AudioStreamPlayer.stream = audio_stream
+		$AudioStreamPlayer.stream = audio_stream
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.play()
 
