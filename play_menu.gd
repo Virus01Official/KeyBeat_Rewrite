@@ -196,7 +196,7 @@ func _on_search_bar_text_changed() -> void:
 	category_container.recalculate() 
 
 func _on_button_pressed() -> void:
-	var settings = $Settings
+	var settings = $"../Settings"
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var target_x = 0.0 
 

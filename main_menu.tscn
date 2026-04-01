@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://duwqq0mvhs8bw" path="res://main_menu.gd" id="1_jix8l"]
-[ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://dfry2du8x626p" path="res://songs/Tutorial/background.jpg" id="2_qe12f"]
 [ext_resource type="Script" uid="uid://xg0juqrcq66e" path="res://tips.gd" id="3_jix8l"]
 [ext_resource type="Script" uid="uid://c6mg6l0urjpn3" path="res://time.gd" id="4_nlkkf"]
@@ -117,14 +116,6 @@ offset_bottom = 421.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
-
-[node name="SettingsUI" parent="." unique_id=1232555519 instance=ExtResource("2_7vrkn")]
-visible = false
-layout_mode = 1
-offset_left = -329.0
-offset_top = -2.0
-offset_right = -1147.0
-offset_bottom = -2.0
 
 [node name="credits" parent="." unique_id=840782482 instance=ExtResource("5_glbon")]
 visible = false

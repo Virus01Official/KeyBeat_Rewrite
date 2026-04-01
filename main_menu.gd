@@ -9,7 +9,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	var settings = $SettingsUI
+	var settings = $"../Settings"
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var target_x = 0.0  
 
