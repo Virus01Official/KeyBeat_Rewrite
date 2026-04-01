@@ -59,6 +59,9 @@ func _ready() -> void:
 	$Pause.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(delta: float) -> void:
+	var current_sv = _get_current_sv_multiplier()
+	var effective_speed = NOTE_SPEED * current_sv
+
 	if song_started:
 		if $AudioStreamPlayer.playing:
 			_spawn_notes()
@@ -91,9 +94,11 @@ func _process(delta: float) -> void:
 	
 	for note in note_container.get_children():
 		if note.hold_active:
-			var shrink = delta * NOTE_SPEED
+			var shrink = delta * effective_speed
 			note.tail.size.y = max(0.0, note.tail.size.y - shrink)
-			note.tail.position.y = 64  
+			note.tail.position.y = 64
+		else:
+			note.move(delta, effective_speed)
 			
 	if Input.is_action_just_pressed("ui_cancel"):
 		_toggle_pause()
@@ -496,6 +501,15 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 		$AudioStreamPlayer.stream = audio_stream
 
 	song_started = true
+
+func _get_current_sv_multiplier() -> float:
+	var multiplier := 1.0
+	for sv in sv_points:
+		if sv["time"] / 1000.0 <= song_position:
+			multiplier = sv["multiplier"]
+		else:
+			break
+	return multiplier
 
 func _restart() -> void:
 	# Clear all spawned notes

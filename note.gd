@@ -17,6 +17,10 @@ func init_tail() -> void:
 func _process(delta: float) -> void:
 	if hold_active:
 		return  
-	position.y -= speed * delta
+	
 	if position.y < -100:
 		queue_free()
+		
+func move(delta: float, current_speed: float) -> void:
+	if not hold_active:
+		position.y -= current_speed * delta
