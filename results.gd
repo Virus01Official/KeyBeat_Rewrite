@@ -24,3 +24,8 @@ func _process(_delta):
 	$VBoxContainer/Okay.text = "Okay: " + str(game.ok)
 	$VBoxContainer/Bad.text = "Bad: " + str(game.meh)
 	$VBoxContainer/Misses.text = "Misses: " + str(game.misses)
+
+
+func _on_button_pressed() -> void:
+	$".".visible = false
+	$"../play_menu".visible = true
