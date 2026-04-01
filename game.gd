@@ -281,7 +281,7 @@ func _toggle_pause() -> void:
 	paused = !paused
 	if paused:
 		get_tree().paused = true
-		$Pause.process_mode = Node.PROCESS_MODE_ALWAYS  # so Pause UI still works while tree is paused
+		$Pause.process_mode = Node.PROCESS_MODE_ALWAYS  
 	else:
 		get_tree().paused = false
 

@@ -178,9 +178,20 @@ offset_left = 137.0
 offset_right = 314.0
 offset_bottom = 49.0
 min_value = 1.0
-max_value = 1000.0
+max_value = 1500.0
 value = 500.0
 script = ExtResource("3_3ykye")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=1038486631]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 35.0
+offset_right = 264.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("1_x2hje")
+theme_override_font_sizes/font_size = 19
+text = "500"
+alignment = 1
 
 [node name="Control4" type="Control" parent="Panel/Control3/VBoxContainer" unique_id=1214445330]
 layout_mode = 2
@@ -220,4 +231,5 @@ flat = true
 
 [connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
 [connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/HSlider" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_value_changed"]
+[connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
