@@ -28,15 +28,39 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53333336, 0, 1, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
 bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53333336, 0, 1, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
 bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53333336, 0, 1, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hve3p"]
 bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53333336, 0, 1, 1)
+border_blend = true
 
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
@@ -306,10 +330,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]
-visible = false
-layout_mode = 1
-
 [node name="Mobile" type="Control" parent="." unique_id=479975973]
 visible = false
 anchors_preset = 0
@@ -345,3 +365,7 @@ offset_top = -2.0
 offset_right = 1171.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hve3p")
+
+[node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]
+visible = false
+layout_mode = 1
