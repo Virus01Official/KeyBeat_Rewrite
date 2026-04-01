@@ -79,7 +79,7 @@ offset_right = 1155.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5tkha")
 
-[node name="Button" type="Button" parent="Panel" unique_id=1040652870]
+[node name="Back" type="Button" parent="Panel" unique_id=1040652870]
 layout_mode = 0
 offset_right = 123.0
 offset_bottom = 37.0
@@ -177,5 +177,6 @@ layout_mode = 1
 offset_left = -335.0
 offset_right = -1152.0
 
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]
 [connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]

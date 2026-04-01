@@ -153,7 +153,6 @@ func select_song():
 	$"..".get_node("game").visible = true
 	$"..".get_node("game")._start(song, selected_json)  
 
-
 func _on_search_bar_text_changed() -> void:
 	var query = search_bar.text.strip_edges().to_lower()
 	var category_container = $ScrollContainer/VBoxContainer
@@ -169,7 +168,6 @@ func _on_search_bar_text_changed() -> void:
 			
 	category_container.recalculate() 
 
-
 func _on_button_pressed() -> void:
 	var settings = $Settings
 	var screen_width = get_viewport().get_visible_rect().size.x
@@ -182,3 +180,7 @@ func _on_button_pressed() -> void:
 	tween.tween_property(settings, "position:x", target_x, 0.4)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
+
+func _on_back_pressed() -> void:
+	$".".visible = false
+	$"../main_menu".visible = true
