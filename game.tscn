@@ -27,16 +27,16 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
-bg_color = Color(0.6, 0.61960787, 0.6, 0.3529412)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
-bg_color = Color(0.6, 0.6, 0.7294118, 0.3529412)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
-bg_color = Color(0.6, 0.47843137, 0.6, 0.3529412)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hve3p"]
-bg_color = Color(0.4392157, 0.6, 0.6, 0.3529412)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
 
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
@@ -316,41 +316,32 @@ anchors_preset = 0
 offset_right = 1154.0
 offset_bottom = 650.0
 
-[node name="Left" type="Button" parent="Mobile" unique_id=280079085]
+[node name="Left" type="Panel" parent="Mobile" unique_id=68780816]
 layout_mode = 0
 offset_right = 293.0
 offset_bottom = 650.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_eow3j")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
 
-[node name="Down" type="Button" parent="Mobile" unique_id=1944170061]
+[node name="Down" type="Panel" parent="Mobile" unique_id=1430554371]
 layout_mode = 0
 offset_left = 293.0
 offset_top = 1.0
 offset_right = 586.0
 offset_bottom = 651.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_j5wjh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
 
-[node name="Up" type="Button" parent="Mobile" unique_id=273020759]
+[node name="Up" type="Panel" parent="Mobile" unique_id=1228766943]
 layout_mode = 0
 offset_left = 585.0
 offset_top = -1.0
 offset_right = 878.0
 offset_bottom = 649.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_vef74")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
 
-[node name="Right" type="Button" parent="Mobile" unique_id=1467035750]
+[node name="Right" type="Panel" parent="Mobile" unique_id=1801331754]
 layout_mode = 0
 offset_left = 878.0
 offset_top = -2.0
 offset_right = 1171.0
 offset_bottom = 648.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_hve3p")
-
-[connection signal="button_down" from="Mobile/Left" to="." method="_on_left_button_down"]
-[connection signal="button_up" from="Mobile/Left" to="." method="_on_left_button_up"]
-[connection signal="button_down" from="Mobile/Down" to="." method="_on_down_button_down"]
-[connection signal="button_up" from="Mobile/Down" to="." method="_on_down_button_up"]
-[connection signal="button_down" from="Mobile/Up" to="." method="_on_up_button_down"]
-[connection signal="button_up" from="Mobile/Up" to="." method="_on_up_button_up"]
-[connection signal="button_down" from="Mobile/Right" to="." method="_on_right_button_down"]
-[connection signal="button_up" from="Mobile/Right" to="." method="_on_right_button_up"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_hve3p")

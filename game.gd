@@ -8,6 +8,7 @@ var maps_location = "res://songs/"
 
 var final_accuracy: float = 0.0
 var final_grade: String = ""
+var _touch_direction: Dictionary = {}
 
 var current_song: String = ""
 var current_json: String = ""
@@ -169,6 +170,28 @@ func _process(delta: float) -> void:
 		_change_visibility($Right/Glow, false)
 		right_pressed = false
 		_check_hold_release("right")
+
+func _input(event: InputEvent) -> void:
+	if not OS.get_name() == "Android":
+		return
+	if paused:
+		return
+
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			var dir = _get_touch_direction(event.position)
+			if dir != "":
+				_touch_direction[event.index] = dir
+				_change_visibility(get_node(dir.capitalize() + "/TextureRect"), false)
+				_change_visibility(get_node(dir.capitalize() + "/Glow"), true)
+				_check_hit(dir)
+		else:
+			var dir = _touch_direction.get(event.index, "")
+			if dir != "":
+				_change_visibility(get_node(dir.capitalize() + "/TextureRect"), true)
+				_change_visibility(get_node(dir.capitalize() + "/Glow"), false)
+				_check_hold_release(dir)
+				_touch_direction.erase(event.index)
 
 static func calculate_difficulty(charts: Dictionary) -> float:
 	var notes: Array = charts.get("notes", [])
@@ -612,51 +635,13 @@ func _save_score() -> void:
 	else:
 		print("Failed to write scores file!")
 
-
-func _on_right_button_down() -> void:
-	_change_visibility($Right/TextureRect, false)
-	_change_visibility($Right/Glow, true)
-	right_pressed = true
-	_check_hit("right")
-
-func _on_right_button_up() -> void:
-	_change_visibility($Right/TextureRect, true)
-	_change_visibility($Right/Glow, false)
-	right_pressed = false
-	_check_hold_release("right")
-
-func _on_left_button_down() -> void:
-	_change_visibility($Left/TextureRect, false)
-	_change_visibility($Left/Glow, true)
-	left_pressed = true
-	_check_hit("left")
-
-func _on_left_button_up() -> void:
-	_change_visibility($Left/TextureRect, true)
-	_change_visibility($Left/Glow, false)
-	left_pressed = false
-	_check_hold_release("left")
-
-func _on_down_button_down() -> void:
-	_change_visibility($Down/TextureRect, false)
-	_change_visibility($Down/Glow, true)
-	down_pressed = true
-	_check_hit("down")
-
-func _on_down_button_up() -> void:
-	_change_visibility($Down/TextureRect, true)
-	_change_visibility($Down/Glow, false)
-	down_pressed = false
-	_check_hold_release("down")
-
-func _on_up_button_down() -> void:
-	_change_visibility($Up/TextureRect, false)
-	_change_visibility($Up/Glow, true)
-	up_pressed = true
-	_check_hit("up")
-
-func _on_up_button_up() -> void:
-	_change_visibility($Up/TextureRect, true)
-	_change_visibility($Up/Glow, false)
-	up_pressed = false
-	_check_hold_release("up")
+func _get_touch_direction(pos: Vector2) -> String:
+	if $Mobile/Left.get_global_rect().has_point(pos):
+		return "left"
+	if $Mobile/Down.get_global_rect().has_point(pos):
+		return "down"
+	if $Mobile/Up.get_global_rect().has_point(pos):
+		return "up"
+	if $Mobile/Right.get_global_rect().has_point(pos):
+		return "right"
+	return ""
