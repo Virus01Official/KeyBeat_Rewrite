@@ -9,6 +9,10 @@ var maps_location = "res://songs/"
 var final_accuracy: float = 0.0
 var final_grade: String = ""
 
+var current_song: String = ""
+var current_json: String = ""
+var current_song_path: String = ""
+
 var sv_points: Array = []
 
 var countdown: float = 0.0
@@ -56,8 +60,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if song_started:
-		_spawn_notes()
-		_check_missed_notes() 
+		if $AudioStreamPlayer.playing:
+			_spawn_notes()
+			_check_missed_notes()
 		
 		if not $AudioStreamPlayer.playing:
 			countdown -= delta
@@ -92,13 +97,19 @@ func _process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("ui_cancel"):
 		_toggle_pause()
+		$Pause.visible = paused
+		$Pause/Resume.visible = true
+		$Pause/Label.text = "PAUSED"
 		return
 
 	if paused:
 		return
 		
 	if health <= 0:
-		_end_song()
+		_toggle_pause()
+		$Pause.visible = true
+		$Pause/Resume.visible = false
+		$Pause/Label.text = "GAME OVER"
 
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
@@ -262,7 +273,6 @@ func _get_scroll_position(time_sec: float) -> float:
 
 func _toggle_pause() -> void:
 	paused = !paused
-	$Pause.visible = paused
 	if paused:
 		get_tree().paused = true
 		$Pause.process_mode = Node.PROCESS_MODE_ALWAYS  # so Pause UI still works while tree is paused
@@ -374,6 +384,8 @@ func _change_visibility(obj, boole) -> void:
 	obj.visible = boole
 	
 func _start(song: String, json_file: String) -> void:
+	current_song = song
+	current_json = json_file
 	paused = false
 	$Pause.visible = false
 	var path = maps_location + song + "/" + json_file
@@ -412,6 +424,8 @@ func _start(song: String, json_file: String) -> void:
 		song_started = true
 		
 func _start_from_path(song_folder_path: String, json_file: String) -> void:
+	current_song_path = song_folder_path  
+	current_json = json_file
 	paused = false
 	$Pause.visible = false
 
@@ -455,6 +469,32 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 		$AudioStreamPlayer.stream = audio_stream
 
 	song_started = true
+
+func _restart() -> void:
+	# Clear all spawned notes
+	for note in note_container.get_children():
+		note.queue_free()
+
+	# Reset all stats
+	perfect = 0
+	great   = 0
+	good    = 0
+	ok      = 0
+	meh     = 0
+	misses  = 0
+	score   = 0
+	combo   = 0
+	highest_combo = 0
+	health  = max_health
+	song_started = false
+
+	# Stop audio so _start() sets it fresh
+	$AudioStreamPlayer.stop()
+
+	if current_song_path != "":
+		_start_from_path(current_song_path, current_json)
+	else:
+		_start(current_song, current_json)
 
 func _end_song() -> void:
 	song_started = false

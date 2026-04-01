@@ -17,7 +17,6 @@ func load_songs() -> void:
 	var category_container = $ScrollContainer/VBoxContainer
 	$Select.pressed.connect(select_song)
 
-	# Combine built-in song folders with any from mods
 	var all_song_folders: Array = []
 
 	var builtin_dir = DirAccess.open(maps_location)
@@ -30,11 +29,9 @@ func load_songs() -> void:
 			folder_name = builtin_dir.get_next()
 		builtin_dir.list_dir_end()
 
-	# Append mod songs
 	for mod_path in ModLoader.mod_song_paths:
 		all_song_folders.append(mod_path)
 
-	# Now build UI the same way as before, but using all_song_folders
 	for song_folder_path in all_song_folders:
 		var json_files = get_json_files_in_folder(song_folder_path)
 		if json_files.size() == 0:

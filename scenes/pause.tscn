@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://7yplwwo81nr6" path="res://assets/Roboto/static/Roboto_SemiCondensed-Bold.ttf" id="2_r8yp4"]
 [ext_resource type="Script" uid="uid://de28n57k2dwo3" path="res://scenes/resume.gd" id="3_m0klm"]
 [ext_resource type="Script" uid="uid://cecp3lxoosam2" path="res://scenes/quit.gd" id="4_aicil"]
+[ext_resource type="Script" uid="uid://cqfie4nnlmig3" path="res://scripts/restart.gd" id="4_jn4bt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8yp4"]
 font = ExtResource("1_f1d2v")
@@ -32,22 +33,34 @@ horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="." unique_id=170898683]
 layout_mode = 0
-offset_left = 291.0
-offset_top = 135.0
-offset_right = 855.0
-offset_bottom = 194.0
+offset_left = 296.0
+offset_top = 128.0
+offset_right = 860.0
+offset_bottom = 193.0
 theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
 text = "RESUME"
 flat = true
 script = ExtResource("3_m0klm")
 
+[node name="Restart" type="Button" parent="." unique_id=355467633]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 232.0
+offset_right = 860.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("2_r8yp4")
+theme_override_font_sizes/font_size = 48
+text = "RESTART"
+flat = true
+script = ExtResource("4_jn4bt")
+
 [node name="Quit" type="Button" parent="." unique_id=21198805]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 229.0
-offset_right = 852.0
-offset_bottom = 294.0
+offset_left = 296.0
+offset_top = 344.0
+offset_right = 860.0
+offset_bottom = 409.0
 theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
 text = "QUIT"
@@ -55,4 +68,5 @@ flat = true
 script = ExtResource("4_aicil")
 
 [connection signal="pressed" from="Resume" to="Resume" method="_on_pressed"]
+[connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
