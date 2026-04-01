@@ -35,6 +35,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_feb5d")
 
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=58561845]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=860310499]
 
 [node name="background" type="TextureRect" parent="." unique_id=573643336]

@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b0pvhea2l7bv6" path="res://results.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://4lhcv0oewlqo" path="res://main_menu.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="5_lquwl"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cirljfptkt038" path="res://scripts/fps.gd" id="7_272bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font = ExtResource("6_7mycd")
+font_size = 23
 
 [node name="Main" type="Node" unique_id=984286019]
 
@@ -25,3 +31,15 @@ offset_left = -329.0
 offset_top = 1.0
 offset_right = -1154.0
 offset_bottom = 1.0
+
+[node name="Label" type="Label" parent="." unique_id=110412675]
+visible = false
+offset_left = 1042.0
+offset_top = 608.0
+offset_right = 1151.0
+offset_bottom = 643.0
+text = "FPS: 100"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_272bh")
