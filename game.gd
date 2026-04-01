@@ -96,6 +96,9 @@ func _process(delta: float) -> void:
 
 	if paused:
 		return
+		
+	if health <= 0:
+		_end_song()
 
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
@@ -466,6 +469,5 @@ func _end_song() -> void:
 	$".".visible = false
 	$"../Results".visible = true
 	
-	# RESET AFTER saving results
 	combo = 0
 	health = max_health

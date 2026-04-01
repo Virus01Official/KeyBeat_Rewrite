@@ -173,6 +173,7 @@ text = "Select"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=195549456]
 
 [node name="Settings" parent="." unique_id=1232555519 instance=ExtResource("8_l5iki")]
+visible = false
 layout_mode = 1
 offset_left = -335.0
 offset_right = -1152.0
