@@ -194,6 +194,7 @@ func _on_search_bar_text_changed() -> void:
 			category.visible = false
 			
 	category_container.recalculate() 
+	$ScrollContainer.scroll_to_top()
 
 func _on_button_pressed() -> void:
 	var settings = $"../Settings"

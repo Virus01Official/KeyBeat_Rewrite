@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://mhuj5upq3ldd"]
 
+[ext_resource type="Script" uid="uid://dderd850w632y" path="res://scripts/main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://df012x1ap2b3l" path="res://play_menu.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://besf6q0l1futb" path="res://game.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b0pvhea2l7bv6" path="res://results.tscn" id="3_h2yge"]
@@ -13,6 +14,7 @@ font = ExtResource("6_7mycd")
 font_size = 23
 
 [node name="Main" type="Node" unique_id=984286019]
+script = ExtResource("1_5vw27")
 
 [node name="play_menu" parent="." unique_id=1643322065 instance=ExtResource("1_ig7tw")]
 visible = false

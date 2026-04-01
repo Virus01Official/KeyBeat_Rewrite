@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://0g7prdmqpsb1" path="res://scripts/scroll_speed_slider.gd" id="3_3ykye"]
 [ext_resource type="Script" uid="uid://jmkkjcq0o54q" path="res://scripts/fps_checkbox.gd" id="4_3j6r5"]
 [ext_resource type="Script" uid="uid://cm0me27sxnvtg" path="res://scripts/music_slider.gd" id="4_71mqq"]
-[ext_resource type="Texture2D" uid="uid://bmakgxrw2sctc" path="res://assets/icon_cross.png" id="4_gc0em"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
 font = ExtResource("1_x2hje")
@@ -252,7 +251,9 @@ offset_left = 283.0
 offset_top = 1.0
 offset_right = 327.0
 offset_bottom = 45.0
-icon = ExtResource("4_gc0em")
+theme_override_fonts/font = ExtResource("1_x2hje")
+theme_override_font_sizes/font_size = 36
+text = "X"
 flat = true
 
 [connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
