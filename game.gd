@@ -355,9 +355,11 @@ func _check_hit(direction: String) -> void:
 	if closest.is_hold:
 		closest.hold_active = true
 		_register_hit(time_diff)
+		$Hitsound.play()
 	else:
 		closest.queue_free()
 		_register_hit(time_diff)
+		$Hitsound.play()
 			
 func _check_hold_release(direction: String) -> void:
 	for note in note_container.get_children():
@@ -416,6 +418,7 @@ func _register_miss() -> void:
 	combo = 0
 	score -= 10
 	health -= 10
+	$Miss.play()
 
 func _change_visibility(obj, boole) -> void:
 	obj.visible = boole

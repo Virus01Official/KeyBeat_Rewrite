@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bck3gg7rh2bxt" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_e2o6t"]
+[ext_resource type="AudioStream" uid="uid://oahfdwtxjat1" path="res://assets/hitsound.ogg" id="2_ryrav"]
+[ext_resource type="AudioStream" uid="uid://cgyqg1rcu6ygv" path="res://assets/miss.ogg" id="3_eow3j"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bbktbv233vb6l" path="res://scenes/pause.tscn" id="4_fc0e3"]
 
@@ -71,7 +73,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_feb5d")
 
-[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=58561845]
+[node name="Hitsound" type="AudioStreamPlayer" parent="." unique_id=58561845]
+stream = ExtResource("2_ryrav")
+bus = &"SFX"
+
+[node name="Miss" type="AudioStreamPlayer" parent="." unique_id=10768924]
+stream = ExtResource("3_eow3j")
+bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=860310499]
 
