@@ -513,15 +513,12 @@ func _get_current_sv_multiplier() -> float:
 	return multiplier
 
 func _restart() -> void:
-	# Clear all spawned notes
 	for note in note_container.get_children():
 		note.queue_free()
 
-	# Reset all stats
 	_reset_all_stats()
 	song_started = false
 
-	# Stop audio so _start() sets it fresh
 	$AudioStreamPlayer.stop()
 
 	if current_song_path != "":
@@ -531,6 +528,7 @@ func _restart() -> void:
 
 func _reset_all_stats() -> void:
 	perfect = 0
+	chart = []
 	great   = 0
 	good    = 0
 	ok      = 0
