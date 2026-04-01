@@ -1,5 +1,5 @@
 extends Label
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var time = Time.get_time_dict_from_system()
 	var hour = time.hour % 12
 	if hour == 0:

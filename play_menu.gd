@@ -168,3 +168,17 @@ func _on_search_bar_text_changed() -> void:
 			category.visible = false
 			
 	category_container.recalculate() 
+
+
+func _on_button_pressed() -> void:
+	var settings = $Settings
+	var screen_width = get_viewport().get_visible_rect().size.x
+	var target_x = 0.0 
+
+	settings.position.x = -screen_width
+	settings.visible = true
+
+	var tween = create_tween()
+	tween.tween_property(settings, "position:x", target_x, 0.4)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)

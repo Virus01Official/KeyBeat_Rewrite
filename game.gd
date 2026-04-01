@@ -80,8 +80,7 @@ func _process(delta: float) -> void:
 	$Stuff/Combo.text = str(combo)
 	
 	var acc := _accuracy()
-	$Stuff/Accurancy.text = "%.2f%%" % acc          # e.g. "97.43%"
-	#$Stuff/Grade.text    = _grade(acc)
+	$Stuff/Accurancy.text = "%.2f%%" % acc
 	
 	$Health.value = lerp($Health.value, float(health), delta * 10.0)
 	

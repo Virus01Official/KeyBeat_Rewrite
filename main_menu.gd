@@ -9,7 +9,17 @@ func _on_quit_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	$SettingsUI.visible = true
+	var settings = $SettingsUI
+	var screen_width = get_viewport().get_visible_rect().size.x
+	var target_x = 0.0  
+
+	settings.position.x = -screen_width
+	settings.visible = true
+
+	var tween = create_tween()
+	tween.tween_property(settings, "position:x", target_x, 0.4)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 
 func _on_credits_pressed() -> void:
 	$credits.visible = true

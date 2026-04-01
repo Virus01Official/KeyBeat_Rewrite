@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 [ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="4_br1it"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_u3k0c"]
+[ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="8_l5iki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -171,4 +172,10 @@ text = "Select"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=195549456]
 
+[node name="Settings" parent="." unique_id=1232555519 instance=ExtResource("8_l5iki")]
+layout_mode = 1
+offset_left = -335.0
+offset_right = -1152.0
+
 [connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]
+[connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]
