@@ -611,3 +611,52 @@ func _save_score() -> void:
 		print("Scores saved to: ", save_path)
 	else:
 		print("Failed to write scores file!")
+
+
+func _on_right_button_down() -> void:
+	_change_visibility($Right/TextureRect, false)
+	_change_visibility($Right/Glow, true)
+	right_pressed = true
+	_check_hit("right")
+
+func _on_right_button_up() -> void:
+	_change_visibility($Right/TextureRect, true)
+	_change_visibility($Right/Glow, false)
+	right_pressed = false
+	_check_hold_release("right")
+
+func _on_left_button_down() -> void:
+	_change_visibility($Left/TextureRect, false)
+	_change_visibility($Left/Glow, true)
+	left_pressed = true
+	_check_hit("left")
+
+func _on_left_button_up() -> void:
+	_change_visibility($Left/TextureRect, true)
+	_change_visibility($Left/Glow, false)
+	left_pressed = false
+	_check_hold_release("left")
+
+func _on_down_button_down() -> void:
+	_change_visibility($Down/TextureRect, false)
+	_change_visibility($Down/Glow, true)
+	down_pressed = true
+	_check_hit("down")
+
+func _on_down_button_up() -> void:
+	_change_visibility($Down/TextureRect, true)
+	_change_visibility($Down/Glow, false)
+	down_pressed = false
+	_check_hold_release("down")
+
+func _on_up_button_down() -> void:
+	_change_visibility($Up/TextureRect, false)
+	_change_visibility($Up/Glow, true)
+	up_pressed = true
+	_check_hit("up")
+
+func _on_up_button_up() -> void:
+	_change_visibility($Up/TextureRect, true)
+	_change_visibility($Up/Glow, false)
+	up_pressed = false
+	_check_hold_release("up")
