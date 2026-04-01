@@ -26,6 +26,18 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+bg_color = Color(0.6, 0.61960787, 0.6, 0.3529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
+bg_color = Color(0.6, 0.6, 0.7294118, 0.3529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
+bg_color = Color(0.6, 0.47843137, 0.6, 0.3529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hve3p"]
+bg_color = Color(0.4392157, 0.6, 0.6, 0.3529412)
+
 [node name="game" type="Control" unique_id=246239586]
 layout_mode = 3
 anchors_preset = 15
@@ -297,3 +309,39 @@ offset_bottom = 40.0
 [node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]
 visible = false
 layout_mode = 1
+
+[node name="Mobile" type="Control" parent="." unique_id=479975973]
+visible = false
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+
+[node name="Button" type="Button" parent="Mobile" unique_id=280079085]
+layout_mode = 0
+offset_right = 293.0
+offset_bottom = 650.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eow3j")
+
+[node name="Button2" type="Button" parent="Mobile" unique_id=1944170061]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 1.0
+offset_right = 586.0
+offset_bottom = 651.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j5wjh")
+
+[node name="Button3" type="Button" parent="Mobile" unique_id=273020759]
+layout_mode = 0
+offset_left = 585.0
+offset_top = -1.0
+offset_right = 878.0
+offset_bottom = 649.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vef74")
+
+[node name="Button4" type="Button" parent="Mobile" unique_id=1467035750]
+layout_mode = 0
+offset_left = 878.0
+offset_top = -2.0
+offset_right = 1171.0
+offset_bottom = 648.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hve3p")

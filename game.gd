@@ -111,6 +111,14 @@ func _process(delta: float) -> void:
 	if paused:
 		return
 		
+	match OS.get_name():
+		"Windows":
+			$Mobile.visible = false
+		"Linux":
+			$Mobile.visible = false
+		"Android":
+			$Mobile.visible = true
+		
 	if health <= 0:
 		_toggle_pause()
 		$Pause.visible = true
