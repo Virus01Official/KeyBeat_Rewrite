@@ -2,11 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cj7a3tye8kqnd" path="res://settings.gd" id="1_cj1lu"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_x2hje"]
-[ext_resource type="Script" uid="uid://c2igc2vh8ywv0" path="res://check_box.gd" id="2_nkug2"]
-[ext_resource type="Script" uid="uid://0g7prdmqpsb1" path="res://scripts/scroll_speed_slider.gd" id="3_3ykye"]
-[ext_resource type="Script" uid="uid://jmkkjcq0o54q" path="res://scripts/fps_checkbox.gd" id="4_3j6r5"]
-[ext_resource type="Script" uid="uid://cm0me27sxnvtg" path="res://scripts/music_slider.gd" id="4_71mqq"]
-[ext_resource type="Script" uid="uid://bxp82e5h4evsd" path="res://scripts/sfx_volume_slider.gd" id="6_3j6r5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
 font = ExtResource("1_x2hje")
@@ -81,7 +76,6 @@ offset_top = 12.0
 offset_right = 141.0
 offset_bottom = 36.0
 button_pressed = true
-script = ExtResource("2_nkug2")
 
 [node name="Control3" type="Control" parent="Panel/Control/VBoxContainer" unique_id=929253714]
 layout_mode = 2
@@ -101,7 +95,6 @@ offset_left = 180.0
 offset_top = 12.0
 offset_right = 204.0
 offset_bottom = 36.0
-script = ExtResource("4_3j6r5")
 
 [node name="Control2" type="Control" parent="Panel" unique_id=998488541]
 anchors_preset = 0
@@ -143,7 +136,6 @@ offset_left = 134.0
 offset_right = 314.0
 offset_bottom = 49.0
 value = 100.0
-script = ExtResource("4_71mqq")
 
 [node name="Control3" type="Control" parent="Panel/Control2/VBoxContainer" unique_id=202335441]
 layout_mode = 2
@@ -157,13 +149,12 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Panel/Control2/VBoxContainer/Control3/Label" unique_id=467792066]
+[node name="SFX_Slider" type="HSlider" parent="Panel/Control2/VBoxContainer/Control3/Label" unique_id=467792066]
 layout_mode = 0
 offset_left = 137.0
 offset_right = 314.0
 offset_bottom = 49.0
 value = 100.0
-script = ExtResource("6_3j6r5")
 
 [node name="Control3" type="Control" parent="Panel" unique_id=238732272]
 anchors_preset = 0
@@ -199,7 +190,7 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=341626529]
+[node name="scroll_vel" type="HSlider" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=341626529]
 layout_mode = 0
 offset_left = 137.0
 offset_right = 314.0
@@ -207,7 +198,6 @@ offset_bottom = 49.0
 min_value = 1.0
 max_value = 1500.0
 value = 500.0
-script = ExtResource("3_3ykye")
 
 [node name="LineEdit" type="LineEdit" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=1038486631]
 layout_mode = 0
@@ -259,10 +249,10 @@ theme_override_font_sizes/font_size = 36
 text = "X"
 flat = true
 
-[connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="Panel/Control/VBoxContainer/Control2/Label/CheckBox" method="_on_toggled"]
-[connection signal="toggled" from="Panel/Control/VBoxContainer/Control3/Label/CheckBox" to="Panel/Control/VBoxContainer/Control3/Label/CheckBox" method="_on_toggled"]
-[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control2/Label/HSlider" to="Panel/Control2/VBoxContainer/Control2/Label/HSlider" method="_on_value_changed"]
-[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control3/Label/HSlider" to="Panel/Control2/VBoxContainer/Control3/Label/HSlider" method="_on_value_changed"]
-[connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/HSlider" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_value_changed"]
-[connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="Panel/Control3/VBoxContainer/Control3/Label/HSlider" method="_on_line_edit_text_changed"]
+[connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="toggled" from="Panel/Control/VBoxContainer/Control3/Label/CheckBox" to="." method="_on_FPS_check_box_toggled"]
+[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control2/Label/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control3/Label/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/scroll_vel" to="." method="_on_scroll_vel_value_changed"]
+[connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
