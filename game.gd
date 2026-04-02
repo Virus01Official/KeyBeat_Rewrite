@@ -133,7 +133,7 @@ func _process(delta: float) -> void:
 		"Android":
 			$Mobile.visible = true
 		
-	if health <= 0:
+	if health <= 0 and not Modifiers.no_fail:
 		_toggle_pause()
 		$Pause.visible = true
 		$Pause/Resume.visible = false

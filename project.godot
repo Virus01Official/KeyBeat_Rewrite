@@ -19,6 +19,7 @@ config/icon="uid://0lqg0g2di4xv"
 
 GameData="*uid://wypyk6eul301"
 ModLoader="*uid://bbbkwbbfyvaay"
+Modifiers="*uid://dpsbrr025h4ik"
 
 [display]
 

@@ -97,6 +97,18 @@ theme_override_fonts/font = ExtResource("4_u3k0c")
 theme_override_font_sizes/font_size = 23
 placeholder_text = "SEARCH"
 
+[node name="Modifiers" type="Panel" parent="Panel" unique_id=499584818]
+layout_mode = 0
+offset_left = 177.0
+offset_right = 401.0
+offset_bottom = 38.0
+
+[node name="ModifiersButton" type="Button" parent="Panel/Modifiers" unique_id=1518227218]
+layout_mode = 0
+offset_right = 37.0
+offset_bottom = 37.0
+flat = true
+
 [node name="Panel2" type="Panel" parent="." unique_id=1468657143]
 layout_mode = 0
 offset_left = -2.0
