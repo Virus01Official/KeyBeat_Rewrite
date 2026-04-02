@@ -343,6 +343,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Rating" type="TextureRect" parent="." unique_id=52306530]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 296.0
+offset_right = 654.0
+offset_bottom = 446.0
+expand_mode = 1
+
 [node name="Mobile" type="Control" parent="." unique_id=479975973]
 visible = false
 anchors_preset = 0

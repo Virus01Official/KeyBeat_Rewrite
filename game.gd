@@ -6,9 +6,13 @@ var up_pressed = false
 var right_pressed = false
 var maps_location = "res://songs/"
 
+var _rating_tween: Tween
+
 var final_accuracy: float = 0.0
 var final_grade: String = ""
 var _touch_direction: Dictionary = {}
+
+@onready var rating = $Rating
 
 var current_song: String = ""
 var current_json: String = ""
@@ -17,6 +21,15 @@ var current_song_path: String = ""
 var sv_points: Array = []
 
 var countdown: float = 0.0
+
+var rating_textures = {
+	"max":   preload("res://assets/rating/Perfect.png"),
+	"great": preload("res://assets/rating/Perfect.png"),
+	"good":  preload("res://assets/rating/Good.png"),
+	"ok":    preload("res://assets/rating/Okay.png"),
+	"meh":   preload("res://assets/rating/Bad.png"),
+	"miss":  preload("res://assets/rating/Miss.png"),
+}
 
 var paused = false
 
@@ -263,8 +276,8 @@ func _check_missed_notes() -> void:
 			_register_hit(0.0)
 			note.queue_free()
 			continue
-			
-		if note.position.y < RECEPTOR_Y - (HIT_WINDOW_MISS * NOTE_SPEED) and not note.hold_active:
+
+		if not note.hold_active and note.position.y < RECEPTOR_Y - 64:
 			_register_miss()
 			note.queue_free()
 			
@@ -372,7 +385,7 @@ func _check_hold_release(direction: String) -> void:
 
 func _register_hit(time_diff: float) -> void:
 	if time_diff <= HIT_WINDOW_PERFECT:
-		print("MAX (320)")
+		_show_rating("max")
 		perfect += 1
 		combo += 1
 		if combo > highest_combo:
@@ -380,7 +393,7 @@ func _register_hit(time_diff: float) -> void:
 		score += 320
 		health = min(health + 20, max_health)
 	elif time_diff <= HIT_WINDOW_GREAT:
-		print("GREAT (300)")
+		_show_rating("great")
 		great += 1
 		combo += 1
 		if combo > highest_combo:
@@ -388,7 +401,7 @@ func _register_hit(time_diff: float) -> void:
 		score += 300
 		health = min(health + 16, max_health)
 	elif time_diff <= HIT_WINDOW_GOOD:
-		print("GOOD (200)")
+		_show_rating("good")
 		good += 1
 		score += 200
 		combo += 1
@@ -396,7 +409,7 @@ func _register_hit(time_diff: float) -> void:
 			highest_combo = combo
 		health = min(health + 12, max_health)
 	elif time_diff <= HIT_WINDOW_OK:
-		print("OK (100)")
+		_show_rating("ok")
 		ok += 1
 		combo += 1
 		if combo > highest_combo:
@@ -404,7 +417,7 @@ func _register_hit(time_diff: float) -> void:
 		score += 100
 		health = min(health + 8, max_health)
 	else:
-		print("MEH (50)")
+		_show_rating("meh")
 		meh += 1
 		combo += 1
 		if combo > highest_combo:
@@ -413,12 +426,12 @@ func _register_hit(time_diff: float) -> void:
 		health = min(health + 4, max_health)
 
 func _register_miss() -> void:
-	print("MISS")
 	misses += 1
 	combo = 0
 	score -= 10
 	health -= 10
 	$Miss.play()
+	_show_rating("miss")
 
 func _change_visibility(obj, boole) -> void:
 	obj.visible = boole
@@ -637,6 +650,15 @@ func _save_score() -> void:
 		print("Scores saved to: ", save_path)
 	else:
 		print("Failed to write scores file!")
+
+func _show_rating(key: String) -> void:
+	if _rating_tween:
+		_rating_tween.kill()
+	rating.texture = rating_textures.get(key)
+	rating.modulate.a = 1.0
+	_rating_tween = create_tween()
+	_rating_tween.tween_interval(0.5)
+	_rating_tween.tween_property(rating, "modulate:a", 0.0, 0.3)
 
 func _get_touch_direction(pos: Vector2) -> String:
 	if $Mobile/Left.get_global_rect().has_point(pos):
