@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxsvcglrxplx5" path="res://settings.tscn" id="5_lquwl"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://cirljfptkt038" path="res://scripts/fps.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://buk80e6we7l16" path="res://scenes/chart_editor.tscn" id="7_kek77"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font = ExtResource("6_7mycd")
@@ -33,6 +34,9 @@ offset_left = -329.0
 offset_top = 1.0
 offset_right = -1154.0
 offset_bottom = 1.0
+
+[node name="Chart Editor" parent="." unique_id=1958515758 instance=ExtResource("7_kek77")]
+visible = false
 
 [node name="Label" type="Label" parent="." unique_id=110412675]
 visible = false

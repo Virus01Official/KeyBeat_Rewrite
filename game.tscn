@@ -71,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(578.91, 324)
 script = ExtResource("1_feb5d")
 
 [node name="Hitsound" type="AudioStreamPlayer" parent="." unique_id=58561845]
@@ -95,6 +96,7 @@ offset_left = 234.0
 offset_top = 1.0
 offset_right = 407.0
 offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Left" unique_id=155453095]
 layout_mode = 0
@@ -123,6 +125,7 @@ offset_left = 580.0
 offset_top = 1.0
 offset_right = 753.0
 offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Up" unique_id=1881608005]
 layout_mode = 0
@@ -151,6 +154,7 @@ offset_left = 407.0
 offset_top = 1.0
 offset_right = 580.0
 offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Down" unique_id=1478833581]
 layout_mode = 0
@@ -179,6 +183,7 @@ offset_left = 753.0
 offset_top = 1.0
 offset_right = 926.0
 offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Right" unique_id=1726780276]
 layout_mode = 0

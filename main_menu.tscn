@@ -107,12 +107,22 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "CREDITS"
 
-[node name="Quit" type="Button" parent="." unique_id=1075235682]
+[node name="ChartEditor" type="Button" parent="." unique_id=44653809]
 layout_mode = 0
 offset_left = 440.0
 offset_top = 384.0
 offset_right = 649.0
 offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 24
+text = "CHART EDITOR"
+
+[node name="Quit" type="Button" parent="." unique_id=1075235682]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 448.0
+offset_right = 649.0
+offset_bottom = 485.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
@@ -126,4 +136,5 @@ layout_mode = 1
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ChartEditor" to="." method="_on_chart_editor_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

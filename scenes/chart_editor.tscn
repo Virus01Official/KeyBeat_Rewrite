@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://buk80e6we7l16"]
+
+[ext_resource type="Script" uid="uid://dgwy3hovl6uef" path="res://scripts/chart_editor.gd" id="1_7q73h"]
+[ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_awhgf"]
+[ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_7q73h"]
+
+[node name="Chart Editor" type="Control" unique_id=1958515758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7q73h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1800884006]
+
+[node name="background" type="TextureRect" parent="." unique_id=443012425]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 642.0
+expand_mode = 1
+
+[node name="Left" type="Panel" parent="." unique_id=2001220437]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 1.0
+offset_right = 407.0
+offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
+
+[node name="TextureRect" type="TextureRect" parent="Left" unique_id=111527908]
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_awhgf")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Left" unique_id=1686521995]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_7q73h")
+expand_mode = 1
+
+[node name="Up" type="Panel" parent="." unique_id=1335612039]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 1.0
+offset_right = 753.0
+offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
+
+[node name="TextureRect" type="TextureRect" parent="Up" unique_id=1988182269]
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_awhgf")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Up" unique_id=1843640853]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_7q73h")
+expand_mode = 1
+
+[node name="Down" type="Panel" parent="." unique_id=370165414]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 1.0
+offset_right = 580.0
+offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
+
+[node name="TextureRect" type="TextureRect" parent="Down" unique_id=2012708125]
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_awhgf")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Down" unique_id=1331362785]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_7q73h")
+expand_mode = 1
+
+[node name="Right" type="Panel" parent="." unique_id=2004634317]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 1.0
+offset_right = 926.0
+offset_bottom = 648.0
+pivot_offset = Vector2(87, 323)
+
+[node name="TextureRect" type="TextureRect" parent="Right" unique_id=899187148]
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_awhgf")
+expand_mode = 1
+
+[node name="Glow" type="TextureRect" parent="Right" unique_id=648665271]
+visible = false
+layout_mode = 0
+offset_left = 33.999996
+offset_top = 0.99999994
+offset_right = 74.0
+offset_bottom = 41.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_7q73h")
+expand_mode = 1
+
+[node name="NoteContainer" type="Control" parent="." unique_id=1001567501]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1772563700]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+file_mode = 0
+use_native_dialog = true

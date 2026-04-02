@@ -133,3 +133,9 @@ func _on_settings_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	$credits.visible = true
+
+
+func _on_chart_editor_pressed() -> void:
+	$".".visible = false
+	$"../Chart Editor".visible = true
+	$AudioStreamPlayer.stop()

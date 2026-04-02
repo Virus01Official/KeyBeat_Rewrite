@@ -216,6 +216,81 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/Control3/VBoxContainer/Control4" unique_id=380883261]
 layout_mode = 0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 150.0
+offset_bottom = 44.0
+text = "Scroll Direction:"
+label_settings = SubResource("LabelSettings_3ykye")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Control3/VBoxContainer/Control4/Label" unique_id=952755804]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 4.0
+offset_right = 239.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("1_x2hje")
+theme_override_font_sizes/font_size = 21
+selected = 0
+item_count = 2
+popup/item_0/text = "Up"
+popup/item_0/id = 0
+popup/item_1/text = "Down"
+popup/item_1/id = 1
+
+[node name="Control4" type="Control" parent="Panel" unique_id=1917590123]
+anchors_preset = 0
+offset_top = 529.0
+offset_bottom = 529.0
+
+[node name="Label" type="Label" parent="Panel/Control4" unique_id=602983131]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 43.0
+text = "Customization"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Control4" unique_id=558846368]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 329.0
+offset_bottom = 175.0
+theme_override_constants/separation = 70
+
+[node name="Control3" type="Control" parent="Panel/Control4/VBoxContainer" unique_id=613906635]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Control4/VBoxContainer/Control3" unique_id=960689130]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 43.0
+text = "Skins:"
+label_settings = SubResource("LabelSettings_x2hje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control3/Label" unique_id=1912391231]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 39.0
+selected = 0
+item_count = 1
+popup/item_0/text = "Default"
+popup/item_0/id = 0
+
+[node name="Control4" type="Control" parent="Panel/Control4/VBoxContainer" unique_id=1799872980]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Control4/VBoxContainer/Control4" unique_id=1322991029]
+layout_mode = 0
 offset_right = 139.0
 offset_bottom = 43.0
 text = "Scroll Direction:"
@@ -223,7 +298,7 @@ label_settings = SubResource("LabelSettings_3ykye")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Panel/Control3/VBoxContainer/Control4/Label" unique_id=952755804]
+[node name="OptionButton" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control4/Label" unique_id=1512232564]
 layout_mode = 0
 offset_left = 139.0
 offset_top = 4.0
