@@ -180,6 +180,23 @@ func select_song():
 	$"..".get_node("game").visible = true
 	$"..".get_node("game")._start_from_path(selected_folder, selected_json) 
 
+func apply_preselected_song() -> void:
+	if selected_folder == "" or selected_json == "":
+		return
+	var song_data = load_song_json(selected_folder + selected_json)
+	if song_data.is_empty():
+		return
+	var star_rating = $"../game".calculate_difficulty(song_data)
+	var difficulty_label := "★ %.1f  %s" % [star_rating, song_data.get("difficulty", selected_json.get_basename())]
+	choose(
+		song_data.get("title", "Unknown"),
+		difficulty_label,
+		song_data.get("credits", "No one"),
+		song_data.get("mapper", "No one"),
+		selected_folder,
+		selected_json
+	)
+
 func _on_search_bar_text_changed() -> void:
 	var query = search_bar.text.strip_edges().to_lower()
 	var category_container = $ScrollContainer/VBoxContainer

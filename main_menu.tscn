@@ -121,6 +121,8 @@ text = "QUIT"
 visible = false
 layout_mode = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=568101263]
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
