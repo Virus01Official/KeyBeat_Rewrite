@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://15viocamftje"
-path="res://.godot/imported/background.png-44d0c82b70599a5671315d1420f65760.ctex"
+uid="uid://7ke6hqogwaq8"
+path="res://.godot/imported/background.jpg-ffeb025d53da5da10e74d931ca320fa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://songs/Elysium/background.png"
-dest_files=["res://.godot/imported/background.png-44d0c82b70599a5671315d1420f65760.ctex"]
+source_file="res://songs/Elysium/background.jpg"
+dest_files=["res://.godot/imported/background.jpg-ffeb025d53da5da10e74d931ca320fa7.ctex"]
 
 [params]
 
