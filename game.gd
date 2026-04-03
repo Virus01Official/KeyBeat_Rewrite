@@ -24,7 +24,7 @@ var countdown: float = 0.0
 
 var rating_textures = {
 	"max":   preload("res://assets/rating/Perfect.png"),
-	"great": preload("res://assets/rating/Perfect.png"),
+	"great": preload("res://assets/rating/Great.png"),
 	"good":  preload("res://assets/rating/Good.png"),
 	"ok":    preload("res://assets/rating/Okay.png"),
 	"meh":   preload("res://assets/rating/Bad.png"),
