@@ -78,3 +78,6 @@ func _on_vsync_check_box_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+
+func _on_skins_option_item_selected(index: int) -> void:
+	pass

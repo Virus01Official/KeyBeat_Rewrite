@@ -241,6 +241,7 @@ popup/item_1/text = "Down"
 popup/item_1/id = 1
 
 [node name="Control4" type="Control" parent="Panel" unique_id=1917590123]
+visible = false
 anchors_preset = 0
 offset_top = 529.0
 offset_bottom = 529.0
@@ -274,7 +275,7 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control3/Label" unique_id=1912391231]
+[node name="SkinsOption" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control3/Label" unique_id=1912391231]
 layout_mode = 0
 offset_left = 110.0
 offset_top = 8.0
@@ -330,4 +331,5 @@ flat = true
 [connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control3/Label/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/scroll_vel" to="." method="_on_scroll_vel_value_changed"]
 [connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_selected" from="Panel/Control4/VBoxContainer/Control3/Label/SkinsOption" to="." method="_on_skins_option_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
