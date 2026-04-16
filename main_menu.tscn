@@ -108,7 +108,6 @@ theme_override_font_sizes/font_size = 24
 text = "CREDITS"
 
 [node name="ChartEditor" type="Button" parent="." unique_id=44653809]
-visible = false
 layout_mode = 0
 offset_left = 440.0
 offset_top = 384.0

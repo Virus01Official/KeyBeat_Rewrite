@@ -139,8 +139,8 @@ expand_mode = 1
 
 [node name="NoteContainer" type="Control" parent="." unique_id=1001567501]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1154.0
+offset_bottom = 649.0
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=1772563700]
 oversampling_override = 1.0

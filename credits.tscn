@@ -44,7 +44,7 @@ script = ExtResource("1_c1t8d")
 
 [node name="Panel" type="Panel" parent="." unique_id=1421710415]
 layout_mode = 0
-offset_right = 1150.0
+offset_right = 1155.0
 offset_bottom = 643.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7lk")
 
