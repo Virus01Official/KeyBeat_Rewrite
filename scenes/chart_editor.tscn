@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_awhgf"]
 [ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_7q73h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q73h"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Chart Editor" type="Control" unique_id=1958515758]
 layout_mode = 3
 anchors_preset = 15
@@ -148,3 +151,49 @@ title = "Open a File"
 position = Vector2i(0, 36)
 file_mode = 0
 use_native_dialog = true
+
+[node name="Setup" type="Panel" parent="." unique_id=1307894410]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7q73h")
+
+[node name="SongName" type="LineEdit" parent="Setup" unique_id=604621199]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 71.0
+offset_right = 812.0
+offset_bottom = 120.0
+placeholder_text = "Song Name"
+
+[node name="DifficultyName" type="LineEdit" parent="Setup" unique_id=1119338078]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 132.0
+offset_right = 810.0
+offset_bottom = 181.0
+placeholder_text = "Difficulty"
+
+[node name="Credits" type="LineEdit" parent="Setup" unique_id=903429632]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 191.0
+offset_right = 811.0
+offset_bottom = 240.0
+placeholder_text = "Credits"
+
+[node name="Mapper" type="LineEdit" parent="Setup" unique_id=379619795]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 254.0
+offset_right = 813.0
+offset_bottom = 303.0
+placeholder_text = "Mapper"
+
+[node name="CreateButton" type="Button" parent="Setup" unique_id=1260990036]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 572.0
+offset_right = 694.0
+offset_bottom = 620.0
+text = "Create"
