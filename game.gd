@@ -129,10 +129,6 @@ func _process(delta: float) -> void:
 		return
 		
 	match OS.get_name():
-		"Windows":
-			$Mobile.visible = false
-		"Linux":
-			$Mobile.visible = false
 		"Android":
 			$Mobile.visible = true
 		
