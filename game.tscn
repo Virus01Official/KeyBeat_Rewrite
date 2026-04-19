@@ -8,6 +8,9 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bbktbv233vb6l" path="res://scenes/pause.tscn" id="4_fc0e3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfdv2"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
 font = ExtResource("4_7jktm")
 font_size = 29
@@ -206,6 +209,19 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
+[node name="NoteContainer" type="Control" parent="." unique_id=450970692]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hidden" type="Panel" parent="." unique_id=1419729149]
+visible = false
+layout_mode = 0
+offset_left = 232.0
+offset_right = 929.0
+offset_bottom = 329.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
+
 [node name="Stuff" type="Panel" parent="." unique_id=89570860]
 layout_mode = 0
 offset_left = 932.0
@@ -337,11 +353,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ryrav")
 value = 100.0
 fill_mode = 3
 show_percentage = false
-
-[node name="NoteContainer" type="Control" parent="." unique_id=450970692]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Rating" type="TextureRect" parent="." unique_id=52306530]
 layout_mode = 0

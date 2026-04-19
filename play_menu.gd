@@ -229,3 +229,6 @@ func _on_button_pressed() -> void:
 func _on_back_pressed() -> void:
 	$".".visible = false
 	$"../main_menu".visible = true
+
+func _on_modifiers_button_pressed() -> void:
+	$modifiersPanel.visible = not $modifiersPanel.visible

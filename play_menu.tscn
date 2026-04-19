@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 [ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="4_br1it"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_u3k0c"]
+[ext_resource type="Texture2D" uid="uid://l1j83tn315d1" path="res://assets/modifiers.png" id="6_l5iki"]
+[ext_resource type="Texture2D" uid="uid://dc5yh05ywg3qb" path="res://assets/hidden.png" id="9_3l3f8"]
+[ext_resource type="Script" uid="uid://dpwebc8rhc70u" path="res://scripts/hidden.gd" id="10_vwn38"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
 bg_color = Color(0, 0, 0, 0.5058824)
@@ -107,7 +110,9 @@ offset_bottom = 38.0
 layout_mode = 0
 offset_right = 37.0
 offset_bottom = 37.0
+icon = ExtResource("6_l5iki")
 flat = true
+expand_icon = true
 
 [node name="Panel2" type="Panel" parent="." unique_id=1468657143]
 layout_mode = 0
@@ -183,6 +188,34 @@ text = "Select"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=195549456]
 
+[node name="modifiersPanel" type="Panel" parent="." unique_id=2051287175]
+visible = false
+layout_mode = 0
+offset_left = 165.0
+offset_top = 442.0
+offset_right = 481.0
+offset_bottom = 609.0
+
+[node name="GridContainer" type="GridContainer" parent="modifiersPanel" unique_id=2027986908]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 168.0
+
+[node name="Control" type="Control" parent="modifiersPanel/GridContainer" unique_id=643988103]
+layout_mode = 2
+
+[node name="Hidden" type="Button" parent="modifiersPanel/GridContainer/Control" unique_id=1603603572]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 55.0
+toggle_mode = true
+icon = ExtResource("9_3l3f8")
+flat = true
+expand_icon = true
+script = ExtResource("10_vwn38")
+
 [connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]
+[connection signal="pressed" from="Panel/Modifiers/ModifiersButton" to="." method="_on_modifiers_button_pressed"]
 [connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="modifiersPanel/GridContainer/Control/Hidden" to="modifiersPanel/GridContainer/Control/Hidden" method="_on_toggled"]

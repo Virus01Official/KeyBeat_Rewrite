@@ -93,6 +93,9 @@ func _process(delta: float) -> void:
 			_end_song()
 			return
 		
+		
+	$Hidden.visible = Modifiers.hidden
+	
 	$Stuff/Perfect.text = "Perfect: " + str(perfect)
 	$Stuff/Great.text = "Great: " + str(great)
 	$Stuff/Good.text = "Good: " + str(good)
