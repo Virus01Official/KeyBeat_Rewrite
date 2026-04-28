@@ -124,14 +124,31 @@ func load_song_json(path: String) -> Dictionary:
 	return json.get_data()
 	
 func load_texture(path: String) -> Texture2D:
+	var img: Image
 	if path.begins_with("res://"):
-		return load(path) if ResourceLoader.exists(path) else null
+		if ResourceLoader.exists(path):
+			return load(path)
+		var file = FileAccess.open(path, FileAccess.READ)
+		if not file:
+			return null
+		var buffer = file.get_buffer(file.get_length())
+		file.close()
+		img = Image.new()
+		var ext = path.get_extension().to_lower()
+		var err = ERR_UNAVAILABLE
+		if ext == "png":
+			err = img.load_png_from_buffer(buffer)
+		elif ext in ["jpg", "jpeg"]:
+			err = img.load_jpg_from_buffer(buffer)
+		if err != OK or img.is_empty():
+			return null
 	else:
-		if FileAccess.file_exists(path):
-			var img = Image.load_from_file(path)
-			if img and not img.is_empty():
-				return ImageTexture.create_from_image(img)
-	return null
+		if not FileAccess.file_exists(path):
+			return null
+		img = Image.load_from_file(path)
+		if not img or img.is_empty():
+			return null
+	return ImageTexture.create_from_image(img)
 
 func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 	$Selected.text = song

@@ -10,7 +10,7 @@ var tips = [
 	"The difficulty is calculated automatically, report any calculation errors",
 	"This game was made for fun",
 	"You can use osu! to chart the songs",
-	"This is an open-source project",
+	"Also try Project: RUSHER",
 ]
 
 func _ready() -> void:
