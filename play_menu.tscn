@@ -44,6 +44,33 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_vwn38"]
+font = ExtResource("4_u3k0c")
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwn38"]
+bg_color = Color(0.069013, 0.41473356, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd052"]
+bg_color = Color(5.1740557e-07, 0.31228614, 3.3691526e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wmem"]
+bg_color = Color(0, 0.37354112, 1.92523e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="play_menu" type="Control" unique_id=1643322065]
 clip_contents = true
 layout_mode = 3
@@ -214,8 +241,55 @@ flat = true
 expand_icon = true
 script = ExtResource("10_vwn38")
 
+[node name="OriginPopup" type="Panel" parent="." unique_id=274459581]
+visible = false
+layout_mode = 0
+offset_left = 681.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 161.0
+
+[node name="GameImage" type="TextureRect" parent="OriginPopup" unique_id=194936457]
+layout_mode = 0
+offset_right = 472.0
+offset_bottom = 159.0
+expand_mode = 1
+
+[node name="GameName" type="Label" parent="OriginPopup" unique_id=368127870]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 36.0
+text = "FORSAKEN"
+label_settings = SubResource("LabelSettings_vwn38")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="OriginPopup" unique_id=483361162]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 113.0
+offset_right = 338.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("4_u3k0c")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_vwn38")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jd052")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8wmem")
+text = "PLAY"
+
+[node name="Close" type="Button" parent="OriginPopup" unique_id=101975966]
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u3k0c")
+theme_override_font_sizes/font_size = 25
+text = "X"
+flat = true
+
 [connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]
 [connection signal="pressed" from="Panel/Modifiers/ModifiersButton" to="." method="_on_modifiers_button_pressed"]
 [connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control/Hidden" to="modifiersPanel/GridContainer/Control/Hidden" method="_on_toggled"]
+[connection signal="pressed" from="OriginPopup/Close" to="." method="_on_origin_close_pressed"]

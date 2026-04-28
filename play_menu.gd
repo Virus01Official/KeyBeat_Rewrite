@@ -3,7 +3,20 @@ var maps_location = "res://songs/"
 var categoryScene = preload("res://category.tscn")
 
 var selected_folder: String = ""
-var selected_json: String = ""  # ADD THIS
+var selected_json: String = ""
+
+var song_origins: Dictionary = {
+	"Creation of Hatred": {
+		"game": "Roblox Forsaken",
+		"image": "res://assets/game_icons/Forsaken.png",
+		"url": "https://www.roblox.com/games/18687417158/Forsaken"
+	},
+	# "Another Song Title": {
+	#     "game": "Some Other Game",
+	#     "image": "res://assets/game_icons/other_game.png",
+	#     "url": "https://..."
+	# },
+}
 
 @onready var search_bar = $Panel/SearchBar
 
@@ -190,6 +203,37 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 		$AudioStreamPlayer.stream = audio_stream
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.play()
+		
+	if song in song_origins:
+		show_origin_popup(song_origins[song])
+	else:
+		$OriginPopup.visible = false
+
+func show_origin_popup(origin_data: Dictionary) -> void:
+	var popup = $OriginPopup
+	popup.get_node("GameName").text = origin_data.get("game", "Unknown Game")
+
+	var image_path = origin_data.get("image", "")
+	if image_path != "":
+		var tex = load_texture(image_path)
+		if tex:
+			popup.get_node("GameImage").texture = tex
+
+	var play_btn = popup.get_node("PlayButton")
+	play_btn.set_meta("url", origin_data.get("url", ""))
+
+	if not play_btn.pressed.is_connected(_on_origin_play_pressed):
+		play_btn.pressed.connect(_on_origin_play_pressed)
+
+	popup.visible = true
+
+func _on_origin_play_pressed() -> void:
+	var url = $OriginPopup/PlayButton.get_meta("url", "")
+	if url != "":
+		OS.shell_open(url)
+
+func _on_origin_close_pressed() -> void:
+	$OriginPopup.visible = false
 
 func select_song():
 	$AudioStreamPlayer.stop()
