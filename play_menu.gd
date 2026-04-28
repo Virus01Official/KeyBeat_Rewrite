@@ -60,7 +60,8 @@ func load_songs() -> void:
 		for ext in ["jpg", "png", "jpeg"]:
 			var image_path = song_folder_path + "background." + ext
 			var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
-			if FileAccess.file_exists(image_path):
+			var file_exists = ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path)
+			if file_exists:
 				texture_rect.texture = load_texture(image_path)
 				break
 
@@ -173,7 +174,8 @@ func choose(song, difficulty, credits, mapper, song_folder_path, json_file):
 
 	for ext in ["jpg", "png", "jpeg"]:
 		var image_path = song_folder_path + "background." + ext
-		if FileAccess.file_exists(image_path):
+		var file_exists = ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path)
+		if file_exists:
 			$Thumbnail.texture = load_texture(image_path)
 			break
 
