@@ -5,6 +5,11 @@ var direction: String = ""
 var duration: float = 0.0
 var is_hold: bool = false
 var hold_active: bool = false
+var is_stun: bool = false
+
+func _ready():
+	if is_stun:
+		modulate = Color(0.254, 0.664, 0.0, 1.0)
 
 func init_tail(spawn_speed: float) -> void:
 	is_hold = duration > 0.0

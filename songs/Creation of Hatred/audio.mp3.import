@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf63qy7b10yli"
+path="res://.godot/imported/audio.mp3-5863b6ff1768abc6f570cde1cf75d6ee.mp3str"
+
+[deps]
+
+source_file="res://songs/Creation of Hatred/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-5863b6ff1768abc6f570cde1cf75d6ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

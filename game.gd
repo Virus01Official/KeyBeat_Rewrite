@@ -6,6 +6,10 @@ var up_pressed = false
 var right_pressed = false
 var maps_location = "res://songs/"
 
+var stun_timer = 0.0
+
+var STUN_DURATION = 2.0
+
 var _rating_tween: Tween
 
 var final_accuracy: float = 0.0
@@ -137,7 +141,11 @@ func _process(delta: float) -> void:
 		$Pause.visible = true
 		$Pause/Resume.visible = false
 		$Pause/Label.text = "GAME OVER"
-
+	
+	if stun_timer > 0.0:
+		stun_timer -= delta
+		return
+	
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
 		_change_visibility($Down/Glow, true)
@@ -277,6 +285,9 @@ func _check_missed_notes() -> void:
 			continue
 
 		if not note.hold_active and note.position.y < RECEPTOR_Y - 64:
+			if note.is_stun:
+				note.queue_free()
+				continue
 			_register_miss()
 			note.queue_free()
 			
@@ -300,6 +311,8 @@ func _spawn_notes() -> void:
 
 			note.position = _get_lane_x(note.direction)
 			note.position.y = RECEPTOR_Y + visual_offset
+			
+			note.is_stun = note_data.get("type", "") == "stun"
 
 			note.duration = note_data.get("duration", 0) / 1000.0
 			note_container.add_child(note)
@@ -367,9 +380,13 @@ func _check_hit(direction: String) -> void:
 	if closest.is_hold:
 		closest.hold_active = true
 		_register_hit(time_diff)
+		if closest.is_stun:
+			_apply_stun()
 		$Hitsound.play()
 	else:
 		closest.queue_free()
+		if closest.is_stun:
+			_apply_stun()
 		_register_hit(time_diff)
 		$Hitsound.play()
 			
@@ -381,6 +398,9 @@ func _check_hold_release(direction: String) -> void:
 		if note.tail.size.y > 10.0:   
 			_register_miss()
 		note.queue_free()
+
+func _apply_stun() -> void:
+	stun_timer = STUN_DURATION
 
 func _register_hit(time_diff: float) -> void:
 	if time_diff <= HIT_WINDOW_PERFECT:
