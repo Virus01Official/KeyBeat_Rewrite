@@ -226,34 +226,41 @@ static func calculate_difficulty(charts: Dictionary) -> float:
 	var duration: float = (notes[-1]["time"] - notes[0]["time"]) / 1000.0
 	if duration <= 0.0:
 		duration = 1.0
+
 	var nps: float = notes.size() / duration
-	var density_score: float = minf(nps / 8.0, 1.0)
+	var density_score: float = minf(nps / 12.0, 1.0)
 
 	var max_run := 0
 	var run := 0
 	for i in range(1, notes.size()):
 		var gap: float = float(notes[i]["time"] - notes[i - 1]["time"])
-		if gap < beat_ms * 0.28:
+		if gap > 0 and gap < beat_ms * 0.18:
 			run += 1
 			max_run = max(max_run, run)
 		else:
 			run = 0
-	var stream_score: float = minf(float(max_run) / 16.0, 1.0)
+	var stream_score: float = minf(float(max_run) / 24.0, 1.0)
 
 	var total_lane_dist := 0.0
+	var dist_count := 0
 	var holds := 0
 	for i in range(1, notes.size()):
-		total_lane_dist += abs(int(notes[i]["lane"]) - int(notes[i - 1]["lane"]))
+		var time_gap: float = float(notes[i]["time"] - notes[i - 1]["time"])
+		if time_gap > 0:
+			total_lane_dist += abs(int(notes[i]["lane"]) - int(notes[i - 1]["lane"]))
+			dist_count += 1
 		if notes[i].has("duration"):
 			holds += 1
-	var avg_lane_dist: float = total_lane_dist / (notes.size() - 1)
+	var avg_lane_dist: float = total_lane_dist / max(dist_count, 1)
 	var hold_ratio: float = float(holds) / notes.size()
-	var pattern_score: float = minf(avg_lane_dist / 2.0 * 0.6 + hold_ratio * 0.4, 1.0)
+	var pattern_score: float = minf(avg_lane_dist / 3.0 * 0.7 + hold_ratio * 0.3, 1.0)
 
-	var bpm_factor: float = minf(bpm / 200.0, 1.0)
+	var bpm_factor: float = minf(maxf((bpm - 60.0) / 240.0, 0.0), 1.0)
 
-	var raw: float = density_score * 3.5 + stream_score * 3.0 \
-				   + pattern_score * 2.0 + bpm_factor * 1.5
+	var raw: float = density_score * 3.5 \
+				   + stream_score  * 3.0 \
+				   + pattern_score * 2.0 \
+				   + bpm_factor    * 1.5
 	return clampf(raw, 0.1, 10.0)
 
 func _total_notes() -> int:

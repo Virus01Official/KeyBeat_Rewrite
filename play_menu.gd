@@ -11,11 +11,11 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Forsaken.png",
 		"url": "https://www.roblox.com/games/18687417158/Forsaken"
 	},
-	# "Another Song Title": {
-	#     "game": "Some Other Game",
-	#     "image": "res://assets/game_icons/other_game.png",
-	#     "url": "https://..."
-	# },
+	"NOISZ": {
+		"game": "NOISZ",
+		"image": "res://assets/game_icons/noisz.jpg",
+		"url": "https://store.steampowered.com/app/681530/NOISZ/"
+	},
 }
 
 @onready var search_bar = $Panel/SearchBar
