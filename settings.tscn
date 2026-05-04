@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj7a3tye8kqnd" path="res://settings.gd" id="1_cj1lu"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="1_x2hje"]
+[ext_resource type="Script" uid="uid://buyj2lqvh4wpr" path="res://scripts/keybind_button.gd" id="3_3ykye"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkug2"]
 font = ExtResource("1_x2hje")
@@ -20,6 +21,102 @@ font = ExtResource("1_x2hje")
 font_size = 18
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_3ykye"]
+script/source = "extends Button
+
+var action_name: String = \"down\"
+var is_listening := false
+
+func _ready():
+	pressed.connect(_on_pressed)
+	update_label()
+
+func update_label():
+	var events = InputMap.action_get_events(action_name)
+	if events.size() > 0:
+		text = events[0].as_text()
+	else:
+		text = \"Unbound\"
+
+func _on_pressed():
+	is_listening = true
+	text = \"Press a key...\"
+
+func _input(event):
+	if not is_listening:
+		return
+	if event is InputEventKey and event.pressed:
+		InputMap.action_erase_events(action_name)
+		InputMap.action_add_event(action_name, event)
+		is_listening = false
+		update_label()
+		get_viewport().set_input_as_handled()
+"
+
+[sub_resource type="GDScript" id="GDScript_gc0em"]
+script/source = "extends Button
+
+var action_name: String = \"up\"
+var is_listening := false
+
+func _ready():
+	pressed.connect(_on_pressed)
+	update_label()
+
+func update_label():
+	var events = InputMap.action_get_events(action_name)
+	if events.size() > 0:
+		text = events[0].as_text()
+	else:
+		text = \"Unbound\"
+
+func _on_pressed():
+	is_listening = true
+	text = \"Press a key...\"
+
+func _input(event):
+	if not is_listening:
+		return
+	if event is InputEventKey and event.pressed:
+		InputMap.action_erase_events(action_name)
+		InputMap.action_add_event(action_name, event)
+		is_listening = false
+		update_label()
+		get_viewport().set_input_as_handled()
+"
+
+[sub_resource type="GDScript" id="GDScript_cj1lu"]
+script/source = "extends Button
+
+var action_name: String = \"right\"
+var is_listening := false
+
+func _ready():
+	pressed.connect(_on_pressed)
+	update_label()
+
+func update_label():
+	var events = InputMap.action_get_events(action_name)
+	if events.size() > 0:
+		text = events[0].as_text()
+	else:
+		text = \"Unbound\"
+
+func _on_pressed():
+	is_listening = true
+	text = \"Press a key...\"
+
+func _input(event):
+	if not is_listening:
+		return
+	if event is InputEventKey and event.pressed:
+		InputMap.action_erase_events(action_name)
+		InputMap.action_add_event(action_name, event)
+		is_listening = false
+		update_label()
+		get_viewport().set_input_as_handled()
+"
 
 [node name="Settings" type="Control" unique_id=1232555519]
 layout_mode = 3
@@ -274,6 +371,7 @@ offset_top = 15.0
 offset_right = 48.0
 offset_bottom = 67.0
 text = "D"
+script = ExtResource("3_3ykye")
 
 [node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=201131770]
 layout_mode = 2
@@ -284,6 +382,7 @@ offset_top = 15.0
 offset_right = 48.0
 offset_bottom = 67.0
 text = "F"
+script = SubResource("GDScript_3ykye")
 
 [node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=808572460]
 layout_mode = 2
@@ -294,6 +393,7 @@ offset_top = 15.0
 offset_right = 48.0
 offset_bottom = 67.0
 text = "J"
+script = SubResource("GDScript_gc0em")
 
 [node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=228145783]
 layout_mode = 2
@@ -304,6 +404,7 @@ offset_top = 15.0
 offset_right = 48.0
 offset_bottom = 67.0
 text = "K"
+script = SubResource("GDScript_cj1lu")
 
 [node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1917590123]
 visible = false
