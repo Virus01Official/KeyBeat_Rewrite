@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4chc7ybvxtwk"
+path="res://.godot/imported/audio.ogg-d2223fa7fcb7bbba1bc3ea637a75f808.oggvorbisstr"
+
+[deps]
+
+source_file="res://songs/A Dramatic Irony/audio.ogg"
+dest_files=["res://.godot/imported/audio.ogg-d2223fa7fcb7bbba1bc3ea637a75f808.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

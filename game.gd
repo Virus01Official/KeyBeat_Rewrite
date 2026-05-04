@@ -74,8 +74,12 @@ var NOTE_SPEED: float:
 
 @onready var note_container = $NoteContainer  
 
+@onready var video_player: VideoStreamPlayer = null
+
 func _ready() -> void:
 	$Pause.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	video_player = $VideoBackground
 
 func _process(delta: float) -> void:
 	var current_sv = _get_current_sv_multiplier()
@@ -340,6 +344,37 @@ func _get_scroll_position(time_sec: float) -> float:
 		pos += (segment_end - sv_time) * sv["multiplier"]
 	return pos
 
+func _load_video_background(folder_path: String) -> bool:
+	video_player.stop()
+	video_player.stream = null
+	video_player.visible = false
+	$background.visible = true
+
+	var video_exts = ["ogv", "webm", "mp4"]
+	for ext in video_exts:
+		var video_path = folder_path + "background." + ext
+		var stream: VideoStream = null
+
+		if video_path.begins_with("res://"):
+			if ResourceLoader.exists(video_path):
+				stream = load(video_path)
+		else:
+			if FileAccess.file_exists(video_path):
+				if ext == "ogv":
+					stream = load(video_path)
+				else:
+					push_warning("Video background: '%s' found but Godot 4 only supports .ogv natively. Install a video plugin for .%s support." % [video_path, ext])
+					continue
+
+		if stream != null:
+			video_player.stream = stream
+			video_player.visible = true
+			$background.visible = false
+			print("Video background loaded: ", video_path)
+			return true
+
+	return false
+
 func _toggle_pause() -> void:
 	paused = !paused
 	if paused:
@@ -491,12 +526,15 @@ func _start(song: String, json_file: String) -> void:
 				audio_stream = load(audio_path)
 				break
 				
-		for exte in ["png", "jpg", "jpeg"]:
-			var image_path = maps_location + song + "/background." + exte
-			if ResourceLoader.exists(image_path):
-				$background.texture = load(image_path)
-				break
-
+		var folder = maps_location + song + "/"
+		if not _load_video_background(folder):
+			$background.visible = true
+			for exte in ["png", "jpg", "jpeg"]:
+				var image_path = folder + "background." + exte
+				if ResourceLoader.exists(image_path):
+					$background.texture = load(image_path)
+					break
+	
 		if audio_stream:
 			$AudioStreamPlayer.stream = audio_stream
 
@@ -555,21 +593,24 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 					audio_stream = stream
 					break
 
-	for exte in ["png", "jpg", "jpeg"]:
-		var image_path = song_folder_path + "background." + exte
-		var texture: Texture2D = null
+	if not _load_video_background(song_folder_path):
+		$background.visible = true
+		for exte in ["png", "jpg", "jpeg"]:
+			var image_path = song_folder_path + "background." + exte
+			var texture: Texture2D = null
 
-		if image_path.begins_with("res://"):
-			if ResourceLoader.exists(image_path):
-				texture = load(image_path)
-		else:
-			if FileAccess.file_exists(image_path):
-				var img = Image.load_from_file(image_path)
-				if img != null and not img.is_empty():
-					texture = ImageTexture.create_from_image(img)
+			if image_path.begins_with("res://"):
+				if ResourceLoader.exists(image_path):
+					texture = load(image_path)
+			else:
+				if FileAccess.file_exists(image_path):
+					var img = Image.load_from_file(image_path)
+					if img != null and not img.is_empty():
+						texture = ImageTexture.create_from_image(img)
 
-		if texture:
-			$background.texture = texture
+			if texture:
+				$background.texture = texture
+				break
 
 	if audio_stream:
 		$AudioStreamPlayer.stream = audio_stream
@@ -593,6 +634,10 @@ func _restart() -> void:
 	song_started = false
 
 	$AudioStreamPlayer.stop()
+	
+	video_player.stop()
+	video_player.visible = false
+	$background.visible = true
 
 	if current_song_path != "":
 		_start_from_path(current_song_path, current_json)
@@ -615,6 +660,7 @@ func _reset_all_stats() -> void:
 func _end_song() -> void:
 	song_started = false
 	$AudioStreamPlayer.stop()
+	video_player.stop()
 	chart = []
 	
 	final_accuracy = _accuracy()

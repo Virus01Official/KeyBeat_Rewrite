@@ -93,6 +93,14 @@ offset_right = 1151.0
 offset_bottom = 642.0
 expand_mode = 1
 
+[node name="VideoBackground" type="VideoStreamPlayer" parent="." unique_id=933650951]
+visible = false
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 649.0
+expand = true
+loop = true
+
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
 layout_mode = 0
 offset_left = 234.0
