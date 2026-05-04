@@ -11,11 +11,6 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Forsaken.png",
 		"url": "https://www.roblox.com/games/18687417158/Forsaken"
 	},
-	"NOISZ": {
-		"game": "NOISZ",
-		"image": "res://assets/game_icons/noisz.jpg",
-		"url": "https://store.steampowered.com/app/681530/NOISZ/"
-	},
 }
 
 @onready var search_bar = $Panel/SearchBar

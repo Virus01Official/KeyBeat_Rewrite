@@ -11,6 +11,7 @@ var tips = [
 	"This game was made for fun",
 	"You can use osu! to chart the songs",
 	"Also try Project: RUSHER",
+	"Also try Yunyun Syndrome",
 ]
 
 func _ready() -> void:
