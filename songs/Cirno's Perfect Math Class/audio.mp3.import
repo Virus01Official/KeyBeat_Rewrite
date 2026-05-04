@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h1lcldgnt4ym"
+path="res://.godot/imported/audio.mp3-ec24eaa1653ecd0266dd1689b2be5bac.mp3str"
+
+[deps]
+
+source_file="res://songs/Cirno's Perfect Math Class/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-ec24eaa1653ecd0266dd1689b2be5bac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

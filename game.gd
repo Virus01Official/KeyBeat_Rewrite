@@ -22,6 +22,11 @@ var current_song: String = ""
 var current_json: String = ""
 var current_song_path: String = ""
 
+@onready var countdown_label = $Countdown
+
+var countdown_time := 3.0
+var countdown_active := false
+
 var sv_points: Array = []
 
 var countdown: float = 0.0
@@ -86,21 +91,36 @@ func _process(delta: float) -> void:
 	var effective_speed = NOTE_SPEED * current_sv
 
 	if song_started:
-		if $AudioStreamPlayer.playing:
-			_spawn_notes()
-			_check_missed_notes()
+		#if $AudioStreamPlayer.playing:
+		_spawn_notes()
+		_check_missed_notes()
 		
-		if not $AudioStreamPlayer.playing:
-			countdown -= delta
-			if countdown <= 0.0:
+		if countdown_active:
+			countdown_time -= delta
+			
+			var display = ceil(countdown_time)
+			if display > 0:
+				countdown_label.text = str(int(display))
+			else:
+				countdown_label.text = "GO!"
+			
+			countdown_label.visible = true
+			
+			if countdown_time <= 0.0:
+				countdown_active = false
+				countdown_label.visible = false
 				$AudioStreamPlayer.play()
+			
+			return
 		else:
-			song_position = $AudioStreamPlayer.get_playback_position()
+			if countdown_active:
+				song_position = -countdown_time
+			else:
+				song_position = $AudioStreamPlayer.get_playback_position()
 			
 		if next_note_index >= chart.size() and note_container.get_child_count() == 0:
 			_end_song()
 			return
-		
 		
 	$Hidden.visible = Modifiers.hidden
 	
@@ -303,7 +323,7 @@ func _check_missed_notes() -> void:
 			note.queue_free()
 			
 func _spawn_notes() -> void:
-	var spawn_ahead = song_position + LEAD_TIME if $AudioStreamPlayer.playing else LEAD_TIME
+	var spawn_ahead = song_position + LEAD_TIME
 	
 	while next_note_index < chart.size():
 		var note_data = chart[next_note_index]
@@ -369,6 +389,7 @@ func _load_video_background(folder_path: String) -> bool:
 		if stream != null:
 			video_player.stream = stream
 			video_player.visible = true
+			video_player.play()
 			$background.visible = false
 			print("Video background loaded: ", video_path)
 			return true
@@ -539,6 +560,9 @@ func _start(song: String, json_file: String) -> void:
 			$AudioStreamPlayer.stream = audio_stream
 
 		song_started = true
+		countdown_active = true
+		countdown_time = 3.0
+		$AudioStreamPlayer.stop()
 		
 func _start_from_path(song_folder_path: String, json_file: String) -> void:
 	current_song_path = song_folder_path  
@@ -616,6 +640,9 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 		$AudioStreamPlayer.stream = audio_stream
 
 	song_started = true
+	countdown_active = true
+	countdown_time = 3.0
+	$AudioStreamPlayer.stop()
 
 func _get_current_sv_multiplier() -> float:
 	var multiplier := 1.0

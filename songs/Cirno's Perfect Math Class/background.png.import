@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqh71nqaqyai0"
-path="res://.godot/imported/background.jpg-80412670b04fe9a0138dfffdd726c7d8.ctex"
+uid="uid://ckn3gugsdid6r"
+path="res://.godot/imported/background.png-f56141099250dbb365201c4e0a00ff4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://songs/A Dramatic Irony/background.jpg"
-dest_files=["res://.godot/imported/background.jpg-80412670b04fe9a0138dfffdd726c7d8.ctex"]
+source_file="res://songs/Cirno's Perfect Math Class/background.png"
+dest_files=["res://.godot/imported/background.png-f56141099250dbb365201c4e0a00ff4b.ctex"]
 
 [params]
 

@@ -37,10 +37,19 @@ layout_mode = 0
 offset_right = 328.0
 offset_bottom = 649.0
 
-[node name="Control" type="Control" parent="Panel" unique_id=1744974980]
-anchors_preset = 0
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1319705289]
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 646.0
 
-[node name="Label" type="Label" parent="Panel/Control" unique_id=1187688116]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=784298536]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="Control" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2084139322]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control" unique_id=1291326558]
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 43.0
@@ -49,7 +58,7 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Control" unique_id=646699363]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control" unique_id=1863179276]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 37.0
@@ -57,10 +66,10 @@ offset_right = 329.0
 offset_bottom = 175.0
 theme_override_constants/separation = 70
 
-[node name="Control2" type="Control" parent="Panel/Control/VBoxContainer" unique_id=1109744661]
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer" unique_id=160571808]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control/VBoxContainer/Control2" unique_id=1022074538]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2" unique_id=1069518357]
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 43.0
@@ -69,7 +78,7 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="Panel/Control/VBoxContainer/Control2/Label" unique_id=1159932381]
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2/Label" unique_id=1833302148]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 12.0
@@ -77,10 +86,10 @@ offset_right = 141.0
 offset_bottom = 36.0
 button_pressed = true
 
-[node name="Control3" type="Control" parent="Panel/Control/VBoxContainer" unique_id=929253714]
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer" unique_id=1867729146]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control/VBoxContainer/Control3" unique_id=1461172922]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control3" unique_id=383500444]
 layout_mode = 0
 offset_right = 189.0
 offset_bottom = 43.0
@@ -89,19 +98,17 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="Panel/Control/VBoxContainer/Control3/Label" unique_id=1722801877]
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control3/Label" unique_id=1550738225]
 layout_mode = 0
 offset_left = 180.0
 offset_top = 12.0
 offset_right = 204.0
 offset_bottom = 36.0
 
-[node name="Control2" type="Control" parent="Panel" unique_id=998488541]
-anchors_preset = 0
-offset_top = 177.0
-offset_bottom = 177.0
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=849927986]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control2" unique_id=1599830165]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2" unique_id=500764742]
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 43.0
@@ -110,7 +117,7 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Control2" unique_id=1731652476]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control2" unique_id=408997561]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 37.0
@@ -118,10 +125,10 @@ offset_right = 329.0
 offset_bottom = 175.0
 theme_override_constants/separation = 70
 
-[node name="Control2" type="Control" parent="Panel/Control2/VBoxContainer" unique_id=1722838598]
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer" unique_id=1076010234]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control2/VBoxContainer/Control2" unique_id=1556315987]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control2" unique_id=2086824622]
 layout_mode = 0
 offset_right = 122.0
 offset_bottom = 43.0
@@ -130,17 +137,17 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Panel/Control2/VBoxContainer/Control2/Label" unique_id=160119709]
+[node name="HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control2/Label" unique_id=1633600809]
 layout_mode = 0
 offset_left = 134.0
 offset_right = 314.0
 offset_bottom = 49.0
 value = 100.0
 
-[node name="Control3" type="Control" parent="Panel/Control2/VBoxContainer" unique_id=202335441]
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer" unique_id=464755817]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control2/VBoxContainer/Control3" unique_id=654607590]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3" unique_id=533344480]
 layout_mode = 0
 offset_right = 139.0
 offset_bottom = 43.0
@@ -149,19 +156,17 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFX_Slider" type="HSlider" parent="Panel/Control2/VBoxContainer/Control3/Label" unique_id=467792066]
+[node name="SFX_Slider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3/Label" unique_id=1084526756]
 layout_mode = 0
 offset_left = 137.0
 offset_right = 314.0
 offset_bottom = 49.0
 value = 100.0
 
-[node name="Control3" type="Control" parent="Panel" unique_id=238732272]
-anchors_preset = 0
-offset_top = 365.0
-offset_bottom = 365.0
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=336273027]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control3" unique_id=1054031461]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control3" unique_id=1885033866]
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 43.0
@@ -170,7 +175,7 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Control3" unique_id=1901923388]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control3" unique_id=31662454]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 37.0
@@ -178,10 +183,10 @@ offset_right = 329.0
 offset_bottom = 175.0
 theme_override_constants/separation = 70
 
-[node name="Control3" type="Control" parent="Panel/Control3/VBoxContainer" unique_id=905118517]
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer" unique_id=1374083153]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control3/VBoxContainer/Control3" unique_id=220072470]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3" unique_id=792688067]
 layout_mode = 0
 offset_right = 139.0
 offset_bottom = 43.0
@@ -190,7 +195,7 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="scroll_vel" type="HSlider" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=341626529]
+[node name="scroll_vel" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label" unique_id=726248124]
 layout_mode = 0
 offset_left = 137.0
 offset_right = 314.0
@@ -199,7 +204,7 @@ min_value = 1.0
 max_value = 1500.0
 value = 500.0
 
-[node name="LineEdit" type="LineEdit" parent="Panel/Control3/VBoxContainer/Control3/Label" unique_id=1038486631]
+[node name="LineEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label" unique_id=1079049158]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 35.0
@@ -210,11 +215,11 @@ theme_override_font_sizes/font_size = 19
 text = "500"
 alignment = 1
 
-[node name="Control4" type="Control" parent="Panel/Control3/VBoxContainer" unique_id=1214445330]
+[node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer" unique_id=1695539721]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control3/VBoxContainer/Control4" unique_id=380883261]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control4" unique_id=2139839359]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 1.0
@@ -225,7 +230,7 @@ label_settings = SubResource("LabelSettings_3ykye")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Panel/Control3/VBoxContainer/Control4/Label" unique_id=952755804]
+[node name="OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control4/Label" unique_id=32673024]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 4.0
@@ -240,13 +245,71 @@ popup/item_0/id = 0
 popup/item_1/text = "Down"
 popup/item_1/id = 1
 
-[node name="Control4" type="Control" parent="Panel" unique_id=1917590123]
-visible = false
-anchors_preset = 0
-offset_top = 529.0
-offset_bottom = 529.0
+[node name="Control5" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=787429353]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control4" unique_id=602983131]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control5" unique_id=1868172721]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 43.0
+text = "Keybinds"
+label_settings = SubResource("LabelSettings_nkug2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control5" unique_id=653031465]
+layout_mode = 0
+offset_top = 41.0
+offset_right = 262.0
+offset_bottom = 134.0
+theme_override_constants/separation = 67
+alignment = 1
+
+[node name="Control" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=760817057]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer/Control" unique_id=320253951]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 48.0
+offset_bottom = 67.0
+text = "D"
+
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=201131770]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer/Control2" unique_id=1284835509]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 48.0
+offset_bottom = 67.0
+text = "F"
+
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=808572460]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer/Control3" unique_id=1627995080]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 48.0
+offset_bottom = 67.0
+text = "J"
+
+[node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer" unique_id=228145783]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Control5/HBoxContainer/Control4" unique_id=1067002857]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 48.0
+offset_bottom = 67.0
+text = "K"
+
+[node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1917590123]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control4" unique_id=602983131]
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 43.0
@@ -255,7 +318,7 @@ label_settings = SubResource("LabelSettings_nkug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Control4" unique_id=558846368]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Control4" unique_id=558846368]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 37.0
@@ -263,10 +326,10 @@ offset_right = 329.0
 offset_bottom = 175.0
 theme_override_constants/separation = 70
 
-[node name="Control3" type="Control" parent="Panel/Control4/VBoxContainer" unique_id=613906635]
+[node name="Control3" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer" unique_id=613906635]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control4/VBoxContainer/Control3" unique_id=960689130]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3" unique_id=960689130]
 layout_mode = 0
 offset_right = 139.0
 offset_bottom = 43.0
@@ -275,7 +338,7 @@ label_settings = SubResource("LabelSettings_x2hje")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SkinsOption" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control3/Label" unique_id=1912391231]
+[node name="SkinsOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3/Label" unique_id=1912391231]
 layout_mode = 0
 offset_left = 110.0
 offset_top = 8.0
@@ -286,11 +349,11 @@ item_count = 1
 popup/item_0/text = "Default"
 popup/item_0/id = 0
 
-[node name="Control4" type="Control" parent="Panel/Control4/VBoxContainer" unique_id=1799872980]
+[node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer" unique_id=1799872980]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Control4/VBoxContainer/Control4" unique_id=1322991029]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control4" unique_id=1322991029]
 layout_mode = 0
 offset_right = 139.0
 offset_bottom = 43.0
@@ -299,7 +362,7 @@ label_settings = SubResource("LabelSettings_3ykye")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Panel/Control4/VBoxContainer/Control4/Label" unique_id=1512232564]
+[node name="OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control4/Label" unique_id=1512232564]
 layout_mode = 0
 offset_left = 139.0
 offset_top = 4.0
@@ -325,11 +388,5 @@ theme_override_font_sizes/font_size = 36
 text = "X"
 flat = true
 
-[connection signal="toggled" from="Panel/Control/VBoxContainer/Control2/Label/CheckBox" to="." method="_on_vsync_check_box_toggled"]
-[connection signal="toggled" from="Panel/Control/VBoxContainer/Control3/Label/CheckBox" to="." method="_on_FPS_check_box_toggled"]
-[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control2/Label/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Panel/Control2/VBoxContainer/Control3/Label/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Panel/Control3/VBoxContainer/Control3/Label/scroll_vel" to="." method="_on_scroll_vel_value_changed"]
-[connection signal="text_changed" from="Panel/Control3/VBoxContainer/Control3/Label/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="item_selected" from="Panel/Control4/VBoxContainer/Control3/Label/SkinsOption" to="." method="_on_skins_option_item_selected"]
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3/Label/SkinsOption" to="." method="_on_skins_option_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
