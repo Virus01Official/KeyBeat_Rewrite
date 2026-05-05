@@ -14,6 +14,14 @@ func save_settings() -> void:
 	config.set_value("display", "show_fps", $"../Label".visible)
 	config.set_value("display", "vsync", DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED)
 	
+	var actions = ["left", "right", "up", "down"]
+	for action in actions:
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			var event = events[0]
+			if event is InputEventKey:
+				config.set_value("keybinds", action, event.keycode)
+	
 	config.save(SETTINGS_PATH)
 
 func load_settings() -> void:
@@ -43,9 +51,18 @@ func load_settings() -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+	var actions = ["left", "right", "up", "down"]
+	for action in actions:
+		if config.has_section_key("keybinds", action):
+			var keycode = config.get_value("keybinds", action)
+			var event = InputEventKey.new()
+			event.keycode = keycode
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, event)
 
 func _on_button_pressed() -> void:
-	save_settings()  # save on cwose uwu! >w
+	save_settings()
 	var settings = $"."
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var tween = create_tween()

@@ -5,7 +5,7 @@ var is_listening := false
 
 func _ready():
 	pressed.connect(_on_pressed)
-	update_label()
+	call_deferred("update_label")
 
 func update_label():
 	var events = InputMap.action_get_events(action_name)
