@@ -55,11 +55,11 @@ var song_position: float = 0.0
 var song_started: bool = false
 var next_note_index: int = 0
 
-const HIT_WINDOW_PERFECT = 0.016   # ±16ms  — MAX (320)
-const HIT_WINDOW_GREAT   = 0.040   # ±40ms  — 300
-const HIT_WINDOW_GOOD    = 0.073   # ±73ms  — 200
-const HIT_WINDOW_OK      = 0.103   # ±103ms — 100
-const HIT_WINDOW_MEH     = 0.127   # ±127ms — 50
+const HIT_WINDOW_PERFECT = 0.040   # ±40ms  — MAX (320)
+const HIT_WINDOW_GREAT   = 0.073   # ±73ms  — 300
+const HIT_WINDOW_GOOD    = 0.103   # ±103ms — 200
+const HIT_WINDOW_OK      = 0.127   # ±127ms — 100
+const HIT_WINDOW_MEH     = 0.150   # ±150ms — 50
 const HIT_WINDOW_MISS    = 0.188
 
 var perfect = 0
@@ -458,7 +458,10 @@ func _check_hold_release(direction: String) -> void:
 		if note.direction != direction or not note.hold_active:
 			continue
 			
-		if note.tail.size.y > 10.0:   
+		var tail_remaining = note.tail.size.y
+		var time_remaining = tail_remaining / NOTE_SPEED
+			
+		if time_remaining > HIT_WINDOW_MEH:
 			_register_miss()
 		note.queue_free()
 
