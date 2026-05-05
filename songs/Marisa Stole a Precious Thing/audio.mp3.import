@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vfa3tkfadqtk"
+path="res://.godot/imported/audio.mp3-c4a3be39d3110c52cba6923f5324de96.mp3str"
+
+[deps]
+
+source_file="res://songs/Marisa Stole a Precious Thing/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-c4a3be39d3110c52cba6923f5324de96.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
