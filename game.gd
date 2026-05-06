@@ -693,6 +693,8 @@ func _end_song() -> void:
 	video_player.stop()
 	chart = []
 	
+	score *= Modifiers.multiplier
+	
 	final_accuracy = _accuracy()
 	final_grade = _grade(final_accuracy)
 	

@@ -44,6 +44,13 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="GDScript" id="GDScript_vwn38"]
+script/source = "extends Button
+
+func _on_toggled(toggled_on: bool) -> void:
+	Modifiers.no_fail = toggled_on
+"
+
 [sub_resource type="LabelSettings" id="LabelSettings_vwn38"]
 font = ExtResource("4_u3k0c")
 font_size = 28
@@ -227,6 +234,8 @@ offset_bottom = 609.0
 layout_mode = 0
 offset_right = 316.0
 offset_bottom = 168.0
+theme_override_constants/h_separation = 52
+columns = 6
 
 [node name="Control" type="Control" parent="modifiersPanel/GridContainer" unique_id=643988103]
 layout_mode = 2
@@ -240,6 +249,19 @@ icon = ExtResource("9_3l3f8")
 flat = true
 expand_icon = true
 script = ExtResource("10_vwn38")
+
+[node name="Control2" type="Control" parent="modifiersPanel/GridContainer" unique_id=985594700]
+layout_mode = 2
+
+[node name="NoFail" type="Button" parent="modifiersPanel/GridContainer/Control2" unique_id=749124044]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 55.0
+toggle_mode = true
+icon = ExtResource("9_3l3f8")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_vwn38")
 
 [node name="OriginPopup" type="Panel" parent="." unique_id=274459581]
 visible = false
@@ -292,4 +314,5 @@ flat = true
 [connection signal="pressed" from="Panel/Modifiers/ModifiersButton" to="." method="_on_modifiers_button_pressed"]
 [connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control/Hidden" to="modifiersPanel/GridContainer/Control/Hidden" method="_on_toggled"]
+[connection signal="toggled" from="modifiersPanel/GridContainer/Control2/NoFail" to="modifiersPanel/GridContainer/Control2/NoFail" method="_on_toggled"]
 [connection signal="pressed" from="OriginPopup/Close" to="." method="_on_origin_close_pressed"]
