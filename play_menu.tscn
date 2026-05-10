@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dfry2du8x626p" path="res://songs/Tutorial/background.jpg" id="2_1p45p"]
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="2_nvr1d"]
 [ext_resource type="Script" uid="uid://cruplfbg32u8b" path="res://v_box_container.gd" id="3_5tkha"]
-[ext_resource type="Script" uid="uid://chnqno4g2bqih" path="res://test.gd" id="3_42f3i"]
 [ext_resource type="Texture2D" uid="uid://dqf4buk31nhuy" path="res://assets/gear.png" id="4_br1it"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_u3k0c"]
 [ext_resource type="Texture2D" uid="uid://l1j83tn315d1" path="res://assets/modifiers.png" id="6_l5iki"]
@@ -108,18 +107,19 @@ offset_bottom = 646.0
 texture = ExtResource("2_1p45p")
 expand_mode = 1
 
-[node name="ScrollContainer" type="Control" parent="." unique_id=336895489]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_42f3i")
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1747653088]
+layout_mode = 0
+offset_left = 702.0
+offset_right = 1151.0
+offset_bottom = 611.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="Control" parent="ScrollContainer" unique_id=1473458877]
-anchors_preset = 0
-offset_left = 637.0
-offset_right = 1151.0
-offset_bottom = 649.0
+layout_mode = 2
 script = ExtResource("3_5tkha")
+separation = 75.0
+height_per_difficulty = 90.0
 
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0
