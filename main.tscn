@@ -9,10 +9,15 @@
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://cirljfptkt038" path="res://scripts/fps.gd" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://buk80e6we7l16" path="res://scenes/chart_editor.tscn" id="7_kek77"]
+[ext_resource type="AudioStream" uid="uid://484vatjmaqia" path="res://assets/confirmation_002.ogg" id="10_4c57u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font = ExtResource("6_7mycd")
 font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_kek77"]
+font = ExtResource("6_7mycd")
+font_size = 49
 
 [node name="Main" type="Node" unique_id=984286019]
 script = ExtResource("1_5vw27")
@@ -49,3 +54,20 @@ label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_272bh")
+
+[node name="Importing" type="Panel" parent="." unique_id=862509570]
+visible = false
+offset_right = 1154.0
+offset_bottom = 649.0
+
+[node name="Label" type="Label" parent="Importing" unique_id=386934057]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+text = "Importing map"
+label_settings = SubResource("LabelSettings_kek77")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1311254256]
+stream = ExtResource("10_4c57u")

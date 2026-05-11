@@ -23,7 +23,6 @@ func _ready() -> void:
 
 func load_songs() -> void:
 	var category_container = $ScrollContainer/VBoxContainer
-	$Select.pressed.connect(select_song)
 	
 	var grade_textures = {
 		"SS": preload("res://assets/grades/SS.png"),
@@ -310,7 +309,8 @@ func _on_search_bar_text_changed() -> void:
 		else:
 			category.visible = false
 			
-	category_container.recalculate()
+	category_container.recalculate() 
+	$ScrollContainer.scroll_vertical = 0
 
 func _on_button_pressed() -> void:
 	var settings = $"../Settings"

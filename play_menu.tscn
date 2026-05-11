@@ -362,6 +362,7 @@ flat = true
 [connection signal="text_changed" from="Panel/SearchBar" to="." method="_on_search_bar_text_changed"]
 [connection signal="pressed" from="Panel/Modifiers/ModifiersButton" to="." method="_on_modifiers_button_pressed"]
 [connection signal="pressed" from="Panel2/TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Select" to="." method="select_song"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control/Hidden" to="modifiersPanel/GridContainer/Control/Hidden" method="_on_toggled"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control2/NoFail" to="modifiersPanel/GridContainer/Control2/NoFail" method="_on_toggled"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control3/SuddenDeath" to="modifiersPanel/GridContainer/Control3/SuddenDeath" method="_on_toggled"]

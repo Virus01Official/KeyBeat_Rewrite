@@ -56,7 +56,9 @@ func _install_osz(file_path: String) -> void:
 	var osu_files:   Array[String] = []
 	var audio_entry: String        = ""
 	var bg_entry:    String        = ""
-
+	
+	$Importing.visible = true
+	
 	for entry in all_entries:
 		var low = entry.to_lower()
 		if low.ends_with(".osu"):
@@ -101,7 +103,6 @@ func _install_osz(file_path: String) -> void:
 			push_error("Failed to parse: " + osu_entry)
 			continue
 
-		# Sanitise difficulty name for use as a filename
 		var diff_name: String = chart.get("difficulty", osu_entry.get_basename())
 		diff_name = _sanitise_filename(diff_name)
 		if diff_name == "":
@@ -124,6 +125,10 @@ func _install_osz(file_path: String) -> void:
 		return
 
 	print("Installed .osz '%s' (%d difficulties) → %s" % [song_folder_name, converted_count, out_dir])
+	$Importing.visible = false
+	$AudioStreamPlayer.play()
+	DirAccess.remove_absolute(file_path)
+	
 	_reload_after_install()
 
 func _osu_x_to_lane(x: int, key_count: int) -> int:
@@ -257,6 +262,13 @@ func _sanitise_filename(s: String) -> String:
 
 func _reload_after_install() -> void:
 	var container = $play_menu/ScrollContainer/VBoxContainer
+
 	for child in container.get_children():
 		child.queue_free()
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	ModLoader._scan_mods()
 	$play_menu.load_songs()
+	
