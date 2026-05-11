@@ -707,22 +707,13 @@ func _end_song() -> void:
 	health = max_health
 	
 func _save_score() -> void:
-	var save_path := "user://scores.json"
+	var save_path := "user://scores.mwdat"
 	
 	var map_key: String = current_song_path if current_song_path != "" else current_song
 	if map_key == "":
 		map_key = "unknown"
 	
-	var existing: Dictionary = {}
-	if FileAccess.file_exists(save_path):
-		var f := FileAccess.open(save_path, FileAccess.READ)
-		if f:
-			var json := JSON.new()
-			json.parse(f.get_as_text())
-			f.close()
-			var parsed = json.get_data()
-			if parsed is Dictionary:
-				existing = parsed
+	var existing: Dictionary = MWDat.load(save_path)
 	
 	var new_entry := {
 		"score":         score,
@@ -747,13 +738,11 @@ func _save_score() -> void:
 	else:
 		print("Score not a new best — not saved.")
 	
-	var out := FileAccess.open(save_path, FileAccess.WRITE)
-	if out:
-		out.store_string(JSON.stringify(existing, "\t"))
-		out.close()
+	var err := MWDat.save(save_path, existing)
+	if err == OK:
 		print("Scores saved to: ", save_path)
 	else:
-		print("Failed to write scores file!")
+		print("Failed to write scores file! Error: ", err)
 
 func _show_rating(key: String) -> void:
 	if _rating_tween:

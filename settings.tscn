@@ -489,5 +489,11 @@ theme_override_font_sizes/font_size = 36
 text = "X"
 flat = true
 
+[connection signal="toggled" from="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control2/Label/CheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="toggled" from="Panel/ScrollContainer/VBoxContainer/Control/VBoxContainer/Control3/Label/CheckBox" to="." method="_on_FPS_check_box_toggled"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control2/Label/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3/Label/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/scroll_vel" to="." method="_on_scroll_vel_value_changed"]
+[connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3/Label/SkinsOption" to="." method="_on_skins_option_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
