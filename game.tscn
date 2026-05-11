@@ -38,7 +38,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
-bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.15294118)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -47,7 +47,7 @@ border_color = Color(0.53333336, 0, 1, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
-bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.15294118)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -56,7 +56,7 @@ border_color = Color(0.53333336, 0, 1, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
-bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.15294118)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -65,7 +65,7 @@ border_color = Color(0.53333336, 0, 1, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hve3p"]
-bg_color = Color(0.41568628, 0.2509804, 0.6, 0.39215687)
+bg_color = Color(0.41568628, 0.2509804, 0.6, 0.15294118)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -420,7 +420,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
 layout_mode = 0
 offset_left = 878.0
 offset_top = -2.0
-offset_right = 1171.0
+offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hve3p")
 
