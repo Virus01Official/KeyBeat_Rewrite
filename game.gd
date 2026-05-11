@@ -610,9 +610,7 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 				var buffer = files.get_buffer(files.get_length())
 				
 				if ext == "ogg":
-					var stream = AudioStreamOggVorbis.new()
-					stream.data = buffer
-					audio_stream = stream
+					audio_stream = AudioStreamOggVorbis.load_from_buffer(buffer)
 					break
 				elif ext == "mp3":
 					var stream = AudioStreamMP3.new()
