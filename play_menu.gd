@@ -24,7 +24,18 @@ func _ready() -> void:
 func load_songs() -> void:
 	var category_container = $ScrollContainer/VBoxContainer
 	$Select.pressed.connect(select_song)
-
+	
+	var grade_textures = {
+		"SS": preload("res://assets/grades/SS.png"),
+		"S":  preload("res://assets/grades/S.png"),
+		"A":  preload("res://assets/grades/A.png"),
+		"B":  preload("res://assets/grades/B.png"),
+		"C":  preload("res://assets/grades/C.png"),
+		"D":  preload("res://assets/grades/D.png"),
+	}
+	
+	var saved_scores: Dictionary = MWDat.load("user://scores.mwdat")
+	
 	var all_song_folders: Array = []
 
 	var builtin_dir = DirAccess.open(maps_location)
@@ -84,8 +95,16 @@ func load_songs() -> void:
 
 			var star_rating = $"../game".calculate_difficulty(song_data)
 			var difficulty_label := "★ %.1f  %s" % [star_rating, song_data.get("difficulty", json_file.get_basename())]
-
+			
+			
+			var map_key: String = song_folder_path + json_file
+			var saved_grade: String = ""
+			if saved_scores.has(map_key):
+				saved_grade = saved_scores[map_key].get("grade", "")
+				
+			var diff_node: Node
 			if i == 0:
+				diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
 				var button = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/Button")
 				button.text = difficulty_label
 				button.pressed.connect(choose.bind(
@@ -99,6 +118,7 @@ func load_songs() -> void:
 			else:
 				var original_diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
 				var new_diff_node = original_diff_node.duplicate()
+				diff_node = new_diff_node
 				difficulty_container.add_child(new_diff_node)
 
 				var button = new_diff_node.get_node("Button")
@@ -113,6 +133,14 @@ func load_songs() -> void:
 					song_folder_path,
 					json_file
 				))
+				
+			var grade_rect = diff_node.get_node("Grade")
+			if saved_grade != "" and grade_textures.has(saved_grade):
+				grade_rect.texture = grade_textures[saved_grade]
+				grade_rect.visible = true
+			else:
+				grade_rect.texture = null
+				grade_rect.visible = false
 
 	await get_tree().process_frame
 	for category in category_container.get_children():

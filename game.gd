@@ -709,7 +709,7 @@ func _end_song() -> void:
 func _save_score() -> void:
 	var save_path := "user://scores.mwdat"
 	
-	var map_key: String = current_song_path if current_song_path != "" else current_song
+	var map_key: String = (current_song_path if current_song_path != "" else current_song) + current_json
 	if map_key == "":
 		map_key = "unknown"
 	
