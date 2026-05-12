@@ -47,6 +47,7 @@ vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Category/ScrollContainer" unique_id=1223746301]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 103
 
 [node name="SongDifficulty" parent="Category/ScrollContainer/VBoxContainer" unique_id=1333947008 instance=ExtResource("1_q4awx")]

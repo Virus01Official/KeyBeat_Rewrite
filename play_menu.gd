@@ -76,13 +76,13 @@ func load_songs() -> void:
 
 		newCategory.get_node("Category/CategoryName").text = category_name
 
-		var first_folder = songs_in_category[0]["folder"]
-		for ext in ["jpg", "png", "jpeg"]:
-			var image_path = first_folder + "background." + ext
-			if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
-				var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
-				texture_rect.texture = load_texture(image_path)
-				break
+		#var first_folder = songs_in_category[0]["folder"]
+		#for ext in ["jpg", "png", "jpeg"]:
+			#var image_path = first_folder + "background." + ext
+			#if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
+				#var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
+				#texture_rect.texture = load_texture(image_path)
+				#break
 
 		var difficulty_container = newCategory.get_node("Category/ScrollContainer/VBoxContainer")
 
@@ -106,6 +106,12 @@ func load_songs() -> void:
 				diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
 				var button = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/Button")
 				button.text = difficulty_label
+				var texture_rect = diff_node.get_node("TextureRect")
+				for ext in ["jpg", "png", "jpeg"]:
+					var image_path = song_folder_path + "background." + ext
+					if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
+						texture_rect.texture = load_texture(image_path)
+						break
 				button.pressed.connect(choose.bind(
 					song_data.get("title", "Unknown"),
 					difficulty_label,
@@ -119,6 +125,13 @@ func load_songs() -> void:
 				var new_diff_node = original_diff_node.duplicate()
 				diff_node = new_diff_node
 				difficulty_container.add_child(new_diff_node)
+				
+				var texture_rect = diff_node.get_node("TextureRect")
+				for ext in ["jpg", "png", "jpeg"]:
+					var image_path = song_folder_path + "background." + ext
+					if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
+						texture_rect.texture = load_texture(image_path)
+						break
 
 				var button = new_diff_node.get_node("Button")
 				button.text = difficulty_label

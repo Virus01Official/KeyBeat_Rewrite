@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbqu8wcvto5x2"
+path="res://.godot/imported/audio.mp3-5bbc51e0507fe91936d1540d843ace16.mp3str"
+
+[deps]
+
+source_file="res://songs/1633176 ZUN - Pure Furies ~ Whereabouts of the Heart/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-5bbc51e0507fe91936d1540d843ace16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
