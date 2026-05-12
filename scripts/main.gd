@@ -181,6 +181,7 @@ func _parse_osu_chart(source: String) -> Dictionary:
 	var offset:    int  = int(general.get("AudioLeadIn", "0"))
 	var title:     String = metadata.get("Title", "")
 	var creator:   String = metadata.get("Creator", "")
+	var artist:   String = metadata.get("Artist", "")
 	var version:   String = metadata.get("Version", "")
 	var map_id:    int   = int(metadata.get("BeatmapID", "0"))
 
@@ -239,7 +240,7 @@ func _parse_osu_chart(source: String) -> Dictionary:
 		"difficulty": version,
 		"offset":     offset,
 		"map_id":     map_id,
-		"credits":    creator,
+		"credits":    artist,
 		"mapper":     creator,
 		"key_count":  key_count,
 		"sv":         sv_points,
