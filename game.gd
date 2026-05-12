@@ -88,7 +88,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var current_sv = _get_current_sv_multiplier()
-	var effective_speed = NOTE_SPEED * current_sv
+	var pitch = $AudioStreamPlayer.pitch_scale
+	var effective_speed = NOTE_SPEED * current_sv * pitch
 
 	if song_started:
 		#if $AudioStreamPlayer.playing:
@@ -561,6 +562,11 @@ func _start(song: String, json_file: String) -> void:
 	
 		if audio_stream:
 			$AudioStreamPlayer.stream = audio_stream
+		
+		if Modifiers.nightcore:
+			$AudioStreamPlayer.pitch_scale = 1.25
+		else:
+			$AudioStreamPlayer.pitch_scale = 1.0
 
 		song_started = true
 		countdown_active = true
@@ -639,7 +645,12 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 
 	if audio_stream:
 		$AudioStreamPlayer.stream = audio_stream
-
+	
+	if Modifiers.nightcore:
+		$AudioStreamPlayer.pitch_scale = 1.25
+	else:
+		$AudioStreamPlayer.pitch_scale = 1.0
+	
 	song_started = true
 	countdown_active = true
 	countdown_time = 3.0
@@ -666,6 +677,8 @@ func _restart() -> void:
 	video_player.stop()
 	video_player.visible = false
 	$background.visible = true
+	
+	$AudioStreamPlayer.pitch_scale = 1.0
 
 	if current_song_path != "":
 		_start_from_path(current_song_path, current_json)

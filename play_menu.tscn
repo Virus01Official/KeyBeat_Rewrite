@@ -63,6 +63,14 @@ func _on_toggled(toggled_on: bool) -> void:
 	$\"../Activated\".visible = toggled_on
 "
 
+[sub_resource type="GDScript" id="GDScript_8wmem"]
+script/source = "extends Button
+
+func _on_toggled(toggled_on: bool) -> void:
+	Modifiers.nightcore = toggled_on
+	$\"../Activated\".visible = toggled_on
+"
+
 [sub_resource type="LabelSettings" id="LabelSettings_vwn38"]
 font = ExtResource("4_u3k0c")
 font_size = 28
@@ -312,6 +320,28 @@ flat = true
 expand_icon = true
 script = SubResource("GDScript_jd052")
 
+[node name="Control4" type="Control" parent="modifiersPanel/GridContainer" unique_id=1803614310]
+layout_mode = 2
+
+[node name="Activated" type="Panel" parent="modifiersPanel/GridContainer/Control4" unique_id=2094562574]
+visible = false
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aeqt8")
+
+[node name="Nightcore" type="Button" parent="modifiersPanel/GridContainer/Control4" unique_id=368739912]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("4_u3k0c")
+theme_override_font_sizes/font_size = 29
+toggle_mode = true
+text = "NC"
+flat = true
+expand_icon = true
+script = SubResource("GDScript_8wmem")
+
 [node name="OriginPopup" type="Panel" parent="." unique_id=274459581]
 visible = false
 layout_mode = 0
@@ -366,4 +396,5 @@ flat = true
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control/Hidden" to="modifiersPanel/GridContainer/Control/Hidden" method="_on_toggled"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control2/NoFail" to="modifiersPanel/GridContainer/Control2/NoFail" method="_on_toggled"]
 [connection signal="toggled" from="modifiersPanel/GridContainer/Control3/SuddenDeath" to="modifiersPanel/GridContainer/Control3/SuddenDeath" method="_on_toggled"]
+[connection signal="toggled" from="modifiersPanel/GridContainer/Control4/Nightcore" to="modifiersPanel/GridContainer/Control4/Nightcore" method="_on_toggled"]
 [connection signal="pressed" from="OriginPopup/Close" to="." method="_on_origin_close_pressed"]
