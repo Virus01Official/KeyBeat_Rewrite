@@ -24,6 +24,9 @@ func _ready() -> void:
 func load_songs() -> void:
 	var category_container = $ScrollContainer/VBoxContainer
 	
+	for child in category_container.get_children():
+		child.queue_free()
+	
 	var grade_textures = {
 		"SS": preload("res://assets/grades/SS.png"),
 		"S":  preload("res://assets/grades/S.png"),
@@ -75,14 +78,6 @@ func load_songs() -> void:
 		category_container.add_child(newCategory)
 
 		newCategory.get_node("Category/CategoryName").text = category_name
-
-		#var first_folder = songs_in_category[0]["folder"]
-		#for ext in ["jpg", "png", "jpeg"]:
-			#var image_path = first_folder + "background." + ext
-			#if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
-				#var texture_rect = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/TextureRect")
-				#texture_rect.texture = load_texture(image_path)
-				#break
 
 		var difficulty_container = newCategory.get_node("Category/ScrollContainer/VBoxContainer")
 
