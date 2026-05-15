@@ -117,7 +117,7 @@ expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1747653088]
 layout_mode = 0
-offset_left = 702.0
+offset_left = 619.0
 offset_right = 1151.0
 offset_bottom = 611.0
 horizontal_scroll_mode = 0
