@@ -302,8 +302,8 @@ func _accuracy() -> float:
 	return (_weighted_score() / (320.0 * total)) * 100.0
 
 func _grade(acc: float) -> String:
-	if acc >= 100.0: return "SS"
-	elif acc >= 95.0: return "S"
+	if acc >= 100.0 and misses == 0: return "SS"
+	elif acc >= 95.0 and misses <= 1: return "S"
 	elif acc >= 90.0: return "A"
 	elif acc >= 80.0: return "B"
 	elif acc >= 70.0: return "C"
