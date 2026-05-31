@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://dgwy3hovl6uef" path="res://scripts/chart_editor.gd" id="1_7q73h"]
 [ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_awhgf"]
 [ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_7q73h"]
+[ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_iskhp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q73h"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7qj6o"]
+font = ExtResource("4_iskhp")
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Chart Editor" type="Control" unique_id=1958515758]
 layout_mode = 3
@@ -27,9 +34,9 @@ expand_mode = 1
 [node name="Left" type="Panel" parent="." unique_id=2001220437]
 layout_mode = 0
 offset_left = 234.0
-offset_top = 1.0
+offset_top = 84.0
 offset_right = 407.0
-offset_bottom = 648.0
+offset_bottom = 731.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Left" unique_id=111527908]
@@ -56,9 +63,9 @@ expand_mode = 1
 [node name="Up" type="Panel" parent="." unique_id=1335612039]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 1.0
+offset_top = 84.0
 offset_right = 753.0
-offset_bottom = 648.0
+offset_bottom = 731.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Up" unique_id=1988182269]
@@ -85,9 +92,9 @@ expand_mode = 1
 [node name="Down" type="Panel" parent="." unique_id=370165414]
 layout_mode = 0
 offset_left = 407.0
-offset_top = 1.0
+offset_top = 84.0
 offset_right = 580.0
-offset_bottom = 648.0
+offset_bottom = 731.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Down" unique_id=2012708125]
@@ -114,9 +121,9 @@ expand_mode = 1
 [node name="Right" type="Panel" parent="." unique_id=2004634317]
 layout_mode = 0
 offset_left = 753.0
-offset_top = 1.0
+offset_top = 84.0
 offset_right = 926.0
-offset_bottom = 648.0
+offset_bottom = 731.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Right" unique_id=899187148]
@@ -142,8 +149,10 @@ expand_mode = 1
 
 [node name="NoteContainer" type="Control" parent="." unique_id=1001567501]
 anchors_preset = 0
-offset_right = 1154.0
-offset_bottom = 649.0
+offset_left = -4.0
+offset_top = 85.0
+offset_right = 1150.0
+offset_bottom = 734.0
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=1772563700]
 oversampling_override = 1.0
@@ -151,6 +160,11 @@ title = "Open a File"
 position = Vector2i(0, 36)
 file_mode = 0
 use_native_dialog = true
+
+[node name="Timestamp" type="Panel" parent="." unique_id=818065860]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 64.0
 
 [node name="Setup" type="Panel" parent="." unique_id=1307894410]
 layout_mode = 0
@@ -197,3 +211,26 @@ offset_top = 572.0
 offset_right = 694.0
 offset_bottom = 620.0
 text = "Create"
+
+[node name="Label" type="Label" parent="Setup" unique_id=575423458]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 317.0
+offset_right = 478.0
+offset_bottom = 344.0
+text = "BPM:"
+label_settings = SubResource("LabelSettings_7qj6o")
+
+[node name="BPM" type="SpinBox" parent="Setup/Label" unique_id=2098058730]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -2.0
+offset_right = 149.5
+offset_bottom = 29.0
+
+[connection signal="text_changed" from="Setup/SongName" to="." method="_on_song_name_text_changed"]
+[connection signal="text_changed" from="Setup/DifficultyName" to="." method="_on_difficulty_name_text_changed"]
+[connection signal="text_changed" from="Setup/Credits" to="." method="_on_credits_text_changed"]
+[connection signal="text_changed" from="Setup/Mapper" to="." method="_on_mapper_text_changed"]
+[connection signal="pressed" from="Setup/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="value_changed" from="Setup/Label/BPM" to="." method="_on_bpm_value_changed"]

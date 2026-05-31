@@ -44,3 +44,23 @@ func _save_chart(path: String) -> void:
 	if file:
 		file.store_string(JSON.stringify(_build_chart_data(), "\t"))
 		file.close()
+
+
+func _on_song_name_text_changed(new_text: String) -> void:
+	current_title = new_text
+
+func _on_difficulty_name_text_changed(new_text: String) -> void:
+	current_difficulty = new_text
+
+func _on_credits_text_changed(new_text: String) -> void:
+	current_credits = new_text
+
+func _on_mapper_text_changed(new_text: String) -> void:
+	current_mapper = new_text
+
+func _on_create_button_pressed() -> void:
+	$Setup.visible = false
+	current_map_id = randi()
+
+func _on_bpm_value_changed(value: float) -> void:
+	current_bpm = int(value)
