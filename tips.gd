@@ -4,7 +4,6 @@ var tips = [
 	"Also try osu!",
 	"did you know, when you press S, you press S",
 	"SOMEBODY SCREAM",
-	"Kario, totally not Mario",
 	"Godot is peak",
 	"ALL MY FELLAS",
 	"The difficulty is calculated automatically, report any calculation errors",
