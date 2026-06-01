@@ -24,5 +24,7 @@ func _ready() -> void:
 			text = "Merry Christmas!"
 		else:
 			text = "Happy New Year!"
+	elif time.month == 6:
+		text = "Happy Pride Month!"
 	else:
 		text = tips[randi() % tips.size()]
