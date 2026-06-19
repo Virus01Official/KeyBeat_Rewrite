@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqohff2mslq54"
+path="res://.godot/imported/audio.mp3-43fb244a13238818b16c1f657b56a671.mp3str"
+
+[deps]
+
+source_file="res://songs/1674394 Chroma - sink to the deep sea world/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-43fb244a13238818b16c1f657b56a671.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
