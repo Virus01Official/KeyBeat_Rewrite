@@ -55,11 +55,11 @@ var song_position: float = 0.0
 var song_started: bool = false
 var next_note_index: int = 0
 
-const HIT_WINDOW_PERFECT = 0.040   # ±40ms  — MAX (320)
-const HIT_WINDOW_GREAT   = 0.073   # ±73ms  — 300
-const HIT_WINDOW_GOOD    = 0.103   # ±103ms — 200
-const HIT_WINDOW_OK      = 0.127   # ±127ms — 100
-const HIT_WINDOW_MEH     = 0.150   # ±150ms — 50
+const HIT_WINDOW_PERFECT = 0.040
+const HIT_WINDOW_GREAT   = 0.073
+const HIT_WINDOW_GOOD    = 0.103
+const HIT_WINDOW_OK      = 0.127
+const HIT_WINDOW_MEH     = 0.150
 const HIT_WINDOW_MISS    = 0.188
 
 var perfect = 0
@@ -71,6 +71,8 @@ var misses = 0
 
 var offset: float = 0.0
 
+var _elapsed: float = 0.0
+
 const RECEPTOR_Y = 3
 
 const LEAD_TIME = 2.0
@@ -81,50 +83,51 @@ var NOTE_SPEED: float:
 
 @onready var video_player: VideoStreamPlayer = null
 
+func _get_effective_speed() -> float:
+	if OS.get_name() == "Android":
+		return get_viewport().get_visible_rect().size.y / LEAD_TIME
+	return NOTE_SPEED
+
 func _ready() -> void:
 	$Pause.process_mode = Node.PROCESS_MODE_ALWAYS
-	
 	video_player = $VideoBackground
 
 func _process(delta: float) -> void:
 	var current_sv = _get_current_sv_multiplier()
 	var pitch = $AudioStreamPlayer.pitch_scale
-	var effective_speed = NOTE_SPEED * current_sv * pitch
+	var effective_speed = _get_effective_speed() * current_sv * pitch
 
 	if song_started:
-		#if $AudioStreamPlayer.playing:
-		_spawn_notes()
-		_check_missed_notes()
-		
 		if countdown_active:
 			countdown_time -= delta
-			
 			var display = ceil(countdown_time)
 			if display > 0:
 				countdown_label.text = str(int(display))
 			else:
 				countdown_label.text = "GO!"
-			
 			countdown_label.visible = true
-			
 			if countdown_time <= 0.0:
 				countdown_active = false
 				countdown_label.visible = false
+				_elapsed = 0.0
 				$AudioStreamPlayer.play()
-			
 			return
+
+		_elapsed += delta
+		if $AudioStreamPlayer.playing:
+			song_position = $AudioStreamPlayer.get_playback_position()
 		else:
-			if countdown_active:
-				song_position = -countdown_time
-			else:
-				song_position = $AudioStreamPlayer.get_playback_position()
-			
+			song_position = _elapsed
+
+		_spawn_notes()
+		_check_missed_notes()
+
 		if next_note_index >= chart.size() and note_container.get_child_count() == 0:
 			_end_song()
 			return
-		
+
 	$Hidden.visible = Modifiers.hidden
-	
+
 	$Stuff/Perfect.text = "Perfect: " + str(perfect)
 	$Stuff/Great.text = "Great: " + str(great)
 	$Stuff/Good.text = "Good: " + str(good)
@@ -133,12 +136,12 @@ func _process(delta: float) -> void:
 	$Stuff/Misses.text = "Misses: " + str(misses)
 	$Stuff/Score.text = str(score)
 	$Stuff/Combo.text = str(combo)
-	
+
 	var acc := _accuracy()
 	$Stuff/Accurancy.text = "%.2f%%" % acc
-	
+
 	$Health.value = lerp($Health.value, float(health), delta * 10.0)
-	
+
 	for note in note_container.get_children():
 		if note.hold_active:
 			var shrink = delta * effective_speed
@@ -146,7 +149,7 @@ func _process(delta: float) -> void:
 			note.tail.position.y = 64
 		else:
 			note.move(delta, effective_speed)
-			
+
 	if Input.is_action_just_pressed("ui_cancel"):
 		_toggle_pause()
 		$Pause.visible = paused
@@ -156,21 +159,21 @@ func _process(delta: float) -> void:
 
 	if paused:
 		return
-		
+
 	match OS.get_name():
 		"Android":
 			$Mobile.visible = true
-		
+
 	if health <= 0 and not Modifiers.no_fail:
 		_toggle_pause()
 		$Pause.visible = true
 		$Pause/Resume.visible = false
 		$Pause/Label.text = "GAME OVER"
-	
+
 	if stun_timer > 0.0:
 		stun_timer -= delta
 		return
-	
+
 	if Input.is_action_just_pressed("down"):
 		_change_visibility($Down/TextureRect, false)
 		_change_visibility($Down/Glow, true)
@@ -197,19 +200,16 @@ func _process(delta: float) -> void:
 		_change_visibility($Down/Glow, false)
 		down_pressed = false
 		_check_hold_release("down")
-		
 	if Input.is_action_just_released("left"):
 		_change_visibility($Left/TextureRect, true)
 		_change_visibility($Left/Glow, false)
 		left_pressed = false
 		_check_hold_release("left")
-		
 	if Input.is_action_just_released("up"):
 		_change_visibility($Up/TextureRect, true)
 		_change_visibility($Up/Glow, false)
 		up_pressed = false
 		_check_hold_release("up")
-		
 	if Input.is_action_just_released("right"):
 		_change_visibility($Right/TextureRect, true)
 		_change_visibility($Right/Glow, false)
@@ -325,30 +325,29 @@ func _check_missed_notes() -> void:
 			
 func _spawn_notes() -> void:
 	var spawn_ahead = song_position + LEAD_TIME
-	
+	var speed = _get_effective_speed()
+
 	while next_note_index < chart.size():
 		var note_data = chart[next_note_index]
 		if note_data["time"] / 1000.0 <= spawn_ahead:
 			var note = note_scene.instantiate()
 			note.direction = _lane_to_direction(note_data["lane"])
-			
+
 			var note_tex = ModLoader.get_note_texture(note.direction)
 			if note_tex:
 				note.get_node("Note").texture = note_tex
 
 			var note_time = note_data["time"] / 1000.0
-			var current_scroll = _get_scroll_position(song_position)
-			var note_scroll   = _get_scroll_position(note_time)
-			var visual_offset = (note_scroll - current_scroll) * NOTE_SPEED
+			var time_until_hit = note_time - song_position
+			var visual_offset = time_until_hit * speed
 
 			note.position = _get_lane_x(note.direction)
 			note.position.y = RECEPTOR_Y + visual_offset
-			
-			note.is_stun = note_data.get("type", "") == "stun"
 
+			note.is_stun = note_data.get("type", "") == "stun"
 			note.duration = note_data.get("duration", 0) / 1000.0
 			note_container.add_child(note)
-			note.init_tail(NOTE_SPEED)
+			note.init_tail(speed)
 			next_note_index += 1
 		else:
 			break
@@ -406,11 +405,12 @@ func _toggle_pause() -> void:
 		get_tree().paused = false
 
 func _get_lane_x(direction: String) -> Vector2:
+	var speed = _get_effective_speed()
 	match direction:
-		"left":  return Vector2($Left/TextureRect.global_position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"down":  return Vector2($Down/TextureRect.global_position.x,  RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"up":    return Vector2($Up/TextureRect.global_position.x,    RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
-		"right": return Vector2($Right/TextureRect.global_position.x, RECEPTOR_Y + NOTE_SPEED * LEAD_TIME)
+		"left":  return Vector2($Left/TextureRect.global_position.x,  RECEPTOR_Y + speed * LEAD_TIME)
+		"down":  return Vector2($Down/TextureRect.global_position.x,  RECEPTOR_Y + speed * LEAD_TIME)
+		"up":    return Vector2($Up/TextureRect.global_position.x,    RECEPTOR_Y + speed * LEAD_TIME)
+		"right": return Vector2($Right/TextureRect.global_position.x, RECEPTOR_Y + speed * LEAD_TIME)
 	return Vector2.ZERO
 			
 func _lane_to_direction(lane: int) -> String:
@@ -436,7 +436,8 @@ func _check_hit(direction: String) -> void:
 	if closest == null:
 		return
 
-	var time_diff = closest_dist / NOTE_SPEED
+	var speed = _get_effective_speed()
+	var time_diff = closest_dist / speed
 
 	if time_diff > HIT_WINDOW_MISS:
 		return
@@ -459,8 +460,9 @@ func _check_hold_release(direction: String) -> void:
 		if note.direction != direction or not note.hold_active:
 			continue
 			
+		var speed = _get_effective_speed()
 		var tail_remaining = note.tail.size.y
-		var time_remaining = tail_remaining / NOTE_SPEED
+		var time_remaining = tail_remaining / speed
 			
 		if time_remaining > HIT_WINDOW_MEH:
 			_register_miss()

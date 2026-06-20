@@ -26,7 +26,6 @@ MoonwaveDataFormat="*uid://il38rey3m6ul"
 
 window/size/mode=4
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [input]
 
@@ -62,3 +61,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true

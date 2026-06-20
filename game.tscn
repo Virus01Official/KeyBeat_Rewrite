@@ -427,3 +427,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hve3p")
 [node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]
 visible = false
 layout_mode = 1
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1864097820]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
