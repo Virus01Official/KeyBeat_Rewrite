@@ -11,6 +11,11 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Forsaken.png",
 		"url": "https://www.roblox.com/games/18687417158/Forsaken"
 	},
+	"BURNOUT": {
+		"game": "Roblox Forsaken",
+		"image": "res://assets/game_icons/Forsaken.png",
+		"url": "https://www.roblox.com/games/18687417158/Forsaken"
+	},
 }
 
 @onready var search_bar = $Panel/SearchBar
