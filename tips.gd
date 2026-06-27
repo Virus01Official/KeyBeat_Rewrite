@@ -11,11 +11,14 @@ var tips = [
 	"You can use osu! to chart the songs",
 	"Also try Project: RUSHER",
 	"Also try Yunyun Syndrome",
+	"New KeyBeat game is in the works",
 ]
 
 func _ready() -> void:
 	if time.day == 1 and time.month == 4:
 		text = "April Fools!"
+	elif time.day == 23 and time.month == 6:
+		text = "HAPPY KEYBEAT ANNIVERSARY!"
 	elif time.month == 10:
 		text = "IT IS A SPOOKY MONTH!"
 	elif time.month == 12:
