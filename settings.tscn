@@ -141,7 +141,7 @@ offset_bottom = 646.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=784298536]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 158
 
 [node name="Control" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2084139322]
 layout_mode = 2
@@ -313,7 +313,6 @@ text = "500"
 alignment = 1
 
 [node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer" unique_id=1695539721]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control4" unique_id=2139839359]
@@ -495,5 +494,6 @@ flat = true
 [connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3/Label/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/scroll_vel" to="." method="_on_scroll_vel_value_changed"]
 [connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control4/Label/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3/Label/SkinsOption" to="." method="_on_skins_option_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

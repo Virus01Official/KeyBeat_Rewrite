@@ -12,7 +12,8 @@ func save_settings() -> void:
 			"sfx_volume": $Panel/ScrollContainer/VBoxContainer/Control2/VBoxContainer/Control3/Label/SFX_Slider.value
 		},
 		"gameplay": {
-			"scroll_speed": GameData.Scroll_Speed
+			"scroll_speed": GameData.Scroll_Speed,
+			"downscroll": GameData.downscroll
 		},
 		"display": {
 			"show_fps": $"../Label".visible,
@@ -44,9 +45,12 @@ func load_settings() -> void:
 
 	var gameplay: Dictionary = data.get("gameplay", {})
 	var scroll_speed: float = gameplay.get("scroll_speed", 1.0)
+	var downscroll: bool = gameplay.get("downscroll", false)
 	GameData.Scroll_Speed = scroll_speed
+	GameData.downscroll = downscroll
 	$Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/scroll_vel.value = scroll_speed
 	$Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control3/Label/LineEdit.text = str(scroll_speed)
+	$Panel/ScrollContainer/VBoxContainer/Control3/VBoxContainer/Control4/Label/OptionButton.selected = 1 if downscroll else 0
 
 	var display: Dictionary = data.get("display", {})
 	var show_fps: bool = display.get("show_fps", false)
@@ -93,7 +97,7 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 
 func _on_FPS_check_box_toggled(toggled_on: bool) -> void:
 	$"../Label".visible = toggled_on
-
+	
 func _on_vsync_check_box_toggled(toggled_on: bool) -> void:
 	DisplayServer.window_set_vsync_mode(
 		DisplayServer.VSYNC_ENABLED if toggled_on else DisplayServer.VSYNC_DISABLED
@@ -101,3 +105,9 @@ func _on_vsync_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_skins_option_item_selected(index: int) -> void:
 	pass
+
+func _on_option_button_item_selected(index: int) -> void:
+	if index == 0:
+		GameData.downscroll = false
+	else:
+		GameData.downscroll = true

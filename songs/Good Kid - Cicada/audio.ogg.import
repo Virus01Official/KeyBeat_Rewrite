@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0yl2h5p6yayk"
+path="res://.godot/imported/audio.ogg-e3540622d4f472b7a4858d07b8adc45b.oggvorbisstr"
+
+[deps]
+
+source_file="res://songs/Good Kid - Cicada/audio.ogg"
+dest_files=["res://.godot/imported/audio.ogg-e3540622d4f472b7a4858d07b8adc45b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

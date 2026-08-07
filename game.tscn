@@ -108,7 +108,7 @@ expand = true
 loop = true
 
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
-layout_mode = 0
+layout_mode = 1
 offset_left = 234.0
 offset_top = 1.0
 offset_right = 407.0
@@ -137,7 +137,7 @@ texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Up" type="Panel" parent="." unique_id=361959859]
-layout_mode = 0
+layout_mode = 1
 offset_left = 580.0
 offset_top = 1.0
 offset_right = 753.0
@@ -166,7 +166,7 @@ texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Down" type="Panel" parent="." unique_id=811228181]
-layout_mode = 0
+layout_mode = 1
 offset_left = 407.0
 offset_top = 1.0
 offset_right = 580.0
@@ -195,7 +195,7 @@ texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Right" type="Panel" parent="." unique_id=362450477]
-layout_mode = 0
+layout_mode = 1
 offset_left = 753.0
 offset_top = 1.0
 offset_right = 926.0
@@ -233,7 +233,7 @@ visible = false
 layout_mode = 0
 offset_left = 232.0
 offset_right = 929.0
-offset_bottom = 329.0
+offset_bottom = 192.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
 
 [node name="Stuff" type="Panel" parent="." unique_id=89570860]
@@ -429,6 +429,7 @@ visible = false
 layout_mode = 1
 
 [node name="DebugLabel" type="Label" parent="." unique_id=1864097820]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
