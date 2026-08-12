@@ -95,24 +95,23 @@ bus = &"SFX"
 
 [node name="background" type="TextureRect" parent="." unique_id=573643336]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 642.0
+offset_right = 1978.0
+offset_bottom = 1141.0
 expand_mode = 1
 
 [node name="VideoBackground" type="VideoStreamPlayer" parent="." unique_id=933650951]
 visible = false
 layout_mode = 0
-offset_right = 1156.0
-offset_bottom = 649.0
+offset_right = 1989.0
+offset_bottom = 1082.0
 expand = true
 loop = true
 
 [node name="Left" type="Panel" parent="." unique_id=1519121829]
 layout_mode = 1
-offset_left = 234.0
-offset_top = 1.0
-offset_right = 407.0
-offset_bottom = 648.0
+offset_left = 491.0
+offset_right = 749.0
+offset_bottom = 1146.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Left" unique_id=155453095]
@@ -121,7 +120,7 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
@@ -132,16 +131,15 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Up" type="Panel" parent="." unique_id=361959859]
 layout_mode = 1
-offset_left = 580.0
-offset_top = 1.0
-offset_right = 753.0
-offset_bottom = 648.0
+offset_left = 1007.0
+offset_right = 1265.0
+offset_bottom = 1148.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Up" unique_id=1881608005]
@@ -150,7 +148,7 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
@@ -161,16 +159,15 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Down" type="Panel" parent="." unique_id=811228181]
 layout_mode = 1
-offset_left = 407.0
-offset_top = 1.0
-offset_right = 580.0
-offset_bottom = 648.0
+offset_left = 749.0
+offset_right = 1007.0
+offset_bottom = 1143.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Down" unique_id=1478833581]
@@ -179,7 +176,7 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
@@ -190,16 +187,16 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="Right" type="Panel" parent="." unique_id=362450477]
 layout_mode = 1
-offset_left = 753.0
-offset_top = 1.0
-offset_right = 926.0
-offset_bottom = 648.0
+offset_left = 1265.0
+offset_top = 3.0
+offset_right = 1523.0
+offset_bottom = 1148.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Right" unique_id=1726780276]
@@ -208,7 +205,7 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
@@ -219,28 +216,30 @@ offset_left = 33.999996
 offset_top = 0.99999994
 offset_right = 74.0
 offset_bottom = 41.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="NoteContainer" type="Control" parent="." unique_id=450970692]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 66.0
+offset_bottom = 63.0
 
 [node name="Hidden" type="Panel" parent="." unique_id=1419729149]
 visible = false
 layout_mode = 0
-offset_left = 232.0
-offset_right = 929.0
-offset_bottom = 192.0
+offset_left = 491.0
+offset_top = 5.0
+offset_right = 1523.0
+offset_bottom = 283.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
 
 [node name="Stuff" type="Panel" parent="." unique_id=89570860]
 layout_mode = 0
-offset_left = 932.0
-offset_right = 1153.0
-offset_bottom = 485.0
+offset_left = 1658.0
+offset_top = -5.0
+offset_right = 1985.0
+offset_bottom = 555.0
 
 [node name="Label" type="Label" parent="Stuff" unique_id=1041171725]
 layout_mode = 0
@@ -358,10 +357,10 @@ horizontal_alignment = 1
 
 [node name="Health" type="ProgressBar" parent="." unique_id=1169466772]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 125.0
-offset_right = 227.0
-offset_bottom = 493.0
+offset_left = 450.0
+offset_top = 185.0
+offset_right = 485.0
+offset_bottom = 789.0
 theme_override_styles/background = SubResource("StyleBoxFlat_7jktm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ryrav")
 value = 100.0
@@ -370,19 +369,19 @@ show_percentage = false
 
 [node name="Rating" type="TextureRect" parent="." unique_id=52306530]
 layout_mode = 0
-offset_left = 504.0
+offset_left = 846.0
 offset_top = 296.0
-offset_right = 654.0
-offset_bottom = 446.0
+offset_right = 1146.0
+offset_bottom = 596.0
 expand_mode = 1
 
 [node name="Countdown" type="Label" parent="." unique_id=1866355211]
 visible = false
 layout_mode = 0
-offset_left = 464.0
-offset_top = 260.0
-offset_right = 692.0
-offset_bottom = 379.0
+offset_left = 882.0
+offset_top = 410.0
+offset_right = 1110.0
+offset_bottom = 529.0
 text = "3"
 label_settings = SubResource("LabelSettings_eow3j")
 horizontal_alignment = 1

@@ -131,8 +131,8 @@ script = ExtResource("1_cj1lu")
 
 [node name="Panel" type="Panel" parent="." unique_id=761706034]
 layout_mode = 0
-offset_right = 328.0
-offset_bottom = 649.0
+offset_right = 442.0
+offset_bottom = 1109.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1319705289]
 layout_mode = 0
@@ -148,7 +148,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control" unique_id=1291326558]
 layout_mode = 0
-offset_right = 330.0
+offset_right = 444.0
 offset_bottom = 43.0
 text = "Graphics"
 label_settings = SubResource("LabelSettings_nkug2")
@@ -479,10 +479,10 @@ popup/item_1/id = 1
 
 [node name="Button" type="Button" parent="." unique_id=1127913525]
 layout_mode = 0
-offset_left = 283.0
-offset_top = 1.0
-offset_right = 327.0
-offset_bottom = 45.0
+offset_left = 398.0
+offset_top = -1.0
+offset_right = 442.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_x2hje")
 theme_override_font_sizes/font_size = 36
 text = "X"

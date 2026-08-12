@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Keybeat Rewrite"
+config/name="KeybeatRewrite"
+config/version="1.2.0"
 run/main_scene="uid://mhuj5upq3ldd"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://0lqg0g2di4xv"
@@ -24,9 +25,14 @@ MoonwaveDataFormat="*uid://il38rey3m6ul"
 
 [display]
 
+window/size/viewport_width=1980
+window/size/viewport_height=1080
 window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/name="KeybeatRewrite"
+window/version="1.2.0"
+window/icon="uid://0lqg0g2di4xv"
 
 [editor_plugins]
 
