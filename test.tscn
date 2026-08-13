@@ -13,13 +13,13 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1908618346]
 layout_mode = 0
-offset_right = 552.0
+offset_right = 736.0
 offset_bottom = 93.0
 expand_mode = 1
 
 [node name="Button" type="Button" parent="." unique_id=425158074]
 layout_mode = 0
-offset_right = 552.0
+offset_right = 736.0
 offset_bottom = 93.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("1_37kl0")

@@ -20,23 +20,23 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1579577960]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 648.0
+offset_right = 1927.0
+offset_bottom = 1091.0
 
 [node name="Label" type="Label" parent="." unique_id=287738268]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 54.0
+offset_right = 1926.0
+offset_bottom = 63.0
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_r8yp4")
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="." unique_id=170898683]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 128.0
-offset_right = 860.0
-offset_bottom = 193.0
+offset_left = 680.0
+offset_top = 136.0
+offset_right = 1244.0
+offset_bottom = 201.0
 theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
 text = "RESUME"
@@ -45,9 +45,9 @@ script = ExtResource("3_m0klm")
 
 [node name="Restart" type="Button" parent="." unique_id=355467633]
 layout_mode = 0
-offset_left = 296.0
+offset_left = 680.0
 offset_top = 232.0
-offset_right = 860.0
+offset_right = 1244.0
 offset_bottom = 297.0
 theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
@@ -57,10 +57,10 @@ script = ExtResource("4_jn4bt")
 
 [node name="Quit" type="Button" parent="." unique_id=21198805]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 344.0
-offset_right = 860.0
-offset_bottom = 409.0
+offset_left = 680.0
+offset_top = 336.0
+offset_right = 1244.0
+offset_bottom = 401.0
 theme_override_fonts/font = ExtResource("2_r8yp4")
 theme_override_font_sizes/font_size = 48
 text = "QUIT"

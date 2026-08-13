@@ -95,14 +95,14 @@ bus = &"SFX"
 
 [node name="background" type="TextureRect" parent="." unique_id=573643336]
 layout_mode = 0
-offset_right = 1978.0
-offset_bottom = 1141.0
+offset_right = 1921.0
+offset_bottom = 1081.0
 expand_mode = 1
 
 [node name="VideoBackground" type="VideoStreamPlayer" parent="." unique_id=933650951]
 visible = false
 layout_mode = 0
-offset_right = 1989.0
+offset_right = 1919.0
 offset_bottom = 1082.0
 expand = true
 loop = true
@@ -111,7 +111,7 @@ loop = true
 layout_mode = 1
 offset_left = 491.0
 offset_right = 749.0
-offset_bottom = 1146.0
+offset_bottom = 1084.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Left" unique_id=155453095]
@@ -139,7 +139,7 @@ expand_mode = 1
 layout_mode = 1
 offset_left = 1007.0
 offset_right = 1265.0
-offset_bottom = 1148.0
+offset_bottom = 1081.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Up" unique_id=1881608005]
@@ -167,7 +167,7 @@ expand_mode = 1
 layout_mode = 1
 offset_left = 749.0
 offset_right = 1007.0
-offset_bottom = 1143.0
+offset_bottom = 1081.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Down" unique_id=1478833581]
@@ -196,7 +196,7 @@ layout_mode = 1
 offset_left = 1265.0
 offset_top = 3.0
 offset_right = 1523.0
-offset_bottom = 1148.0
+offset_bottom = 1081.0
 pivot_offset = Vector2(87, 323)
 
 [node name="TextureRect" type="TextureRect" parent="Right" unique_id=1726780276]
@@ -236,9 +236,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
 
 [node name="Stuff" type="Panel" parent="." unique_id=89570860]
 layout_mode = 0
-offset_left = 1658.0
+offset_left = 1588.0
 offset_top = -5.0
-offset_right = 1985.0
+offset_right = 1915.0
 offset_bottom = 555.0
 
 [node name="Label" type="Label" parent="Stuff" unique_id=1041171725]

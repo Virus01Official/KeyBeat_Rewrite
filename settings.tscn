@@ -132,7 +132,7 @@ script = ExtResource("1_cj1lu")
 [node name="Panel" type="Panel" parent="." unique_id=761706034]
 layout_mode = 0
 offset_right = 442.0
-offset_bottom = 1109.0
+offset_bottom = 1080.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1319705289]
 layout_mode = 0
