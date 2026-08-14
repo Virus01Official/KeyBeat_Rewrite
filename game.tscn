@@ -237,9 +237,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
 [node name="Stuff" type="Panel" parent="." unique_id=89570860]
 layout_mode = 0
 offset_left = 1588.0
-offset_top = -5.0
 offset_right = 1915.0
-offset_bottom = 555.0
+offset_bottom = 560.0
 
 [node name="Label" type="Label" parent="Stuff" unique_id=1041171725]
 layout_mode = 0
@@ -390,37 +389,37 @@ vertical_alignment = 1
 [node name="Mobile" type="Control" parent="." unique_id=479975973]
 visible = false
 anchors_preset = 0
-offset_right = 1154.0
-offset_bottom = 650.0
+offset_right = 1921.0
+offset_bottom = 1084.0
 
 [node name="Left" type="Panel" parent="Mobile" unique_id=68780816]
 layout_mode = 0
-offset_right = 293.0
-offset_bottom = 650.0
+offset_left = 109.0
+offset_right = 548.5
+offset_bottom = 1083.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
 
 [node name="Down" type="Panel" parent="Mobile" unique_id=1430554371]
 layout_mode = 0
-offset_left = 293.0
-offset_top = 1.0
-offset_right = 586.0
-offset_bottom = 651.0
+offset_left = 550.0
+offset_top = -2.0
+offset_right = 989.5
+offset_bottom = 1083.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
 
 [node name="Up" type="Panel" parent="Mobile" unique_id=1228766943]
 layout_mode = 0
-offset_left = 585.0
+offset_left = 990.0
 offset_top = -1.0
-offset_right = 878.0
-offset_bottom = 649.0
+offset_right = 1429.5
+offset_bottom = 1082.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
 
 [node name="Right" type="Panel" parent="Mobile" unique_id=1801331754]
 layout_mode = 0
-offset_left = 878.0
-offset_top = -2.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 1429.0
+offset_right = 1868.5
+offset_bottom = 1083.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hve3p")
 
 [node name="Pause" parent="." unique_id=1268292959 instance=ExtResource("4_fc0e3")]

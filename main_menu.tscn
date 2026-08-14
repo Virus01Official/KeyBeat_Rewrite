@@ -99,10 +99,10 @@ text = "SETTINGS"
 
 [node name="Credits" type="Button" parent="." unique_id=881385018]
 layout_mode = 0
-offset_left = 867.0
-offset_top = 484.0
-offset_right = 1076.0
-offset_bottom = 521.0
+offset_left = 768.0
+offset_top = 472.0
+offset_right = 1186.0
+offset_bottom = 546.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "CREDITS"
@@ -120,10 +120,10 @@ text = "CHART EDITOR"
 
 [node name="Quit" type="Button" parent="." unique_id=1075235682]
 layout_mode = 0
-offset_left = 867.0
-offset_top = 548.0
-offset_right = 1076.0
-offset_bottom = 585.0
+offset_left = 768.0
+offset_top = 560.0
+offset_right = 1186.0
+offset_bottom = 634.0
 theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 24
 text = "QUIT"
