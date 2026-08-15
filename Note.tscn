@@ -19,13 +19,11 @@ grow_vertical = 2
 script = ExtResource("1_pmjlu")
 
 [node name="Tail" type="TextureRect" parent="." unique_id=654122311]
-visible = false
 layout_mode = 0
 offset_left = 57.0
 offset_top = 81.0
-offset_right = 97.0
-offset_bottom = 106.0
-scale = Vector2(2, 2)
+offset_right = 137.0
+offset_bottom = 131.0
 texture = SubResource("GradientTexture2D_6st8q")
 expand_mode = 1
 

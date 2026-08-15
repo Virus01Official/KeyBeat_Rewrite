@@ -44,7 +44,7 @@ func load_settings() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(sfx_vol / 100.0))
 
 	var gameplay: Dictionary = data.get("gameplay", {})
-	var scroll_speed: float = gameplay.get("scroll_speed", 1.0)
+	var scroll_speed: float = gameplay.get("scroll_speed", 500.0)
 	var downscroll: bool = gameplay.get("downscroll", false)
 	GameData.Scroll_Speed = scroll_speed
 	GameData.downscroll = downscroll

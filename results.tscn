@@ -36,17 +36,17 @@ script = ExtResource("1_e1an3")
 [node name="backgorund" type="TextureRect" parent="." unique_id=1868134520]
 layout_mode = 0
 offset_top = -3.0
-offset_right = 236.06557
-offset_bottom = 131.0164
+offset_right = 393.2377
+offset_bottom = 218.92622
 scale = Vector2(4.88, 4.88)
 expand_mode = 1
 
 [node name="grade" type="TextureRect" parent="." unique_id=770228485]
 layout_mode = 0
-offset_left = 880.0
-offset_top = 161.0
-offset_right = 920.0
-offset_bottom = 201.0
+offset_left = 1495.0
+offset_top = 41.0
+offset_right = 1575.0
+offset_bottom = 121.0
 scale = Vector2(4.88, 4.88)
 texture = ExtResource("1_amp1b")
 expand_mode = 1
@@ -113,10 +113,10 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=981567666]
 layout_mode = 0
-offset_left = 858.0
-offset_top = 584.0
-offset_right = 1153.0
-offset_bottom = 646.0
+offset_left = 1608.0
+offset_top = 1000.0
+offset_right = 1903.0
+offset_bottom = 1062.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("3_5erdf")
 theme_override_font_sizes/font_size = 42

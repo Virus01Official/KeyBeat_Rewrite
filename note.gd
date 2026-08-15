@@ -16,6 +16,7 @@ func _ready():
 func init_tail(spawn_speed: float) -> void:
 	is_hold = duration > 0.0
 	tail.visible = is_hold
+	
 	if is_hold:
 		tail.size.y = duration * spawn_speed
 		tail.position.y = -tail.size.y if downscroll else 64

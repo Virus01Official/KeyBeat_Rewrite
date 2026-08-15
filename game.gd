@@ -167,7 +167,7 @@ func _process(delta: float) -> void:
 	
 	for note in note_container.get_children():
 		if note.hold_active:
-			var shrink = delta * effective_speed
+			var shrink = delta * effective_speed / note.tail.scale.y
 			note.tail.size.y = max(0.0, note.tail.size.y - shrink)
 			note.tail.position.y = -note.tail.size.y if GameData.downscroll else 64
 		else:
