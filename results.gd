@@ -1,6 +1,5 @@
 extends Control
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var game = $"../game"
 	var grade = game.final_grade
@@ -9,9 +8,11 @@ func _process(_delta):
 	var combo = game.highest_combo
 	
 	if grade == "":
-		return  # don't try to load yet
+		return
 		
-	$grade.texture = load("res://assets/grades/" + grade + ".png")
+	var grade_tex = Skins.get_grade_texture(grade)
+	if grade_tex:
+		$grade.texture = grade_tex
 	$VBoxContainer/Accurancy.text = "Accurancy: " + str(floor(accurancy)) + "%"
 	$VBoxContainer/Combo.text = "Highest combo: " + str(combo)
 	$VBoxContainer/Score.text = "Score: " + str(game.score)
@@ -24,7 +25,6 @@ func _process(_delta):
 	$VBoxContainer/Okay.text = "Okay: " + str(game.ok)
 	$VBoxContainer/Bad.text = "Bad: " + str(game.meh)
 	$VBoxContainer/Misses.text = "Misses: " + str(game.misses)
-
 
 func _on_button_pressed() -> void:
 	$".".visible = false

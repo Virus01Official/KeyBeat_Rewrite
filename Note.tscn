@@ -27,7 +27,7 @@ offset_bottom = 131.0
 texture = SubResource("GradientTexture2D_6st8q")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1028300417]
+[node name="Note" type="TextureRect" parent="." unique_id=1028300417]
 layout_mode = 0
 offset_left = 1.0000038
 offset_top = -3.9999995

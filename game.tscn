@@ -194,7 +194,6 @@ expand_mode = 1
 [node name="Right" type="Panel" parent="." unique_id=362450477]
 layout_mode = 1
 offset_left = 1265.0
-offset_top = 3.0
 offset_right = 1523.0
 offset_bottom = 1081.0
 pivot_offset = Vector2(87, 323)

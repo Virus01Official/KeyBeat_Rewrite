@@ -2,8 +2,20 @@ extends Control
 
 const SETTINGS_PATH = "user://settings.mwdat"
 
+@onready var skins_option: OptionButton = $Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control4/Label/OptionButton
+
 func _ready() -> void:
+	_populate_skins_option()
 	load_settings()
+
+func _populate_skins_option() -> void:
+	skins_option.clear()
+	var skins = Skins.get_available_skins()
+	for skin_name in skins:
+		skins_option.add_item(skin_name)
+	var idx = skins.find(Skins.current_skin)
+	if idx != -1:
+		skins_option.selected = idx
 
 func save_settings() -> void:
 	var data := {
@@ -19,6 +31,7 @@ func save_settings() -> void:
 			"show_fps": $"../Label".visible,
 			"vsync": DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED
 		},
+		"skin": Skins.current_skin,
 		"keybinds": {}
 	}
 
@@ -63,6 +76,13 @@ func load_settings() -> void:
 		DisplayServer.VSYNC_ENABLED if vsync else DisplayServer.VSYNC_DISABLED
 	)
 
+	var skin_name: String = data.get("skin", "default")
+	Skins.set_skin(skin_name)
+	var skins = Skins.get_available_skins()
+	var skin_idx = skins.find(Skins.current_skin)
+	if skin_idx != -1:
+		skins_option.selected = skin_idx
+
 	var keybinds: Dictionary = data.get("keybinds", {})
 	for action in ["left", "right", "up", "down"]:
 		if keybinds.has(action):
@@ -104,7 +124,9 @@ func _on_vsync_check_box_toggled(toggled_on: bool) -> void:
 	)
 
 func _on_skins_option_item_selected(index: int) -> void:
-	pass
+	var skins = Skins.get_available_skins()
+	if index >= 0 and index < skins.size():
+		Skins.set_skin(skins[index])
 
 func _on_option_button_item_selected(index: int) -> void:
 	if index == 0:

@@ -136,8 +136,8 @@ offset_bottom = 1080.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1319705289]
 layout_mode = 0
-offset_right = 327.0
-offset_bottom = 646.0
+offset_right = 440.0
+offset_bottom = 1085.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=784298536]
 layout_mode = 2
@@ -406,7 +406,6 @@ text = "K"
 script = SubResource("GDScript_cj1lu")
 
 [node name="Control4" type="Control" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1917590123]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control4" unique_id=602983131]

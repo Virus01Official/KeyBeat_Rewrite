@@ -35,15 +35,6 @@ var sv_points: Array = []
 
 var countdown: float = 0.0
 
-var rating_textures = {
-	"max":   preload("res://skins/default/rating/Perfect.png"),
-	"great": preload("res://skins/default/rating/Great.png"),
-	"good":  preload("res://skins/default/rating/Good.png"),
-	"ok":    preload("res://skins/default/rating/Okay.png"),
-	"meh":   preload("res://skins/default/rating/Bad.png"),
-	"miss":  preload("res://skins/default/rating/Miss.png"),
-}
-
 var paused = false
 
 var health = 100
@@ -92,7 +83,23 @@ func _ready() -> void:
 		for child_name in ["TextureRect", "Glow"]:
 			var child = lane_node.get_node(child_name)
 			_receptor_icon_original_y[child] = child.position.y
+	_apply_skin_assets()
 	_setup_scroll_direction()
+
+func _apply_skin_assets() -> void:
+	for lane_node in receptor_nodes:
+		var empty_tex = Skins.get_empty_texture()
+		var glow_tex = Skins.get_glow_texture()
+		if empty_tex:
+			lane_node.get_node("TextureRect").texture = empty_tex
+		if glow_tex:
+			lane_node.get_node("Glow").texture = glow_tex
+	var hitsound = Skins.get_hitsound()
+	var misssound = Skins.get_miss_sound()
+	if hitsound:
+		$Hitsound.stream = hitsound
+	if misssound:
+		$Miss.stream = misssound
 
 func _setup_scroll_direction() -> void:
 	for lane_node in receptor_nodes:
@@ -555,6 +562,7 @@ func _start(song: String, json_file: String) -> void:
 	current_song = song
 	current_json = json_file
 	paused = false
+	_apply_skin_assets()
 	_setup_scroll_direction()
 	$Pause.visible = false
 	var path = maps_location + song + "/" + json_file
@@ -607,6 +615,7 @@ func _start_from_path(song_folder_path: String, json_file: String) -> void:
 	current_song_path = song_folder_path  
 	current_json = json_file
 	paused = false
+	_apply_skin_assets()
 	_setup_scroll_direction()
 	$Pause.visible = false
 
@@ -789,7 +798,9 @@ func _save_score() -> void:
 func _show_rating(key: String) -> void:
 	if _rating_tween:
 		_rating_tween.kill()
-	rating.texture = rating_textures.get(key)
+	var tex = Skins.get_rating_texture(key)
+	if tex:
+		rating.texture = tex
 	rating.modulate.a = 1.0
 	_rating_tween = create_tween()
 	_rating_tween.tween_interval(0.5)
