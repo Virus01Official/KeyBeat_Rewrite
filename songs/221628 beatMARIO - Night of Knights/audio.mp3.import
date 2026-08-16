@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chaxnpxm6h7wh"
+path="res://.godot/imported/audio.mp3-83a6f6e0505dfe9dee985e78ab378bc3.mp3str"
+
+[deps]
+
+source_file="res://songs/221628 beatMARIO - Night of Knights/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-83a6f6e0505dfe9dee985e78ab378bc3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
