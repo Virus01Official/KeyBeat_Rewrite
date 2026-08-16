@@ -2,7 +2,7 @@ extends Control
 
 const SETTINGS_PATH = "user://settings.mwdat"
 
-@onready var skins_option: OptionButton = $Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control4/Label/OptionButton
+@onready var skins_option: OptionButton = $Panel/ScrollContainer/VBoxContainer/Control4/VBoxContainer/Control3/Label/SkinsOption
 
 func _ready() -> void:
 	_populate_skins_option()
