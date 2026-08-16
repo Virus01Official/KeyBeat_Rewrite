@@ -117,6 +117,39 @@ func _mirror_control_vertical(ctrl: Control, parent_height: float) -> void:
 	var effective_height = ctrl.size.y * ctrl.scale.y
 	ctrl.position.y = parent_height - ctrl.position.y - effective_height
 
+func _auto_play_hits(effective_speed: float, delta: float) -> void:
+	var receptor_y = _get_receptor_y()
+	var threshold = effective_speed * delta * 1.5 + 2.0
+	for note in note_container.get_children():
+		if note.hold_active:
+			continue
+		var dist = abs(note.position.y - receptor_y)
+		if dist <= threshold:
+			_trigger_auto_hit(note)
+
+func _trigger_auto_hit(note) -> void:
+	var direction = note.direction
+	var tex_node = get_node(direction.capitalize() + "/TextureRect")
+	var glow_node = get_node(direction.capitalize() + "/Glow")
+	_change_visibility(tex_node, false)
+	_change_visibility(glow_node, true)
+	var timer := get_tree().create_timer(0.1)
+	timer.timeout.connect(func():
+		_change_visibility(tex_node, true)
+		_change_visibility(glow_node, false)
+	)
+
+	if note.is_hold:
+		note.hold_active = true
+	else:
+		note.queue_free()
+
+	if note.is_stun:
+		_apply_stun()
+
+	_register_hit(0.0)
+	$Hitsound.play()
+
 func _process(delta: float) -> void:
 	var current_sv = _get_current_sv_multiplier()
 	var pitch = $AudioStreamPlayer.pitch_scale
@@ -204,55 +237,60 @@ func _process(delta: float) -> void:
 		stun_timer -= delta
 		return
 	
-	if Input.is_action_just_pressed("down"):
-		_change_visibility($Down/TextureRect, false)
-		_change_visibility($Down/Glow, true)
-		down_pressed = true
-		_check_hit("down")
-	if Input.is_action_just_pressed("left"):
-		_change_visibility($Left/TextureRect, false)
-		_change_visibility($Left/Glow, true)
-		left_pressed = true
-		_check_hit("left")
-	if Input.is_action_just_pressed("up"):
-		_change_visibility($Up/TextureRect, false)
-		_change_visibility($Up/Glow, true)
-		up_pressed = true
-		_check_hit("up")
-	if Input.is_action_just_pressed("right"):
-		_change_visibility($Right/TextureRect, false)
-		_change_visibility($Right/Glow, true)
-		right_pressed = true
-		_check_hit("right")
+	if Modifiers.auto:
+		_auto_play_hits(effective_speed, delta)
+	else:
+		if Input.is_action_just_pressed("down"):
+			_change_visibility($Down/TextureRect, false)
+			_change_visibility($Down/Glow, true)
+			down_pressed = true
+			_check_hit("down")
+		if Input.is_action_just_pressed("left"):
+			_change_visibility($Left/TextureRect, false)
+			_change_visibility($Left/Glow, true)
+			left_pressed = true
+			_check_hit("left")
+		if Input.is_action_just_pressed("up"):
+			_change_visibility($Up/TextureRect, false)
+			_change_visibility($Up/Glow, true)
+			up_pressed = true
+			_check_hit("up")
+		if Input.is_action_just_pressed("right"):
+			_change_visibility($Right/TextureRect, false)
+			_change_visibility($Right/Glow, true)
+			right_pressed = true
+			_check_hit("right")
 
-	if Input.is_action_just_released("down"):
-		_change_visibility($Down/TextureRect, true)
-		_change_visibility($Down/Glow, false)
-		down_pressed = false
-		_check_hold_release("down")
-		
-	if Input.is_action_just_released("left"):
-		_change_visibility($Left/TextureRect, true)
-		_change_visibility($Left/Glow, false)
-		left_pressed = false
-		_check_hold_release("left")
-		
-	if Input.is_action_just_released("up"):
-		_change_visibility($Up/TextureRect, true)
-		_change_visibility($Up/Glow, false)
-		up_pressed = false
-		_check_hold_release("up")
-		
-	if Input.is_action_just_released("right"):
-		_change_visibility($Right/TextureRect, true)
-		_change_visibility($Right/Glow, false)
-		right_pressed = false
-		_check_hold_release("right")
+		if Input.is_action_just_released("down"):
+			_change_visibility($Down/TextureRect, true)
+			_change_visibility($Down/Glow, false)
+			down_pressed = false
+			_check_hold_release("down")
+			
+		if Input.is_action_just_released("left"):
+			_change_visibility($Left/TextureRect, true)
+			_change_visibility($Left/Glow, false)
+			left_pressed = false
+			_check_hold_release("left")
+			
+		if Input.is_action_just_released("up"):
+			_change_visibility($Up/TextureRect, true)
+			_change_visibility($Up/Glow, false)
+			up_pressed = false
+			_check_hold_release("up")
+			
+		if Input.is_action_just_released("right"):
+			_change_visibility($Right/TextureRect, true)
+			_change_visibility($Right/Glow, false)
+			right_pressed = false
+			_check_hold_release("right")
 
 func _input(event: InputEvent) -> void:
 	if not OS.get_name() == "Android":
 		return
 	if paused:
+		return
+	if Modifiers.auto:
 		return
 
 	if event is InputEventScreenTouch:

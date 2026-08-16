@@ -4,6 +4,7 @@ var no_fail = false
 var hidden = false
 var sudden_death = false
 var nightcore = false
+var auto = false
 
 var multiplier = 1.0
 
@@ -16,3 +17,5 @@ func _process(_delta: float) -> void:
 		multiplier += 0.50
 	if nightcore:
 		multiplier += 0.50
+	if auto:
+		multiplier = 0.0
