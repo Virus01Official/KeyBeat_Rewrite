@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0pvhea2l7bv6"]
 
-[ext_resource type="Texture2D" uid="uid://mddh8817e8ku" path="res://assets/grades/A.png" id="1_amp1b"]
+[ext_resource type="Texture2D" uid="uid://mddh8817e8ku" path="res://skins/default/grades/A.png" id="1_amp1b"]
 [ext_resource type="Script" uid="uid://bc30fqjivese7" path="res://results.gd" id="1_e1an3"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="2_mabgl"]
 [ext_resource type="FontFile" uid="uid://cng6ecep0kkil" path="res://assets/Roboto/static/Roboto-Black.ttf" id="3_5erdf"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://da0pamysnvkpn"]
 
-[ext_resource type="Texture2D" uid="uid://dvnemhv7kcuqd" path="res://assets/note.png" id="1_m01oh"]
+[ext_resource type="Texture2D" uid="uid://dvnemhv7kcuqd" path="res://skins/default/note.png" id="1_m01oh"]
 [ext_resource type="Script" uid="uid://d0x586v3hkgmj" path="res://note.gd" id="1_pmjlu"]
 
 [sub_resource type="Gradient" id="Gradient_pmjlu"]

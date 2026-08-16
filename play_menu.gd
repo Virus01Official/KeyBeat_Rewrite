@@ -33,12 +33,12 @@ func load_songs() -> void:
 		child.queue_free()
 	
 	var grade_textures = {
-		"SS": preload("res://assets/grades/SS.png"),
-		"S":  preload("res://assets/grades/S.png"),
-		"A":  preload("res://assets/grades/A.png"),
-		"B":  preload("res://assets/grades/B.png"),
-		"C":  preload("res://assets/grades/C.png"),
-		"D":  preload("res://assets/grades/D.png"),
+		"SS": preload("res://skins/default/grades/SS.png"),
+		"S":  preload("res://skins/default/grades/S.png"),
+		"A":  preload("res://skins/default/grades/A.png"),
+		"B":  preload("res://skins/default/grades/B.png"),
+		"C":  preload("res://skins/default/grades/C.png"),
+		"D":  preload("res://skins/default/grades/D.png"),
 	}
 	
 	var saved_scores: Dictionary = MWDat.load("user://scores.mwdat")

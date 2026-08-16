@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5usa37354543"
-path="res://.godot/imported/Perfect.png-7adda0ec4e92d1c65a5b8c70e4c4fc6a.ctex"
+path="res://.godot/imported/Perfect.png-a1e4222d9164dbfd7a533859d2f9e976.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rating/Perfect.png"
-dest_files=["res://.godot/imported/Perfect.png-7adda0ec4e92d1c65a5b8c70e4c4fc6a.ctex"]
+source_file="res://skins/default/rating/Perfect.png"
+dest_files=["res://.godot/imported/Perfect.png-a1e4222d9164dbfd7a533859d2f9e976.ctex"]
 
 [params]
 

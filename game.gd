@@ -36,12 +36,12 @@ var sv_points: Array = []
 var countdown: float = 0.0
 
 var rating_textures = {
-	"max":   preload("res://assets/rating/Perfect.png"),
-	"great": preload("res://assets/rating/Great.png"),
-	"good":  preload("res://assets/rating/Good.png"),
-	"ok":    preload("res://assets/rating/Okay.png"),
-	"meh":   preload("res://assets/rating/Bad.png"),
-	"miss":  preload("res://assets/rating/Miss.png"),
+	"max":   preload("res://skins/default/rating/Perfect.png"),
+	"great": preload("res://skins/default/rating/Great.png"),
+	"good":  preload("res://skins/default/rating/Good.png"),
+	"ok":    preload("res://skins/default/rating/Okay.png"),
+	"meh":   preload("res://skins/default/rating/Bad.png"),
+	"miss":  preload("res://skins/default/rating/Miss.png"),
 }
 
 var paused = false

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://buk80e6we7l16"]
 
 [ext_resource type="Script" uid="uid://dgwy3hovl6uef" path="res://scripts/chart_editor.gd" id="1_7q73h"]
-[ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://assets/empty.png" id="1_awhgf"]
-[ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://assets/glow.png" id="2_7q73h"]
+[ext_resource type="Texture2D" uid="uid://c06rgvhpj38xj" path="res://skins/default/empty.png" id="1_awhgf"]
+[ext_resource type="Texture2D" uid="uid://cobnc2maav0ev" path="res://skins/default/glow.png" id="2_7q73h"]
 [ext_resource type="FontFile" uid="uid://diu4olylqsotv" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="4_iskhp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q73h"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mddh8817e8ku"
-path="res://.godot/imported/A.png-89a8e7c736f629d3eed1fbced5de8cdd.ctex"
+uid="uid://cohu1tcrqmocg"
+path="res://.godot/imported/S.png-186abeb9eef27c8f1d8b01932929b508.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/grades/A.png"
-dest_files=["res://.godot/imported/A.png-89a8e7c736f629d3eed1fbced5de8cdd.ctex"]
+source_file="res://skins/default/grades/S.png"
+dest_files=["res://.godot/imported/S.png-186abeb9eef27c8f1d8b01932929b508.ctex"]
 
 [params]
 
