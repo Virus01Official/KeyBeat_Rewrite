@@ -1,6 +1,7 @@
 {
 	"title": "comet casting capsule",
-	"difficulty": "",
+	"difficulty": "Hard",
+	"category": "kanemiko",
 	"offset": 50,
 	"map_id": 2,
 	"credits": "kanemiko",

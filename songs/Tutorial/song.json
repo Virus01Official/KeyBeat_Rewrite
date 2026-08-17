@@ -1,6 +1,7 @@
 {
 	"bpm": 120,
 	"title": "Tutorial",
+	"category": "KeyBeat OST",
 	"offset": 500,
 	"map_id": 0,
 	"credits": "Moonwave Studios",
@@ -23,5 +24,5 @@
 		{"time": 6214, "lane": 1},
 		{"time": 6857, "lane": 3},
 		{"time": 7071, "lane": 2}
-	],
+	]
 }

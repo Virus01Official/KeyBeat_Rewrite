@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crnleg78l6o1g"
+path="res://.godot/imported/audio.mp3-6abf5cac64a7f7cdeb22076c68f666a0.mp3str"
+
+[deps]
+
+source_file="res://songs/Temporal Tenacity/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-6abf5cac64a7f7cdeb22076c68f666a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

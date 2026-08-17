@@ -262,7 +262,7 @@ func _sanitise_filename(s: String) -> String:
 	return s
 
 func _reload_after_install() -> void:
-	var container = $play_menu/ScrollContainer/VBoxContainer
+	var container = $play_menu/Categories/VBoxContainer
 
 	for child in container.get_children():
 		child.queue_free()
@@ -271,5 +271,4 @@ func _reload_after_install() -> void:
 	await get_tree().process_frame
 	
 	ModLoader._scan_mods()
-	$play_menu.load_songs()
-	
+	$play_menu.load_categories()

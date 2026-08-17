@@ -2,6 +2,7 @@
 	"bpm": 180.0,
 	"credits": "Good Kid",
 	"difficulty": "Normal",
+	"category": "Good Kid",
 	"key_count": 4,
 	"map_id": 5284366,
 	"mapper": "Virus",
