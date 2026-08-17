@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b20qha6wri5cj"
+path="res://.godot/imported/audio.mp3-b02c2ee43575e6cee7050f3ba1550a78.mp3str"
+
+[deps]
+
+source_file="res://songs/FIND YOUR FLAME/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-b02c2ee43575e6cee7050f3ba1550a78.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,6 +11,8 @@ var tips = [
 	"You can use osu! to chart the songs",
 	"Also try Project: RUSHER",
 	"Also try Yunyun Syndrome",
+	"Also try Nullscape",
+	"DEATH IN BLOOM",
 	"New KeyBeat game is in the works",
 ]
 
@@ -30,3 +32,6 @@ func _ready() -> void:
 		text = "Happy Pride Month!"
 	else:
 		text = tips[randi() % tips.size()]
+		if text == "DEATH IN BLOOM":
+			modulate = Color.PURPLE
+			add_theme_font_size_override("font_size", 32)

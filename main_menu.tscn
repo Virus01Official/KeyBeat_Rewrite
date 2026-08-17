@@ -12,7 +12,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font = ExtResource("1_06t4h")
-font_size = 20
 
 [sub_resource type="GDScript" id="GDScript_4c57u"]
 script/source = "extends Label
@@ -52,8 +51,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
 layout_mode = 0
 offset_right = 1926.0
 offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 16
 text = "TIP: BOOBS"
-label_settings = SubResource("LabelSettings_jix8l")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_jix8l")

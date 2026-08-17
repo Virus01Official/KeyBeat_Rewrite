@@ -124,6 +124,7 @@ texture = ExtResource("2_1p45p")
 expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1747653088]
+visible = false
 layout_mode = 0
 offset_left = 1254.0
 offset_top = 3.0
@@ -133,6 +134,21 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="Control" parent="ScrollContainer" unique_id=1473458877]
+layout_mode = 2
+script = ExtResource("3_5tkha")
+separation = 75.0
+height_per_difficulty = 90.0
+
+[node name="Categories" type="ScrollContainer" parent="." unique_id=1836976312]
+layout_mode = 0
+offset_left = 1254.0
+offset_top = 3.0
+offset_right = 1918.0
+offset_bottom = 1081.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="Control" parent="Categories" unique_id=493002502]
 layout_mode = 2
 script = ExtResource("3_5tkha")
 separation = 75.0
