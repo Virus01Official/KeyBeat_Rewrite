@@ -26,6 +26,12 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Nullscape.jpg",
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
+	
+	"Won't you hear my Symphony?": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
 }
 
 @onready var search_bar = $Panel/SearchBar
@@ -92,12 +98,27 @@ func load_categories() -> void:
 
 	# Create category buttons
 	for category_name in category_order:
-		var button := Button.new()
+		var button := preload("res://scenes/category_new.tscn").instantiate()
 
-		button.text = category_name
+		button.get_node("Button/Label").text = category_name
 		button.custom_minimum_size = Vector2(0, 70)
 
-		button.pressed.connect(
+		# Pick a random song from this category
+		var random_entry = categories[category_name].pick_random()
+		var random_folder = random_entry["folder"]
+
+		# Find the song's background image
+		var thumbnail = button.get_node("Button/TextureRect")
+
+		for ext in ["jpg", "png", "jpeg"]:
+			var image_path = random_folder + "background." + ext
+
+			if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
+				thumbnail.texture = load_texture(image_path)
+				break
+
+		# Open the category when clicked
+		button.get_node("Button").pressed.connect(
 			open_category.bind(category_name, categories[category_name])
 		)
 
@@ -108,6 +129,7 @@ func open_category(category_name: String, songs_in_category: Array) -> void:
 
 	$Categories.visible = false
 	$ScrollContainer.visible = true
+
 func load_songs(songs_in_category: Array) -> void:
 	var category_container = $ScrollContainer/VBoxContainer
 
@@ -626,8 +648,12 @@ func _on_button_pressed() -> void:
 		.set_ease(Tween.EASE_OUT)
 
 func _on_back_pressed() -> void:
-	$".".visible = false
-	$"../main_menu".visible = true
+	if $ScrollContainer.visible:
+		$ScrollContainer.visible = false
+		$Categories.visible = true
+	else:
+		$".".visible = false
+		$"../main_menu".visible = true
 
 func _on_modifiers_button_pressed() -> void:
 	$modifiersPanel.visible = not $modifiersPanel.visible
