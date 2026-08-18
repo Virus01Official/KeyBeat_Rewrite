@@ -11,6 +11,22 @@
 [ext_resource type="Script" uid="uid://dpwebc8rhc70u" path="res://scripts/hidden.gd" id="10_vwn38"]
 [ext_resource type="Texture2D" uid="uid://g40c1rvlemby" path="res://assets/icon_skull.png" id="11_jd052"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljtur"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4117647, 0, 0.4117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y5y0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4117647, 0, 0.4117647, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkha"]
 bg_color = Color(0, 0, 0, 0.5058824)
 
@@ -130,6 +146,7 @@ offset_left = 1254.0
 offset_top = 3.0
 offset_right = 1918.0
 offset_bottom = 1081.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ljtur")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -145,6 +162,7 @@ offset_left = 1254.0
 offset_top = 3.0
 offset_right = 1918.0
 offset_bottom = 1081.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6y5y0")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -153,6 +171,12 @@ layout_mode = 2
 script = ExtResource("3_5tkha")
 separation = 50.0
 height_per_difficulty = 90.0
+
+[node name="Panel3" type="Panel" parent="." unique_id=437022854]
+layout_mode = 0
+offset_top = 162.0
+offset_right = 643.0
+offset_bottom = 509.0
 
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0
