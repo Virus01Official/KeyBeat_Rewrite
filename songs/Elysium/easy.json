@@ -1,6 +1,7 @@
 {
 	"title": "Elysium",
 	"difficulty": "Easy",
+	"category": "Night",
 	"offset": 50,
 	"map_id": 3,
 	"credits": "Night",
