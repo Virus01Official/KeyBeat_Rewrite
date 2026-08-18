@@ -33,6 +33,9 @@ bg_color = Color(0, 0, 0, 0.5058824)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42f3i"]
 bg_color = Color(0, 0, 0, 0.5058824)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqvde"]
+bg_color = Color(0, 0, 0, 0.45882353)
+
 [sub_resource type="LabelSettings" id="LabelSettings_cjevn"]
 font = ExtResource("2_nvr1d")
 font_size = 42
@@ -172,12 +175,6 @@ script = ExtResource("3_5tkha")
 separation = 50.0
 height_per_difficulty = 90.0
 
-[node name="Panel3" type="Panel" parent="." unique_id=437022854]
-layout_mode = 0
-offset_top = 162.0
-offset_right = 643.0
-offset_bottom = 509.0
-
 [node name="Panel" type="Panel" parent="." unique_id=1167728154]
 layout_mode = 0
 offset_top = 1038.0
@@ -244,9 +241,10 @@ flat = true
 [node name="Selected" type="Label" parent="." unique_id=1527670130]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 176.0
+offset_top = 182.0
 offset_right = 329.0
-offset_bottom = 226.0
+offset_bottom = 232.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqvde")
 text = "Selected: None"
 label_settings = SubResource("LabelSettings_cjevn")
 
@@ -256,6 +254,7 @@ offset_left = 40.0
 offset_top = 232.0
 offset_right = 335.0
 offset_bottom = 282.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqvde")
 text = "Difficulty: None"
 label_settings = SubResource("LabelSettings_cjevn")
 
@@ -265,15 +264,17 @@ offset_left = 40.0
 offset_top = 288.0
 offset_right = 406.0
 offset_bottom = 338.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqvde")
 text = "Mapped by: No one"
 label_settings = SubResource("LabelSettings_cjevn")
 
 [node name="Credits" type="Label" parent="." unique_id=2018090447]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 344.0
+offset_top = 338.0
 offset_right = 311.0
-offset_bottom = 394.0
+offset_bottom = 388.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqvde")
 text = "By: No one"
 label_settings = SubResource("LabelSettings_cjevn")
 
@@ -418,10 +419,9 @@ script = SubResource("GDScript_aeqt8")
 [node name="OriginPopup" type="Panel" parent="." unique_id=274459581]
 visible = false
 layout_mode = 0
-offset_left = 1449.0
-offset_top = 1.0
-offset_right = 1918.0
-offset_bottom = 161.0
+offset_left = 764.0
+offset_right = 1233.0
+offset_bottom = 160.0
 
 [node name="GameImage" type="TextureRect" parent="OriginPopup" unique_id=194936457]
 layout_mode = 0
