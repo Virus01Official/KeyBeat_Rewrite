@@ -43,6 +43,12 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Nullscape.jpg",
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
+	
+	"Nullscape": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
 }
 
 @onready var search_bar = $Panel/SearchBar

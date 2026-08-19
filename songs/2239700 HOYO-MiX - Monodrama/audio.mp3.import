@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt32s4cs2iqwy"
+path="res://.godot/imported/audio.mp3-046d6adc506bafe64566a6f3de0e4f49.mp3str"
+
+[deps]
+
+source_file="res://songs/2239700 HOYO-MiX - Monodrama/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-046d6adc506bafe64566a6f3de0e4f49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
