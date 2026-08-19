@@ -158,33 +158,28 @@ func _process(delta: float) -> void:
 	$Hidden.position.y = 454.0 if GameData.downscroll else 0.0
 
 	if song_started:
-		#if $AudioStreamPlayer.playing:
-		_spawn_notes()
-		_check_missed_notes()
-		
 		if countdown_active:
 			countdown_time -= delta
-			
+			song_position = -countdown_time
+
 			var display = ceil(countdown_time)
 			if display > 0:
 				countdown_label.text = str(int(display))
 			else:
 				countdown_label.text = "GO!"
-			
+
 			countdown_label.visible = true
-			
+
 			if countdown_time <= 0.0:
 				countdown_active = false
 				countdown_label.visible = false
 				$AudioStreamPlayer.play()
-			
-			return
 		else:
-			if countdown_active:
-				song_position = -countdown_time
-			else:
-				song_position = $AudioStreamPlayer.get_playback_position()
-			
+			song_position = $AudioStreamPlayer.get_playback_position()
+
+		_spawn_notes()
+		_check_missed_notes()
+
 		if next_note_index >= chart.size() and note_container.get_child_count() == 0:
 			_end_song()
 			return
@@ -428,6 +423,13 @@ func _spawn_notes() -> void:
 			break
 
 func _get_scroll_position(time_sec: float) -> float:
+	if sv_points.is_empty():
+		return time_sec
+
+	var first_time: float = sv_points[0]["time"] / 1000.0
+	if time_sec <= first_time:
+		return time_sec - first_time
+
 	var pos: float = 0.0
 	for i in range(sv_points.size()):
 		var sv = sv_points[i]
