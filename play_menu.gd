@@ -49,6 +49,18 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Nullscape.jpg",
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
+	
+	"Conviction (feat. SPIRIT GARDEN)": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
+	
+	"Void Explorer": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
 }
 
 @onready var search_bar = $Panel/SearchBar

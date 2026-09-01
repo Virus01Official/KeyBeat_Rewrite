@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mt4kp2exgdlv"
+path="res://.godot/imported/audio.mp3-6fa93e025a33830f2545beb3c8350c2d.mp3str"
+
+[deps]
+
+source_file="res://songs/2464202 DIGITAL DESCENDANT - Conviction (feat. SPIRIT GARDEN_)/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-6fa93e025a33830f2545beb3c8350c2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
