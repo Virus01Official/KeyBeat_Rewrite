@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doxgbqc3obk7k"
-path="res://.godot/imported/background.png-0470eb7236022e68f6bd5b184d132439.ctex"
+uid="uid://5syglu07j17b"
+path="res://.godot/imported/background.png-fecbc7ece1c4b01adee054a382d9d6e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://songs/2464202 DIGITAL DESCENDANT - Conviction (feat. SPIRIT GARDEN_)/background.png"
-dest_files=["res://.godot/imported/background.png-0470eb7236022e68f6bd5b184d132439.ctex"]
+source_file="res://songs/2414873 DECO_27 - Cherry Pop feat. Hatsune Miku/background.png"
+dest_files=["res://.godot/imported/background.png-fecbc7ece1c4b01adee054a382d9d6e0.ctex"]
 
 [params]
 

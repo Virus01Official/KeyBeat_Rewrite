@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s8csckw71it3"
-path="res://.godot/imported/background.jpg-b92e6a4e41fc9eeb1fe70512866c4638.ctex"
+uid="uid://dkd4gad26h7f5"
+path="res://.godot/imported/background.png-46c29f50d40e4cf3bdc146fbbb14b537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://songs/BURNOUT/background.jpg"
-dest_files=["res://.godot/imported/background.jpg-b92e6a4e41fc9eeb1fe70512866c4638.ctex"]
+source_file="res://songs/2353543 Vane Lily - BUTCHER VANITY _ Yi Xi/background.png"
+dest_files=["res://.godot/imported/background.png-46c29f50d40e4cf3bdc146fbbb14b537.ctex"]
 
 [params]
 

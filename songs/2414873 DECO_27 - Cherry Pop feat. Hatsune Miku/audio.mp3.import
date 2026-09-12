@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhufv14f7418e"
+path="res://.godot/imported/audio.mp3-5ae154bc6b2e0fde01743f557b2c9dfe.mp3str"
+
+[deps]
+
+source_file="res://songs/2414873 DECO_27 - Cherry Pop feat. Hatsune Miku/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-5ae154bc6b2e0fde01743f557b2c9dfe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

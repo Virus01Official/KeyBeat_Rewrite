@@ -6,16 +6,6 @@ var selected_folder: String = ""
 var selected_json: String = ""
 
 var song_origins: Dictionary = {
-	"Creation of Hatred": {
-		"game": "Roblox Forsaken",
-		"image": "res://assets/game_icons/Forsaken.png",
-		"url": "https://www.roblox.com/games/18687417158/Forsaken"
-	},
-	"BURNOUT": {
-		"game": "Roblox Forsaken",
-		"image": "res://assets/game_icons/Forsaken.png",
-		"url": "https://www.roblox.com/games/18687417158/Forsaken"
-	},
 	"IT DOESN'T END HERE": {
 		"game": "Roblox Nullscape",
 		"image": "res://assets/game_icons/Nullscape.jpg",
@@ -62,6 +52,14 @@ var song_origins: Dictionary = {
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
 }
+
+var new_songs = [
+	"Void Explorer",
+	"Conviction (feat. SPIRIT GARDEN)",
+	"BUTCHER VANITY / Yi Xi",
+	"Cherry Pop feat. Hatsune Miku",
+	"Split Dance / Hatsune Miku & Kasane Teto",
+]
 
 @onready var search_bar = $Panel/SearchBar
 
@@ -129,14 +127,22 @@ func load_categories() -> void:
 	for category_name in category_order:
 		var button := preload("res://scenes/category_new.tscn").instantiate()
 
-		button.get_node("Button/Label").text = category_name
+		var category_has_new := false
+		for song_entry in categories[category_name]:
+			if new_songs.has(song_entry["song_data"].get("title", "")):
+				category_has_new = true
+				break
+
+		var category_label_text = category_name
+		if category_has_new:
+			category_label_text += "  [New]"
+
+		button.get_node("Button/Label").text = category_label_text
 		button.custom_minimum_size = Vector2(0, 70)
 
-		# Pick a random song from this category
 		var random_entry = categories[category_name].pick_random()
 		var random_folder = random_entry["folder"]
 
-		# Find the song's background image
 		var thumbnail = button.get_node("Button/TextureRect")
 
 		for ext in ["jpg", "png", "jpeg"]:
@@ -146,7 +152,6 @@ func load_categories() -> void:
 				thumbnail.texture = load_texture(image_path)
 				break
 
-		# Open the category when clicked
 		button.get_node("Button").pressed.connect(
 			open_category.bind(category_name, categories[category_name])
 		)
@@ -177,7 +182,6 @@ func load_songs(songs_in_category: Array) -> void:
 
 	var saved_scores: Dictionary = MWDat.load("user://scores.mwdat")
 
-	# Group difficulties by song title
 	var songs: Dictionary = {}
 	var song_order: Array = []
 
@@ -192,14 +196,17 @@ func load_songs(songs_in_category: Array) -> void:
 
 		songs[song_title].append(entry)
 
-	# Create one Category for each song
 	for song_title in song_order:
 		var difficulties: Array = songs[song_title]
 
 		var newCategory = categoryScene.instantiate()
 		category_container.add_child(newCategory)
 
-		newCategory.get_node("Category/CategoryName").text = song_title
+		var song_title_text = song_title
+		if new_songs.has(song_title):
+			song_title_text += "  [New]"
+
+		newCategory.get_node("Category/CategoryName").text = song_title_text
 
 		var difficulty_container = \
 			newCategory.get_node("Category/ScrollContainer/VBoxContainer")
@@ -233,7 +240,6 @@ func load_songs(songs_in_category: Array) -> void:
 
 			var diff_node: Node
 
-			# First difficulty uses the existing SongDifficulty
 			if i == 0:
 				diff_node = newCategory.get_node(
 					"Category/ScrollContainer/VBoxContainer/SongDifficulty"
@@ -264,8 +270,7 @@ func load_songs(songs_in_category: Array) -> void:
 						json_file
 					)
 				)
-
-			# Additional difficulties duplicate SongDifficulty
+				
 			else:
 				var original_diff_node = newCategory.get_node(
 					"Category/ScrollContainer/VBoxContainer/SongDifficulty"
@@ -306,7 +311,6 @@ func load_songs(songs_in_category: Array) -> void:
 					)
 				)
 
-			# Grade
 			var grade_rect = diff_node.get_node("Grade")
 
 			if saved_grade != "" and grade_textures.has(saved_grade):
@@ -330,139 +334,6 @@ func load_songs(songs_in_category: Array) -> void:
 	category_container.reset_size()
 
 	$ScrollContainer.scroll_vertical = 0
-#func load_songs() -> void:
-	#var category_container = $ScrollContainer/VBoxContainer
-	#
-	#for child in category_container.get_children():
-		#child.queue_free()
-	#
-	#var grade_textures = {
-		#"SS": preload("res://skins/default/grades/SS.png"),
-		#"S":  preload("res://skins/default/grades/S.png"),
-		#"A":  preload("res://skins/default/grades/A.png"),
-		#"B":  preload("res://skins/default/grades/B.png"),
-		#"C":  preload("res://skins/default/grades/C.png"),
-		#"D":  preload("res://skins/default/grades/D.png"),
-	#}
-	#
-	#var saved_scores: Dictionary = MWDat.load("user://scores.mwdat")
-	#
-	#var all_song_folders: Array = []
-#
-	#var builtin_dir = DirAccess.open(maps_location)
-	#if builtin_dir:
-		#builtin_dir.list_dir_begin()
-		#var folder_name = builtin_dir.get_next()
-		#while folder_name != "":
-			#if builtin_dir.current_is_dir() and not folder_name.begins_with("."):
-				#all_song_folders.append(maps_location + folder_name + "/")
-			#folder_name = builtin_dir.get_next()
-		#builtin_dir.list_dir_end()
-#
-	#for mod_path in ModLoader.mod_song_paths:
-		#all_song_folders.append(mod_path)
-#
-	#var categories: Dictionary = {}
-	#var category_order: Array = []
-#
-	#for song_folder_path in all_song_folders:
-		#var json_files = get_json_files_in_folder(song_folder_path)
-		#for json_file in json_files:
-			#var song_data = load_song_json(song_folder_path + json_file)
-			#if not song_data:
-				#continue
-			#var category_name = song_data.get("category", song_data.get("title", "Unknown"))
-			#if not categories.has(category_name):
-				#categories[category_name] = []
-				#category_order.append(category_name)
-			#categories[category_name].append({
-				#"folder": song_folder_path,
-				#"json_file": json_file,
-				#"song_data": song_data
-			#})
-#
-	#for category_name in category_order:
-		#var songs_in_category: Array = categories[category_name]
-		#var newCategory = categoryScene.instantiate()
-		#category_container.add_child(newCategory)
-#
-		#newCategory.get_node("Category/CategoryName").text = category_name
-#
-		#var difficulty_container = newCategory.get_node("Category/ScrollContainer/VBoxContainer")
-#
-		#for i in range(songs_in_category.size()):
-			#var entry = songs_in_category[i]
-			#var song_data = entry["song_data"]
-			#var song_folder_path = entry["folder"]
-			#var json_file = entry["json_file"]
-#
-			#var star_rating = $"../game".calculate_difficulty(song_data)
-			#var difficulty_label := "★ %.1f  %s" % [star_rating, song_data.get("difficulty", json_file.get_basename())]
-			#
-			#
-			#var map_key: String = song_folder_path + json_file
-			#var saved_grade: String = ""
-			#if saved_scores.has(map_key):
-				#saved_grade = saved_scores[map_key].get("grade", "")
-				#
-			#var diff_node: Node
-			#if i == 0:
-				#diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
-				#var button = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty/Button")
-				#button.text = difficulty_label
-				#var texture_rect = diff_node.get_node("TextureRect")
-				#for ext in ["jpg", "png", "jpeg"]:
-					#var image_path = song_folder_path + "background." + ext
-					#if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
-						#texture_rect.texture = load_texture(image_path)
-						#break
-				#button.pressed.connect(choose.bind(
-					#song_data.get("title", "Unknown"),
-					#difficulty_label,
-					#song_data.get("credits", "No one"),
-					#song_data.get("mapper", "No one"),
-					#song_folder_path,
-					#json_file
-				#))
-			#else:
-				#var original_diff_node = newCategory.get_node("Category/ScrollContainer/VBoxContainer/SongDifficulty")
-				#var new_diff_node = original_diff_node.duplicate()
-				#diff_node = new_diff_node
-				#difficulty_container.add_child(new_diff_node)
-				#
-				#var texture_rect = diff_node.get_node("TextureRect")
-				#for ext in ["jpg", "png", "jpeg"]:
-					#var image_path = song_folder_path + "background." + ext
-					#if ResourceLoader.exists(image_path) or FileAccess.file_exists(image_path):
-						#texture_rect.texture = load_texture(image_path)
-						#break
-#
-				#var button = new_diff_node.get_node("Button")
-				#button.text = difficulty_label
-				#for connection in button.pressed.get_connections():
-					#button.pressed.disconnect(connection["callable"])
-				#button.pressed.connect(choose.bind(
-					#song_data.get("title", "Unknown"),
-					#difficulty_label,
-					#song_data.get("credits", "No one"),
-					#song_data.get("mapper", "No one"),
-					#song_folder_path,
-					#json_file
-				#))
-				#
-			#var grade_rect = diff_node.get_node("Grade")
-			#if saved_grade != "" and grade_textures.has(saved_grade):
-				#grade_rect.texture = grade_textures[saved_grade]
-				#grade_rect.visible = true
-			#else:
-				#grade_rect.texture = null
-				#grade_rect.visible = false
-#
-	#await get_tree().process_frame
-	#for category in category_container.get_children():
-		#var inner_vbox = category.get_node("Category/ScrollContainer/VBoxContainer")
-		#var item_count = inner_vbox.get_child_count()
-		#category.custom_minimum_size.y = item_count * 100
 
 func get_json_files_in_folder(folder_path: String) -> Array:
 	var json_files = []
@@ -646,22 +517,6 @@ func _on_search_bar_text_changed() -> void:
 
 	$ScrollContainer.scroll_vertical = 0
 	$Categories/ScrollContainer.scroll_vertical = 0
-
-#func _on_search_bar_text_changed() -> void:
-	#var query = search_bar.text.strip_edges().to_lower()
-	#var category_container = $ScrollContainer/VBoxContainer
-	#
-	#for category in category_container.get_children():
-		#var title_node = category.get_node("Category/CategoryName")
-		#var title = title_node.text.to_lower()
-		#
-		#if query == "" or title.contains(query):
-			#category.visible = true
-		#else:
-			#category.visible = false
-			#
-	#category_container.recalculate() 
-	#$ScrollContainer.scroll_vertical = 0
 
 func _on_button_pressed() -> void:
 	var settings = $"../Settings"
