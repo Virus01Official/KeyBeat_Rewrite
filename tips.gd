@@ -9,6 +9,7 @@ var tips = [
 	"The difficulty is calculated automatically, report any calculation errors",
 	"This game was made for fun",
 	"You can use osu! to chart the songs",
+	"You can use Quaver to chart the songs",
 	"Also try Project: RUSHER",
 	"Also try Yunyun Syndrome",
 	"Also try Nullscape",
