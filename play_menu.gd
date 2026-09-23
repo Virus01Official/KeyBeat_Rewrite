@@ -51,14 +51,17 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Nullscape.jpg",
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
+	
+	"Determination": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
 }
 
 var new_songs = [
-	"Void Explorer",
-	"Conviction (feat. SPIRIT GARDEN)",
-	"BUTCHER VANITY / Yi Xi",
-	"Cherry Pop feat. Hatsune Miku",
-	"Split Dance / Hatsune Miku & Kasane Teto",
+	"Determination",
+	"Exorcist (ft. Ui, Miku & Gemini)",
 ]
 
 @onready var search_bar = $Panel/SearchBar

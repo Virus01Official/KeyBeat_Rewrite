@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqb1xeonbc8hl"
+path="res://.godot/imported/audio.mp3-448db8a713dedb4fab66b361e17dcebb.mp3str"
+
+[deps]
+
+source_file="res://songs/2617835 Something's Off With My Vocaloid - Exorcist (ft. Ui, Miku & Gemini)/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-448db8a713dedb4fab66b361e17dcebb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
