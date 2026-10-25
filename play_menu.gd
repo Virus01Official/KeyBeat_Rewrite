@@ -57,11 +57,17 @@ var song_origins: Dictionary = {
 		"image": "res://assets/game_icons/Nullscape.jpg",
 		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
 	},
+	
+	"Conga Line": {
+		"game": "Roblox Nullscape",
+		"image": "res://assets/game_icons/Nullscape.jpg",
+		"url": "https://www.roblox.com/games/129279692364812/Nullscape"
+	},
 }
 
 var new_songs = [
-	"Determination",
-	"Exorcist (ft. Ui, Miku & Gemini)",
+	"ALL MY FELLAS",
+	"Conga Line",
 ]
 
 @onready var search_bar = $Panel/SearchBar

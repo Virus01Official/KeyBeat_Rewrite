@@ -14,6 +14,8 @@ var tips = [
 	"Also try Yunyun Syndrome",
 	"Also try Nullscape",
 	"DEATH IN BLOOM",
+	"Thank you for the amazing support",
+	"This was the last update for KeyBeat"
 ]
 
 func _ready() -> void:

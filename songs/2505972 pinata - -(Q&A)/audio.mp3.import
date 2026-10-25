@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsx8a1cjwthlg"
+path="res://.godot/imported/audio.mp3-f4e684c7339ec345b3316ab1ccd8df01.mp3str"
+
+[deps]
+
+source_file="res://songs/2505972 pinata - -(Q&A)/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-f4e684c7339ec345b3316ab1ccd8df01.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
