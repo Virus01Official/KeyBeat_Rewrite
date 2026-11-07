@@ -68,6 +68,9 @@ var song_origins: Dictionary = {
 var new_songs = [
 	"ALL MY FELLAS",
 	"Conga Line",
+	"Signaling feat. Hatsune Miku & Kasane Teto",
+	"YARARARA",
+	"Displayholic feat. Hatsune Miku",
 ]
 
 @onready var search_bar = $Panel/SearchBar

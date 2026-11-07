@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddy351dh7002q"
+path="res://.godot/imported/audio.mp3-2eecad3f17f094c91e630228f1e34ddd.mp3str"
+
+[deps]
+
+source_file="res://songs/2560342 AnythingBecomeMoe - YARARARA/audio.mp3"
+dest_files=["res://.godot/imported/audio.mp3-2eecad3f17f094c91e630228f1e34ddd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
