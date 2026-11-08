@@ -71,6 +71,7 @@ var new_songs = [
 	"Signaling feat. Hatsune Miku & Kasane Teto",
 	"YARARARA",
 	"Displayholic feat. Hatsune Miku",
+	"Playback",
 ]
 
 @onready var search_bar = $Panel/SearchBar
